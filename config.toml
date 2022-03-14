@@ -1,4 +1,5 @@
-baseURL = 'http://git-education/'
+baseURL = "https://a-nakamura.github.io/git-education/"
+publishDir = "docs"
 languageCode = 'ja'
 title = 'Git X Edu'
 theme = 'hugo-theme-relearn'
