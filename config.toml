@@ -1,4 +1,4 @@
-baseURL = "https://a-nakamura.github.io/git-education/"
+baseURL = "https://a-nakamura1015.github.io/git-education/"
 publishDir = "docs"
 languageCode = 'ja'
 title = 'Git X Edu'
