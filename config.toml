@@ -1,0 +1,13 @@
+baseURL = 'http://git-education/'
+languageCode = 'ja'
+title = 'Git X Edu'
+theme = 'hugo-theme-relearn'
+
+# For search functionality
+[outputs]
+home = [ "HTML", "RSS", "JSON"]
+
+[params]
+  # Change default color scheme with a variant one. Can be empty, "red", "blue", "green".
+  themeVariant = "mine"
+  github = "a-nakamura1015"

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>http://git-education/basics/</loc>
+  </url>
+  <url>
+    <loc>http://git-education/advanced/</loc>
+  </url>
+  <url>
+    <loc>http://git-education/practical/</loc>
+  </url>
+  <url>
+    <loc>http://git-education/</loc>
+    <lastmod>2022-03-14T12:21:19+09:00</lastmod>
+  </url>
+  <url>
+    <loc>http://git-education/categories/</loc>
+  </url>
+  <url>
+    <loc>http://git-education/tags/</loc>
+  </url>
+</urlset>

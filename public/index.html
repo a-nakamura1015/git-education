@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="generator" content="Hugo 0.94.2" />
+    <meta name="generator" content="Relearn 3.0.4&#43;tip">
+    <meta name="description" content="">
+    <title>Git X EDU :: Git X Edu</title>
+    <link rel="alternate" type="application/rss&#43;xml" href="/index.xml" title="Git X Edu" />
+    <link rel="alternate" type="application/json" href="/index.json" title="Git X Edu" />
+    <link href="/css/nucleus.css?1647229792" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1647229792" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1647229792" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1647229792" rel="stylesheet">
+    <link href="/css/auto-complete.css?1647229792" rel="stylesheet">
+    <link href="/css/theme.css?1647229792" rel="stylesheet">
+    <link id="variant-style" href="/css/theme-mine.css?1647229792" rel="stylesheet">
+    <link href="/css/variant.css?1647229792" rel="stylesheet">
+    <link href="/css/theme-relearn-light.css?1647229792" rel="stylesheet" media="print">
+    <link href="/css/print.css?1647229792" rel="stylesheet" media="print">
+    <script src="/js/variant.js?1647229792"></script>
+    <script>
+      // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
+      // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
+      var index_url="/index.json";
+      var root_url="/";
+      var baseUri=root_url.replace(/\/$/, '');
+      // translations
+      window.T_Copy_to_clipboard = 'Copy to clipboard';
+      window.T_Copied_to_clipboard = 'Copied to clipboard!';
+      window.T_Copy_link_to_clipboard = 'Copy link to clipboard';
+      window.T_Link_copied_to_clipboard = 'Copied link to clipboard!';
+      // some further base stuff
+      var baseUriFull='http:\/\/git-education/';
+      variants.init( [ 'mine' ] );
+    </script>
+    <script src="/js/jquery.min.js?1647229792"></script>
+  </head>
+  <body class="mobile-support" data-url="/">
+    <div id="body" class="default-animation">
+      <div id="sidebar-overlay"></div>
+      <div id="toc-overlay"></div>
+      <nav id="topbar" class="highlightable">
+        <div>
+          <div class="navigation">
+             <a class="nav nav-next" href="/basics/" title="基礎編"><i class="fas fa-chevron-right fa-fw"></i></a>
+          </div>
+          <div class="navigation">
+             <span class="nav nav-prev"><i class="fa fa-chevron-left fa-fw"></i></span>
+          </div>
+          <div id="breadcrumbs">
+            <span id="sidebar-toggle-span">
+              <a href="#" id="sidebar-toggle" title='Menu'><i class="fas fa-bars fa-fw"></i></a>
+            </span>
+            <span id="toc-menu" title='Table of Contents'><i class="fas fa-list-alt fa-fw"></i></span>
+            <ol class="links" itemscope itemtype="http://schema.org/BreadcrumbList">
+              <meta itemprop="itemListOrder" content="Descending" />
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="1" /><a itemprop="item" href="/" aria-disabled="true"><span itemprop="name">Git X EDU</span></a></li>
+            </ol>
+          </div>
+          <div class="default-animation progress">
+            <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#ペルソナ">ペルソナ</a></li>
+        <li><a href="#前提条件">前提条件</a></li>
+        <li><a href="#準備物">準備物</a></li>
+        <li><a href="#カリキュラム">カリキュラム</a></li>
+        <li><a href="#補足資料">補足資料</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <main id="body-inner" class="highlightable ">
+        <div class="flex-block-wrapper">
+          <div id="head-tags">
+          </div>
+
+
+<h1 id="git-x-edu">Git X EDU</h1>
+<p>本コンテンツはバージョン管理システムである Git を習得するためのコンテンツです。<br>
+現在の開発現場では Git の操作は必須のスキルです。<br>
+本コンテンツを終了する頃には Git を使用してファイルの変更履歴を遡ったり、<br>
+チームメンバーとお互いにコードレビューができるようになっているでしょう。</p>
+<h3 id="ペルソナ">ペルソナ</h3>
+<p>Git を初めて学ぶ、もしくは Git を触り始めて日が浅い方が本コンテンツの受講者と想定しています。</p>
+<h3 id="前提条件">前提条件</h3>
+<ul>
+<li>基本的な linux コマンドを習得していること</li>
+</ul>
+<h3 id="準備物">準備物</h3>
+<ul>
+<li>Mac の場合
+<ul>
+<li>ターミナル</li>
+</ul>
+</li>
+<li>Windows の場合
+<ul>
+<li>GitBash</li>
+</ul>
+</li>
+</ul>
+<p>linux コマンドを実行できるコンソールアプリであれば、上記のアプリ以外でも問題ありません。</p>
+<h3 id="カリキュラム">カリキュラム</h3>
+<p>本コンテンツは「基礎編」、「応用編」、「実践編」の３つで構成されています。<br>
+「基礎編」→「応用編」→「実践編」の順で進めていきましょう。</p>
+<h4 id="基礎編01_basicsindexmd"><a href="./01_basics/index.md">基礎編</a></h4>
+<p>Git でバージョン管理をする上で最低限必要となる知識を身につけます。</p>
+<h4 id="応用編02_advancedindexmd"><a href="./02_advanced/index.md">応用編</a></h4>
+<p>Git でチーム開発をする上で必要となる知識を身につけます。</p>
+<h4 id="実践編03_practicalindexmd"><a href="./03_practical/index.md">実践編</a></h4>
+<p>Git でトラブルが発生した際に解消する知識を身につけます。</p>
+<h3 id="補足資料">補足資料</h3>
+<h4 id="基本的な-git-コマンド一覧documentindexmd"><a href="./document/index.md">基本的な Git コマンド一覧</a></h4>
+<p>本コンテンツで紹介した基本的な Git コマンドの一覧です。</p>
+
+          <footer class="footline">
+          </footer>
+        </div>
+      </main>
+    </div>
+    <aside id="sidebar" class="default-animation">
+      <div id="header-wrapper" class="default-animation">
+        <div id="header" class="default-animation">
+<a id="logo"
+href="/"
+style="
+  color: #ffffff;
+  font-family: 'Work Sans', 'Helvetica', 'Tahoma', 'Geneva', 'Arial', sans-serif;
+  font-size: 30px;
+  font-weight: 300;
+  margin-top: -2px;
+  text-transform: uppercase;
+">
+Git X EDU
+</a>
+
+        </div>
+        <div class="searchbox default-animation">
+          <label for="search-by"><i class="fas fa-search"></i></label>
+          <input data-search-input id="search-by" type="search" placeholder="Search...">
+          <span data-search-clear=""><i class="fas fa-times"></i></span>
+        </div>
+        <script src="/js/lunr.min.js?1647229792"></script>
+        <script src="/js/auto-complete.js?1647229792"></script>
+        <script src="/js/search.js?1647229792"></script>
+      </div>
+      <div id="homelinks" class="default-animation">
+        <ul>
+          <li>
+              <a class="padding" href="/"><i class="fas fa-home"></i> Home</a>
+          </li>
+        </ul>
+      </div>
+      <div id="content-wrapper" class="highlightable">
+        <ul class="topics">
+          <li data-nav-id="/basics/" title="基礎編" class="dd-item"><a href="/basics/"><b>1. </b>基礎編</a><ul></ul></li>
+          <li data-nav-id="/advanced/" title="応用編" class="dd-item"><a href="/advanced/"><b>2. </b>応用編</a><ul></ul></li>
+          <li data-nav-id="/practical/" title="実践編" class="dd-item"><a href="/practical/"><b>3. </b>実践編</a><ul></ul></li>
+        </ul>
+        <div class="footermargin footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showFooter"></div>
+        <hr class="default-animation footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showFooter"/>
+        <div id="prefooter" class="footerLangSwitch footerVariantSwitch footerVisitedLinks">
+          <ul>
+            <li id="select-language-container" class="footerLangSwitch">
+              <a class="padding select-container">
+                <i class="fas fa-language fa-fw"></i>
+                <span>&nbsp;</span>
+                <div class="select-style">
+                  <select id="select-language" onchange="location = baseUri + this.value;">
+                  </select>
+                </div>
+                <div class="select-clear"></div>
+              </a>
+            </li>
+            <li id="select-variant-container" class="footerVariantSwitch">
+              <a class="padding select-container">
+                <i class="fas fa-paint-brush fa-fw"></i>
+                <span>&nbsp;</span>
+                <div class="select-style">
+                  <select id="select-variant" onchange="variants.changeVariant( this.value );">
+                    <option id="mine" value="mine" selected>Mine</option>
+                  </select>
+                </div>
+                <div class="select-clear"></div>
+              </a>
+              <script>variants.markSelectedVariant();</script>
+            </li>
+            <li class="footerVisitedLinks"><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> Clear History</a></li>
+          </ul>
+        </div>
+        <div id="footer" class="footerFooter showFooter">
+	    <p>Built with <a href="https://github.com/McShelby/hugo-theme-relearn"><i class="fas fa-heart"></i></a> by <a href="https://gohugo.io/">Hugo</a></p>
+        </div>
+      </div>
+    </aside>
+    <script src="/js/clipboard.min.js?1647229792"></script>
+    <script src="/js/perfect-scrollbar.min.js?1647229792"></script>
+    <script src="/js/jquery.svg.pan.zoom.js?1647229792"></script>
+    <script src="/js/featherlight.min.js?1647229792"></script>
+    <script src="/js/mermaid.min.js?1647229792"></script>
+    <script>
+      if (typeof mermaid != 'undefined' && typeof mermaid.mermaidAPI != 'undefined') {
+        mermaid.mermaidAPI.initialize( Object.assign( { "securityLevel": "antiscript" }, JSON.parse("{ \"startOnLoad\": true }"), { startOnLoad: false } ) );
+      }
+    </script>
+    <script src="/js/theme.js?1647229792"></script>
+  </body>
+</html>
