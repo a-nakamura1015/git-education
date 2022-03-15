@@ -6,8 +6,7 @@
     <meta name="generator" content="Hugo 0.94.2" />
     <meta name="generator" content="Relearn 3.0.4&#43;tip">
     <meta name="description" content="">
-    <title>Tags :: Git X Edu</title>
-    <link rel="alternate" type="application/rss&#43;xml" href="/git-education/tags/index.xml" title="Git X Edu" />
+    <title>競合の解消 :: Git X Edu</title>
     <link href="/git-education/css/nucleus.css?1647385815" rel="stylesheet">
     <link href="/git-education/css/fontawesome-all.min.css?1647385815" rel="stylesheet">
     <link href="/git-education/css/featherlight.min.css?1647385815" rel="stylesheet">
@@ -36,27 +35,44 @@
     </script>
     <script src="/git-education/js/jquery.min.js?1647385815"></script>
   </head>
-  <body class="mobile-support" data-url="/git-education/tags/">
+  <body class="mobile-support" data-url="/git-education/practical/conflict/">
     <div id="body" class="default-animation">
       <div id="sidebar-overlay"></div>
       <div id="toc-overlay"></div>
       <nav id="topbar" class="highlightable">
         <div>
           <div class="navigation">
-             <span class="nav nav-next"><i class="fa fa-chevron-right fa-fw"></i></span>
+             <a class="nav nav-next" href="/git-education/practical/difference/" title="コミットの比較"><i class="fas fa-chevron-right fa-fw"></i></a>
           </div>
           <div class="navigation">
-             <a class="nav nav-prev" href="/git-education/practical/summary/" title="まとめ"><i class="fas fa-chevron-left fa-fw"></i></a>
+             <a class="nav nav-prev" href="/git-education/practical/" title="実践編"><i class="fas fa-chevron-left fa-fw"></i></a>
           </div>
           <div id="breadcrumbs">
             <span id="sidebar-toggle-span">
               <a href="#" id="sidebar-toggle" title='Menu'><i class="fas fa-bars fa-fw"></i></a>
             </span>
+            <span id="toc-menu" title='Table of Contents'><i class="fas fa-list-alt fa-fw"></i></span>
             <ol class="links" itemscope itemtype="http://schema.org/BreadcrumbList">
               <meta itemprop="itemListOrder" content="Descending" />
-              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="2" /><a itemprop="item" href="/git-education/"><span itemprop="name">Git X EDU</span></a> > </li>
-              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="1" /><a itemprop="item" href="/git-education/tags/" aria-disabled="true"><span itemprop="name">Tags</span></a></li>
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="3" /><a itemprop="item" href="/git-education/"><span itemprop="name">Git X EDU</span></a> > </li>
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="2" /><a itemprop="item" href="/git-education/practical/"><span itemprop="name">実践編</span></a> > </li>
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="1" /><a itemprop="item" href="/git-education/practical/conflict/" aria-disabled="true"><span itemprop="name">競合の解消</span></a></li>
             </ol>
+          </div>
+          <div class="default-animation progress">
+            <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#git-で起こるトラブル">Git で起こるトラブル</a></li>
+    <li><a href="#競合の解消">競合の解消</a>
+      <ul>
+        <li><a href="#競合とは">競合とは</a></li>
+        <li><a href="#競合を解消してみよう">競合を解消してみよう</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+            </div>
           </div>
         </div>
       </nav>
@@ -64,9 +80,60 @@
         <div class="flex-block-wrapper">
           <div id="head-tags">
           </div>
-          <h1>Tags</h1>
-          <ul>
-          </ul>          <footer class="footline">
+          <h1>競合の解消</h1>
+
+<h2 id="git-で起こるトラブル">Git で起こるトラブル</h2>
+<p>基礎編と応用編を通して Git の操作にはある程度の自信がついたのではないのかなと思います。<br>
+実際に開発プロジェクトでは基礎編と応用編の知識を活かすことで開発を進めることができるでしょう。<br>
+しかし、実際の開発プロジェクトでは様々なトラブルが起きるのです。<br>
+この実践編ではよくあるトラブルを解消をする方法を学んでいきましょう。</p>
+<h2 id="競合の解消">競合の解消</h2>
+<h3 id="競合とは">競合とは</h3>
+<p>変更内容をマージする際に、同じファイルの同じ行が既に変更されていると衝突してしまい「競合（コンフリクト）」と呼ばれる事象が発生します。<br>
+競合が発生すると、２つの履歴のうちどちらの変更が正しいかは Git が判断することができないため同ファイルのマージが中断されます。</p>
+<p>マージの際に競合が発生すると以下のようなメッセージが表示されます。</p>
+<pre tabindex="0"><code>Auto-merging sample.txt
+CONFLICT (content): Merge conflict in sample.txt
+Automatic merge failed; fix conflicts and then commit the result.
+</code></pre><p>チーム開発をしていると競合が起きるのも珍しくありません。
+そして、競合が起きるのは決して悪いことではありません。
+大事なのは履歴のうちどちらの変更が正しいかの判断を間違えないことです。</p>
+<h3 id="競合を解消してみよう">競合を解消してみよう</h3>
+<p>競合を解消すると開発者はつぎのいずれかの選択肢を取ることになります。</p>
+<ul>
+<li>マージを中止してマージ前の状態に戻す</li>
+<li>競合を解消してマージをする</li>
+</ul>
+<p>今回は両方とも試してみましょう。</p>
+<blockquote>
+<p>マージを中止してマージ前の状態に戻す</p>
+</blockquote>
+<p>その場で競合の解消が難しいなどの理由でどうしてもマージができない場合があります。<br>
+そのようなときは、以下のコマンドで実行して <code>git merge</code> コマンドを中止することができます。</p>
+<pre tabindex="0"><code>git merge --abort
+</code></pre><p>これは競合の解消ではなくマージを中断しただけのため、<br>
+競合箇所を修正せずに再度マージをすると再び競合が発生します。</p>
+<blockquote>
+<p>競合を解消してマージをする</p>
+</blockquote>
+<p>まずは競合を起こしているファイルを開きましょう。<br>
+競合が起きている部分はハイライトされているためわかりやすくなっています。<br>
+「&laquo;&laquo; HEAD」〜 「==========」が  main ブランチにマージされている内容、<br>
+「==========」〜 「&raquo;&raquo; develop2」が develop2 ブランチの内容となっています。</p>
+<p>今回は develop2 ブランチの内容を正しいということにしましょう。<br>
+ハイライトと main ブランチにマージされた内容を削除して、<br>
+develop2 ブランチの内容だけを残すようにしましょう。</p>
+<p>インデックスにはまだマージ前のファイルが記録されているため、<br>
+競合を解消したファイルを git add コマンドで再度インデックスに追加する必要があります。<br>
+今回は以下のコマンドを実行して、 sample.txt をインデックスに追加しましょう。</p>
+<pre tabindex="0"><code>git add sample.txt
+</code></pre><p>あとはコミットをするだけです。<br>
+コンフリクトを解消したコミットはデフォルトでメッセージが生成されます。<br>
+メッセージは付与せずに以下のコマンドを実行してみましょう。</p>
+<pre tabindex="0"><code>git commit
+</code></pre><p>競合が起きないように開発者ごとに編集できるファイルを限定させるという運用ルールを設けることもできますが、これではチーム全体の作業効率を下げてしまうことになります。<br>
+慣れれば競合は恐いものではないので、ぜひ競合が起きた際は解消に挑戦してみましょう！</p>
+          <footer class="footline">
           </footer>
         </div>
       </main>
@@ -117,8 +184,8 @@ Git X EDU
           <li data-nav-id="/git-education/advanced/merge/" title="Git のマージ機能" class="dd-item"><a href="/git-education/advanced/merge/">Git のマージ機能</a></li>
           <li data-nav-id="/git-education/advanced/pull-request/" title="GitHub のプルリクエスト機能" class="dd-item"><a href="/git-education/advanced/pull-request/">GitHub のプルリクエスト機能</a></li>
           <li data-nav-id="/git-education/advanced/summary/" title="まとめ" class="dd-item"><a href="/git-education/advanced/summary/">まとめ</a></li></ul></li>
-          <li data-nav-id="/git-education/practical/" title="実践編" class="dd-item"><a href="/git-education/practical/"><b>3. </b>実践編</a><ul>
-          <li data-nav-id="/git-education/practical/conflict/" title="競合の解消" class="dd-item"><a href="/git-education/practical/conflict/">競合の解消</a></li>
+          <li data-nav-id="/git-education/practical/" title="実践編" class="dd-item parent"><a href="/git-education/practical/"><b>3. </b>実践編</a><ul>
+          <li data-nav-id="/git-education/practical/conflict/" title="競合の解消" class="dd-item active"><a href="/git-education/practical/conflict/">競合の解消</a></li>
           <li data-nav-id="/git-education/practical/difference/" title="コミットの比較" class="dd-item"><a href="/git-education/practical/difference/">コミットの比較</a></li>
           <li data-nav-id="/git-education/practical/summary/" title="まとめ" class="dd-item"><a href="/git-education/practical/summary/">まとめ</a></li></ul></li>
         </ul>

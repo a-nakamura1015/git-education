@@ -6,8 +6,7 @@
     <meta name="generator" content="Hugo 0.94.2" />
     <meta name="generator" content="Relearn 3.0.4&#43;tip">
     <meta name="description" content="">
-    <title>Tags :: Git X Edu</title>
-    <link rel="alternate" type="application/rss&#43;xml" href="/git-education/tags/index.xml" title="Git X Edu" />
+    <title>コミットの比較 :: Git X Edu</title>
     <link href="/git-education/css/nucleus.css?1647385815" rel="stylesheet">
     <link href="/git-education/css/fontawesome-all.min.css?1647385815" rel="stylesheet">
     <link href="/git-education/css/featherlight.min.css?1647385815" rel="stylesheet">
@@ -36,27 +35,38 @@
     </script>
     <script src="/git-education/js/jquery.min.js?1647385815"></script>
   </head>
-  <body class="mobile-support" data-url="/git-education/tags/">
+  <body class="mobile-support" data-url="/git-education/practical/difference/">
     <div id="body" class="default-animation">
       <div id="sidebar-overlay"></div>
       <div id="toc-overlay"></div>
       <nav id="topbar" class="highlightable">
         <div>
           <div class="navigation">
-             <span class="nav nav-next"><i class="fa fa-chevron-right fa-fw"></i></span>
+             <a class="nav nav-next" href="/git-education/practical/summary/" title="まとめ"><i class="fas fa-chevron-right fa-fw"></i></a>
           </div>
           <div class="navigation">
-             <a class="nav nav-prev" href="/git-education/practical/summary/" title="まとめ"><i class="fas fa-chevron-left fa-fw"></i></a>
+             <a class="nav nav-prev" href="/git-education/practical/conflict/" title="競合の解消"><i class="fas fa-chevron-left fa-fw"></i></a>
           </div>
           <div id="breadcrumbs">
             <span id="sidebar-toggle-span">
               <a href="#" id="sidebar-toggle" title='Menu'><i class="fas fa-bars fa-fw"></i></a>
             </span>
+            <span id="toc-menu" title='Table of Contents'><i class="fas fa-list-alt fa-fw"></i></span>
             <ol class="links" itemscope itemtype="http://schema.org/BreadcrumbList">
               <meta itemprop="itemListOrder" content="Descending" />
-              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="2" /><a itemprop="item" href="/git-education/"><span itemprop="name">Git X EDU</span></a> > </li>
-              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="1" /><a itemprop="item" href="/git-education/tags/" aria-disabled="true"><span itemprop="name">Tags</span></a></li>
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="3" /><a itemprop="item" href="/git-education/"><span itemprop="name">Git X EDU</span></a> > </li>
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="2" /><a itemprop="item" href="/git-education/practical/"><span itemprop="name">実践編</span></a> > </li>
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="1" /><a itemprop="item" href="/git-education/practical/difference/" aria-disabled="true"><span itemprop="name">コミットの比較</span></a></li>
             </ol>
+          </div>
+          <div class="default-animation progress">
+            <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#コミットの比較">コミットの比較</a></li>
+  </ul>
+</nav>
+            </div>
           </div>
         </div>
       </nav>
@@ -64,9 +74,37 @@
         <div class="flex-block-wrapper">
           <div id="head-tags">
           </div>
-          <h1>Tags</h1>
-          <ul>
-          </ul>          <footer class="footline">
+          <h1>コミットの比較</h1>
+
+<h2 id="コミットの比較">コミットの比較</h2>
+<p>ファイルを更新すると、「意図した通りに更新できているかな？」や「意図していないところを更新していないかな？」とファイルの更新前後の差分を確認したくなるときがあると思います。<br>
+このようなときは <code>git diff</code> コマンドを使いましょう。<br>
+このコマンドは指定した2点間のファイルの差分を確認できます。</p>
+<pre tabindex="0"><code>git diff
+</code></pre><p><strong>DEMO</strong><br>
+今回は sample.txt の内容を「APPLE」から「ORANGE」に上書きして差分を確認してみましょう。
+以下のコマンドで上書きと更新前後の差分の確認をしてみましょう。</p>
+<pre tabindex="0"><code>echo ORANGE &gt; sample.txt
+git diff
+</code></pre><pre tabindex="0"><code>diff --git a/sample.txt b/sample.txt
+index e427984..fd0eebf 100644
+--- a/sample.txt
++++ b/sample.txt
+@@ -1 +1 @@
+-HELLO
++ORANGE
+</code></pre><p>+マークは追加された行で、-マークは削除された行を意味しています。<br>
+上記の実行結果では <code>-HELLO</code> は HELLO が削除されたということ、
+<code>+ORANGE</code> は ORANGE が追加されたことがわかります。</p>
+<p>また、以下のコマンドで、現在はファイルと指定したコミットの差分を確認することができます。</p>
+<pre tabindex="0"><code>git diff [コミットのハッシュ値]
+</code></pre><p>また、特定のコミット間の比較をすることもできます。</p>
+<pre tabindex="0"><code>git diff [比較元のコミットのハッシュ値] [比較先のコミットのハッシュ値]
+</code></pre><p>ローカルリポジトリ内だけでなく、リモートブランチとも差分を比較することができます。<br>
+この場合はあらかじめ比較先のリモートブランチを <code>git fetch</code> コマンドで参照をダウンロードしておきましょう。</p>
+<pre tabindex="0"><code>git fetch origin [リモートリポジトリのブランチ名]
+git diff [ローカルリポジトリのブランチ名] origin/[リモートリポジトリのブランチ名]
+</code></pre>          <footer class="footline">
           </footer>
         </div>
       </main>
@@ -117,9 +155,9 @@ Git X EDU
           <li data-nav-id="/git-education/advanced/merge/" title="Git のマージ機能" class="dd-item"><a href="/git-education/advanced/merge/">Git のマージ機能</a></li>
           <li data-nav-id="/git-education/advanced/pull-request/" title="GitHub のプルリクエスト機能" class="dd-item"><a href="/git-education/advanced/pull-request/">GitHub のプルリクエスト機能</a></li>
           <li data-nav-id="/git-education/advanced/summary/" title="まとめ" class="dd-item"><a href="/git-education/advanced/summary/">まとめ</a></li></ul></li>
-          <li data-nav-id="/git-education/practical/" title="実践編" class="dd-item"><a href="/git-education/practical/"><b>3. </b>実践編</a><ul>
+          <li data-nav-id="/git-education/practical/" title="実践編" class="dd-item parent"><a href="/git-education/practical/"><b>3. </b>実践編</a><ul>
           <li data-nav-id="/git-education/practical/conflict/" title="競合の解消" class="dd-item"><a href="/git-education/practical/conflict/">競合の解消</a></li>
-          <li data-nav-id="/git-education/practical/difference/" title="コミットの比較" class="dd-item"><a href="/git-education/practical/difference/">コミットの比較</a></li>
+          <li data-nav-id="/git-education/practical/difference/" title="コミットの比較" class="dd-item active"><a href="/git-education/practical/difference/">コミットの比較</a></li>
           <li data-nav-id="/git-education/practical/summary/" title="まとめ" class="dd-item"><a href="/git-education/practical/summary/">まとめ</a></li></ul></li>
         </ul>
         <div class="footermargin footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showFooter"></div>
