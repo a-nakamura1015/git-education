@@ -1,22 +1,60 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://a-nakamura.github.io/git-education/basics/</loc>
+    <loc>https://a-nakamura1015.github.io/git-education/advanced/team-development/</loc>
+    <lastmod>2022-03-16T07:53:56+09:00</lastmod>
   </url>
   <url>
-    <loc>https://a-nakamura.github.io/git-education/advanced/</loc>
+    <loc>https://a-nakamura1015.github.io/git-education/basics/</loc>
+    <lastmod>2022-03-16T07:45:58+09:00</lastmod>
   </url>
   <url>
-    <loc>https://a-nakamura.github.io/git-education/practical/</loc>
+    <loc>https://a-nakamura1015.github.io/git-education/basics/git-basics/</loc>
+    <lastmod>2022-03-16T07:34:33+09:00</lastmod>
   </url>
   <url>
-    <loc>https://a-nakamura.github.io/git-education/</loc>
+    <loc>https://a-nakamura1015.github.io/git-education/advanced/</loc>
+    <lastmod>2022-03-16T08:01:36+09:00</lastmod>
+  </url>
+  <url>
+    <loc>https://a-nakamura1015.github.io/git-education/advanced/branch/</loc>
+    <lastmod>2022-03-16T07:55:03+09:00</lastmod>
+  </url>
+  <url>
+    <loc>https://a-nakamura1015.github.io/git-education/advanced/merge/</loc>
+    <lastmod>2022-03-16T07:57:26+09:00</lastmod>
+  </url>
+  <url>
+    <loc>https://a-nakamura1015.github.io/git-education/basics/git-command-basics/</loc>
+    <lastmod>2022-03-16T07:42:16+09:00</lastmod>
+  </url>
+  <url>
+    <loc>https://a-nakamura1015.github.io/git-education/basics/github-basics/</loc>
+    <lastmod>2022-03-16T07:38:25+09:00</lastmod>
+  </url>
+  <url>
+    <loc>https://a-nakamura1015.github.io/git-education/practical/</loc>
+  </url>
+  <url>
+    <loc>https://a-nakamura1015.github.io/git-education/advanced/pull-request/</loc>
+    <lastmod>2022-03-16T08:00:14+09:00</lastmod>
+  </url>
+  <url>
+    <loc>https://a-nakamura1015.github.io/git-education/basics/summary/</loc>
+    <lastmod>2022-03-16T07:45:58+09:00</lastmod>
+  </url>
+  <url>
+    <loc>https://a-nakamura1015.github.io/git-education/advanced/summary/</loc>
+    <lastmod>2022-03-16T08:01:36+09:00</lastmod>
+  </url>
+  <url>
+    <loc>https://a-nakamura1015.github.io/git-education/</loc>
     <lastmod>2022-03-14T12:21:19+09:00</lastmod>
   </url>
   <url>
-    <loc>https://a-nakamura.github.io/git-education/categories/</loc>
+    <loc>https://a-nakamura1015.github.io/git-education/categories/</loc>
   </url>
   <url>
-    <loc>https://a-nakamura.github.io/git-education/tags/</loc>
+    <loc>https://a-nakamura1015.github.io/git-education/tags/</loc>
   </url>
 </urlset>

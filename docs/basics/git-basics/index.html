@@ -6,8 +6,7 @@
     <meta name="generator" content="Hugo 0.94.2" />
     <meta name="generator" content="Relearn 3.0.4&#43;tip">
     <meta name="description" content="">
-    <title>Tags :: Git X Edu</title>
-    <link rel="alternate" type="application/rss&#43;xml" href="/git-education/tags/index.xml" title="Git X Edu" />
+    <title>Git の基本 :: Git X Edu</title>
     <link href="/git-education/css/nucleus.css?1647385369" rel="stylesheet">
     <link href="/git-education/css/fontawesome-all.min.css?1647385369" rel="stylesheet">
     <link href="/git-education/css/featherlight.min.css?1647385369" rel="stylesheet">
@@ -36,27 +35,44 @@
     </script>
     <script src="/git-education/js/jquery.min.js?1647385369"></script>
   </head>
-  <body class="mobile-support" data-url="/git-education/tags/">
+  <body class="mobile-support" data-url="/git-education/basics/git-basics/">
     <div id="body" class="default-animation">
       <div id="sidebar-overlay"></div>
       <div id="toc-overlay"></div>
       <nav id="topbar" class="highlightable">
         <div>
           <div class="navigation">
-             <span class="nav nav-next"><i class="fa fa-chevron-right fa-fw"></i></span>
+             <a class="nav nav-next" href="/git-education/basics/git-command-basics/" title="Git の基本コマンド"><i class="fas fa-chevron-right fa-fw"></i></a>
           </div>
           <div class="navigation">
-             <a class="nav nav-prev" href="/git-education/practical/" title="実践編"><i class="fas fa-chevron-left fa-fw"></i></a>
+             <a class="nav nav-prev" href="/git-education/basics/" title="基礎編"><i class="fas fa-chevron-left fa-fw"></i></a>
           </div>
           <div id="breadcrumbs">
             <span id="sidebar-toggle-span">
               <a href="#" id="sidebar-toggle" title='Menu'><i class="fas fa-bars fa-fw"></i></a>
             </span>
+            <span id="toc-menu" title='Table of Contents'><i class="fas fa-list-alt fa-fw"></i></span>
             <ol class="links" itemscope itemtype="http://schema.org/BreadcrumbList">
               <meta itemprop="itemListOrder" content="Descending" />
-              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="2" /><a itemprop="item" href="/git-education/"><span itemprop="name">Git X EDU</span></a> > </li>
-              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="1" /><a itemprop="item" href="/git-education/tags/" aria-disabled="true"><span itemprop="name">Tags</span></a></li>
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="3" /><a itemprop="item" href="/git-education/"><span itemprop="name">Git X EDU</span></a> > </li>
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="2" /><a itemprop="item" href="/git-education/basics/"><span itemprop="name">基礎編</span></a> > </li>
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="1" /><a itemprop="item" href="/git-education/basics/git-basics/" aria-disabled="true"><span itemprop="name">Git の基本</span></a></li>
             </ol>
+          </div>
+          <div class="default-animation progress">
+            <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#git-の基本">Git の基本</a>
+      <ul>
+        <li><a href="#バージョン管理システムとは">バージョン管理システムとは</a></li>
+        <li><a href="#git-とは">Git とは</a></li>
+        <li><a href="#git-を始めてみよう">Git を始めてみよう</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+            </div>
           </div>
         </div>
       </nav>
@@ -64,9 +80,58 @@
         <div class="flex-block-wrapper">
           <div id="head-tags">
           </div>
-          <h1>Tags</h1>
-          <ul>
-          </ul>          <footer class="footline">
+          <h1>Git の基本</h1>
+
+<h2 id="git-の基本">Git の基本</h2>
+<p>Git は開発現場では不可欠なバージョン管理システムのサービスです。<br>
+本チャプターでは Git の基本を実際にコマンドを実行していきながら学んでいきます。<br>
+まずは、バージョン管理システムの概要から理解していきましょう。</p>
+<h3 id="バージョン管理システムとは">バージョン管理システムとは</h3>
+<p>ソースコードのようなファイルの変更履歴を管理するシステムを <strong>バージョン管理システム</strong> と呼びます。<br>
+Git はこのバージョン管理システムに分類されます。<br>
+ファイルに対する追加・変更・削除の履歴を管理することで、過去の変更箇所を確認したり、任意のバージョンに戻すことができます。</p>
+<p>バージョン管理システムには <strong>分散型</strong> と <strong>集中型</strong> の２種類があります。<br>
+Git は分散型に分類されるのですが、それぞれの違いについて確認していきましょう。</p>
+<h4 id="集中型バージョン管理システム">集中型バージョン管理システム</h4>
+<p>集中型はリポジトリはリモート環境に１つのみ存在します。
+チームメンバーは各自対象のファイルをリモート環境からローカル環境に取得して編集します。</p>
+<h4 id="分散型バージョン管理システム">分散型バージョン管理システム</h4>
+<p>リポジトリはリモート環境に１つだけではなく、各メンバーのローカル環境にも存在します。
+各メンバーは自身のローカル環境のリポジトリに対して、ファイルの編集内容を記録していき、
+最終的にはローカル環境のリポジトリとリモート環境のリポジトリを統合（マージ）します。</p>
+<h4 id="分散型のメリット">分散型のメリット</h4>
+<ol>
+<li>自身の編集（コミット）が他のメンバーへ影響を与えない。
+⇨ 他のメンバーも同時に作業を進められるため作業効率を上げることができます。</li>
+<li>ローカルリポジトリでテストをしてからリモートリポジトリで共有できる。
+⇨ リモートリポジトリに入れたのちにテストをしてバグが発生した場合、他のメンバーにも影響が生じてしまいます。</li>
+</ol>
+<h3 id="git-とは">Git とは</h3>
+<p>Git を触っていると以下のようなハッシュ値をよく見かけると思います。<br>
+以下は後々登場する Git のコミットログです。</p>
+<pre tabindex="0"><code>commit 5c670db6fc4a8d109a5e2724c421cd8105c2598f (HEAD -&gt; master)
+</code></pre><p>実は Git により自身の編集（コミット）ごとに重複することのないハッシュ値が割り当てられています。
+このハッシュ値はSHA-1ハッシュと呼ばれており、16進数の文字（0-9とa-f）で構成された40文字の文字列です。
+ファイルの内容もしくは Git 内のディレクトリ構造を元に計算されます。</p>
+<p>これは Git が内部でもっているデータベースの中で管理するために割り当てられているのです。<br>
+そのため、Gitは<code>このファイルはいつどのように変更したのか</code>という観点は意識しておらず、
+<code>この編集でどのファイルをどのように変更したのか</code>という観点で管理をしています。</p>
+<p>Git のできること</p>
+<ul>
+<li>ファイルの変更履歴を管理できる</li>
+<li>ファイルを過去の状態に戻せる</li>
+<li>ファイルをチームで共有することできる</li>
+</ul>
+<h3 id="git-を始めてみよう">Git を始めてみよう</h3>
+<p>Git の公式サイトからインストーラーをダウンロードすることができます。<br>
+以下のURLからインスト＝ラーをダウンロードして Git をインストールしましょう。<br>
+<a href="https://git-scm.com/downloads">https://git-scm.com/downloads</a></p>
+<p>Git のインストールが完了しましたら、インストールが完了できているかを確認しましょう。<br>
+ターミナルを起動して、インストールされている Git のバージョンを確認するコマンドを実行しましょう。<br>
+以下のコマンドを実行して、<strong>git version X.X.X</strong> (※) がターミナル上に表示されればインストールは完了できています！<br>
+※Xの部分には数値が表示されます。</p>
+<pre tabindex="0"><code>git --version
+</code></pre>          <footer class="footline">
           </footer>
         </div>
       </main>
@@ -106,8 +171,8 @@ Git X EDU
       </div>
       <div id="content-wrapper" class="highlightable">
         <ul class="topics">
-          <li data-nav-id="/git-education/basics/" title="基礎編" class="dd-item"><a href="/git-education/basics/"><b>1. </b>基礎編</a><ul>
-          <li data-nav-id="/git-education/basics/git-basics/" title="Git の基本" class="dd-item"><a href="/git-education/basics/git-basics/">Git の基本</a></li>
+          <li data-nav-id="/git-education/basics/" title="基礎編" class="dd-item parent"><a href="/git-education/basics/"><b>1. </b>基礎編</a><ul>
+          <li data-nav-id="/git-education/basics/git-basics/" title="Git の基本" class="dd-item active"><a href="/git-education/basics/git-basics/">Git の基本</a></li>
           <li data-nav-id="/git-education/basics/git-command-basics/" title="Git の基本コマンド" class="dd-item"><a href="/git-education/basics/git-command-basics/">Git の基本コマンド</a></li>
           <li data-nav-id="/git-education/basics/github-basics/" title="GitHub の基本" class="dd-item"><a href="/git-education/basics/github-basics/">GitHub の基本</a></li>
           <li data-nav-id="/git-education/basics/summary/" title="まとめ" class="dd-item"><a href="/git-education/basics/summary/">まとめ</a></li></ul></li>

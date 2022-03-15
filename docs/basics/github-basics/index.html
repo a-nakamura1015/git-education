@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="generator" content="Hugo 0.94.2" />
+    <meta name="generator" content="Relearn 3.0.4&#43;tip">
+    <meta name="description" content="">
+    <title>GitHub の基本 :: Git X Edu</title>
+    <link href="/git-education/css/nucleus.css?1647385369" rel="stylesheet">
+    <link href="/git-education/css/fontawesome-all.min.css?1647385369" rel="stylesheet">
+    <link href="/git-education/css/featherlight.min.css?1647385369" rel="stylesheet">
+    <link href="/git-education/css/perfect-scrollbar.min.css?1647385369" rel="stylesheet">
+    <link href="/git-education/css/auto-complete.css?1647385369" rel="stylesheet">
+    <link href="/git-education/css/theme.css?1647385369" rel="stylesheet">
+    <link id="variant-style" href="/git-education/css/theme-mine.css?1647385369" rel="stylesheet">
+    <link href="/git-education/css/variant.css?1647385369" rel="stylesheet">
+    <link href="/git-education/css/theme-relearn-light.css?1647385369" rel="stylesheet" media="print">
+    <link href="/git-education/css/print.css?1647385369" rel="stylesheet" media="print">
+    <script src="/git-education/js/variant.js?1647385369"></script>
+    <script>
+      // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
+      // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
+      var index_url="/git-education/index.json";
+      var root_url="/";
+      var baseUri=root_url.replace(/\/$/, '');
+      // translations
+      window.T_Copy_to_clipboard = 'Copy to clipboard';
+      window.T_Copied_to_clipboard = 'Copied to clipboard!';
+      window.T_Copy_link_to_clipboard = 'Copy link to clipboard';
+      window.T_Link_copied_to_clipboard = 'Copied link to clipboard!';
+      // some further base stuff
+      var baseUriFull='https:\/\/a-nakamura1015.github.io\/git-education/';
+      variants.init( [ 'mine' ] );
+    </script>
+    <script src="/git-education/js/jquery.min.js?1647385369"></script>
+  </head>
+  <body class="mobile-support" data-url="/git-education/basics/github-basics/">
+    <div id="body" class="default-animation">
+      <div id="sidebar-overlay"></div>
+      <div id="toc-overlay"></div>
+      <nav id="topbar" class="highlightable">
+        <div>
+          <div class="navigation">
+             <a class="nav nav-next" href="/git-education/basics/summary/" title="まとめ"><i class="fas fa-chevron-right fa-fw"></i></a>
+          </div>
+          <div class="navigation">
+             <a class="nav nav-prev" href="/git-education/basics/git-command-basics/" title="Git の基本コマンド"><i class="fas fa-chevron-left fa-fw"></i></a>
+          </div>
+          <div id="breadcrumbs">
+            <span id="sidebar-toggle-span">
+              <a href="#" id="sidebar-toggle" title='Menu'><i class="fas fa-bars fa-fw"></i></a>
+            </span>
+            <span id="toc-menu" title='Table of Contents'><i class="fas fa-list-alt fa-fw"></i></span>
+            <ol class="links" itemscope itemtype="http://schema.org/BreadcrumbList">
+              <meta itemprop="itemListOrder" content="Descending" />
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="3" /><a itemprop="item" href="/git-education/"><span itemprop="name">Git X EDU</span></a> > </li>
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="2" /><a itemprop="item" href="/git-education/basics/"><span itemprop="name">基礎編</span></a> > </li>
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="1" /><a itemprop="item" href="/git-education/basics/github-basics/" aria-disabled="true"><span itemprop="name">GitHub の基本</span></a></li>
+            </ol>
+          </div>
+          <div class="default-animation progress">
+            <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#github-とは">GitHub とは</a></li>
+        <li><a href="#github-を始めてみよう">GitHub を始めてみよう</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <main id="body-inner" class="highlightable ">
+        <div class="flex-block-wrapper">
+          <div id="head-tags">
+          </div>
+          <h1>GitHub の基本</h1>
+
+<h3 id="github-とは">GitHub とは</h3>
+<p>ソフトウェア開発のプラットフォームであり、ソースコードを共有するためのホスティングサービス（サーバーの領域を貸し出すサービス）です。<br>
+先述したリモートリポジトリはこのサービスが提供してくれます。</p>
+<p>GitHub のサーバー上にソースコードを格納することで、チームメンバーとソースコードを共有してコードレビューを行ったり、プロジェクトの管理を行ったりすることができます。<br>
+使用用途も様々で、チームメンバーのみがアクセスできるようにすることもできれば、オープンソースとして提供するために世界中のエンジニアにアクセスしてもらえるようにすることもできます。<br>
+名称に Git が含まれている通り、GitHub のバージョン管理システムには Git が使用されています。</p>
+<h3 id="github-を始めてみよう">GitHub を始めてみよう</h3>
+<h4 id="github-アカウントを作成しよう">GitHub アカウントを作成しよう</h4>
+<p>GitHubを利用するためにはアカウントを作成する必要があります。<br>
+以下の手順に沿って GitHub アカウントを作成しましょう。<br>
+<code>注意：GitHub アカウントを作成するにはメールアカウントが必要になります。</code></p>
+<ol>
+<li>GitHub の公式サイトにアクセスしましょう。<br>
+<a href="https://github.com/">https://github.com/</a></li>
+<li>画面右上の Sign up をクリックしましょう。</li>
+<li>メールアドレスを入力後、Continue ボタンをクリックしましょう。</li>
+<li>パスワードを入力後、Continue ボタンをクリックしましょう。<br>
+※パスワードは任意の内容でOKです！</li>
+<li>ユーザーネームを入力後、Continue ボタンをクリックしましょう。</li>
+<li>入力したメールアドレス宛に GitHub から認証コードが送られます。<br>
+届いた認証コードを画面に入力しましょう。</li>
+<li>ここからは個人設定となりますが、必須事項ではないので割愛します。<br>
+画面下部の Skip personnnaization をクリックしましょう。</li>
+<li>以下の画面が表示されればアカウントの作成は完了です！</li>
+</ol>
+<h4 id="リモートリポジトリを作成しよう">リモートリポジトリを作成しよう</h4>
+<p>GitHub アカウントがあれば GitHub 上にリモートリポジトリを作成することができます。<br>
+次の手順に沿って作成してみましょう。</p>
+<ol>
+<li>GitHubにログイン後、Create repository ボタンをクリックしましょう。</li>
+<li>以下の画面が表示されましたら、以下の手順でリモートリポジトリを作成しましょう。
+<ol>
+<li>リポジトリの名前を設定しましょう。今回は <code>tutorial</code> としましょう。</li>
+<li>他のユーザーがリポジトリにアクセスできないように非公開にしましょう。<br>
+<code>Public</code> を選択すると世界中の GitHub ユーザーがアクセスすることができます。<br>
+<code>Private</code> を選択するとリポジトリを作成したアカウントのみがアクセスすることができます。</li>
+</ol>
+</li>
+<li>以下の画面が表示されればリモートリポジトリの作成は完了です！</li>
+</ol>
+<p><strong>Point: チームメンバーのみにリモートリポジトリを共有したい場合</strong><br>
+<code>Private</code> を選択することで他の GitHub ユーザーはアクセスできなくなりますが、チームメンバーにはアクセスできるようにしたいですよね。<br>
+このようなときは GitHub のリポジトリへ招待する機能を使いましょう。</p>
+<ol>
+<li>招待したいリモートリポジトリの画面で Setting を選択しましょう。</li>
+<li>Settings 画面の左側に表示されているメニューから Collaborators を選択しましょう。</li>
+<li>Add people ボタンをクリックしましょう。</li>
+<li>入力欄に GitHub のユーザーネーム（またはメールアドレス）を入力して、招待したいユーザーを選択しましょう。</li>
+</ol>
+<h4 id="ファイルをアップロードできるようにしよう">ファイルをアップロードできるようにしよう</h4>
+<p>GitHub上にリモートリポジトリを用意できましたら、次はファイルをアップロードができるようにしましょう。<br>
+GitHub にファイルをアップロードするための通信手段として、HTTPSとSSHの2種類から選ぶことができます。
+HTTPSはデータをそのまま送っているのに対し、SSHは暗号化した上で送るためセキュリティの観点からSSHで通信を行うことを推奨します。<br>
+また、HTTPSとSSHとではそれぞれ設定の手順が異なりますので注意しましょう。</p>
+<p><strong>HTTPS通信の場合</strong><br>
+HTTPS通信でファイルをアップロードするには<strong>アクセストークン</strong>が必要になります。<br>
+このアクセストークンは GitHub の設定画面で発行することができます。
+次の手順に沿って作成してみましょう。</p>
+<ol>
+<li>画面右上のアイコンをクリックしてしてメニューを表示します。</li>
+<li>メニュー内の「Settings」を選択します。</li>
+<li>「Settings」画面のメニュー内の「Developer settings」を選択する。</li>
+<li>「Developer settings」画面のメニュー内の「Personal accesstoken」を選択する。</li>
+<li>「Personal accesstoken」画面内の「Generate new token」ボタンをクリックします。</li>
+<li>Note に任意の文字列を入力し、画面最下部にある「Generate token」ボタンをクリックします。</li>
+<li>発行されたアクセストークンをコピーしましょう。</li>
+<li>ファイルをプッシュする際にコピーしたアクセストークンをペーストして実行しましょう。</li>
+</ol>
+<p><strong>SSH通信の場合</strong><br>
+SSH（Secure SHell）通信は送信しているデータを暗号化していることが特徴です。<br>
+クライアントマシン（例えば、皆さんのPC）で秘密鍵と公開鍵を生成し、公開鍵を送信先の GitHub に設定することでSSH通信を行うことができます。<br>
+そして、GitHub 側は設定したアカウントと公開鍵を紐づけて管理することになります。
+次の手順に沿って作成しましょう。</p>
+<ol>
+<li>
+<p>秘密鍵と公開鍵を格納するフォルダに移動しましょう。
+ホームディレクトリの直下にある<code>.sshフォルダ</code>の直下に秘密鍵と公開鍵を置くことができます。<br>
+以下のコマンドで<code>.sshフォルダ</code>に移動しましょう。</p>
+<pre tabindex="0"><code>cd ~/.ssh
+</code></pre><p><code>.sshフォルダ</code>がない場合は以下のコマンドで削除した上で移動しましょう。</p>
+<pre tabindex="0"><code>mkdir ~/.ssh
+</code></pre></li>
+<li>
+<p>秘密鍵と公開鍵を生成しましょう。
+以下のコマンドで秘密鍵と公開鍵を生成することができます。</p>
+<pre tabindex="0"><code>ssh-keygen -t rsa
+</code></pre><p>コマンドを実行すると以下の３点を確認されます。
+①秘密鍵と公開鍵のファイルの名前
+②秘密鍵と公開鍵のパスフレーズ
+③秘密鍵と公開鍵のパスフレーズの再確認<br>
+以下のメッセージが表示されますが、必須の設定ではないためEnterキーをクリックすることでスキップすることができます。</p>
+<pre tabindex="0"><code>Generating public/private rsa key pair.
+Enter file in which to save the key (/Users/(username)/.ssh/id_rsa):
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+</code></pre></li>
+<li>
+<p>秘密鍵と公開鍵が生成されたことを確認しましょう。
+lsコマンドで以下の２ファイルが生成されていることを確認しましょう。</p>
+<ul>
+<li>id_rsa</li>
+<li>id_rsa.pub</li>
+</ul>
+<p>生成されたファイルのうち、id_rsa が秘密鍵、id_rsa.pub が公開鍵になります。<br>
+公開鍵である id_rsa.pub の内容を GitHub に設定することになります。</p>
+</li>
+<li>
+<p>公開鍵を GitHub に設定しましょう。</p>
+<ol>
+<li>「Settings」画面のメニュー内の「SSH and GPG keys」を選択しましょう。</li>
+<li>「SSH and GPG keys」画面内の「New SSH key」ボタンをクリックしましょう。</li>
+<li>コマンドで公開鍵の内容をコピーしましょう。<br>
+【Macの場合のコマンド】
+<pre tabindex="0"><code>pbcopy &lt; ~/.ssh/id_rsa.pub
+</code></pre>【Windowsの場合のコマンド】
+<pre tabindex="0"><code>clip &lt; ~/.ssh/id_rsa.pub
+</code></pre></li>
+<li>
+<ol start="2">
+<li>で表示した画面の Title に秘密鍵のファイル名を入力し、Key に 3. でコピーした内容を貼り付けましょう。</li>
+</ol>
+</li>
+<li>「Add SSH key」ボタンをクリックしましょう。</li>
+</ol>
+</li>
+<li>
+<p>SSH接続ができているかを確認しましょう。
+次のコマンドでSSH接続ができているかを確認することができます。</p>
+</li>
+</ol>
+<pre tabindex="0"><code>ssh -T git@github.com
+</code></pre><p>以下のメッセージが表示されれば接続は成功しています。</p>
+<pre tabindex="0"><code>Hi (account名)! You&#39;ve successfully authenticated, but GitHub does not provide shell access.
+</code></pre><p>接続がうまくいかなかった場合は手順通りに行えていないところがある可能性があるので、もう一度見直してみましょう。</p>
+          <footer class="footline">
+          </footer>
+        </div>
+      </main>
+    </div>
+    <aside id="sidebar" class="default-animation">
+      <div id="header-wrapper" class="default-animation">
+        <div id="header" class="default-animation">
+<a id="logo"
+href="/git-education/"
+style="
+  color: #ffffff;
+  font-family: 'Work Sans', 'Helvetica', 'Tahoma', 'Geneva', 'Arial', sans-serif;
+  font-size: 30px;
+  font-weight: 300;
+  margin-top: -2px;
+  text-transform: uppercase;
+">
+Git X EDU
+</a>
+
+        </div>
+        <div class="searchbox default-animation">
+          <label for="search-by"><i class="fas fa-search"></i></label>
+          <input data-search-input id="search-by" type="search" placeholder="Search...">
+          <span data-search-clear=""><i class="fas fa-times"></i></span>
+        </div>
+        <script src="/git-education/js/lunr.min.js?1647385369"></script>
+        <script src="/git-education/js/auto-complete.js?1647385369"></script>
+        <script src="/git-education/js/search.js?1647385369"></script>
+      </div>
+      <div id="homelinks" class="default-animation">
+        <ul>
+          <li>
+              <a class="padding" href="/git-education/"><i class="fas fa-home"></i> Home</a>
+          </li>
+        </ul>
+      </div>
+      <div id="content-wrapper" class="highlightable">
+        <ul class="topics">
+          <li data-nav-id="/git-education/basics/" title="基礎編" class="dd-item parent"><a href="/git-education/basics/"><b>1. </b>基礎編</a><ul>
+          <li data-nav-id="/git-education/basics/git-basics/" title="Git の基本" class="dd-item"><a href="/git-education/basics/git-basics/">Git の基本</a></li>
+          <li data-nav-id="/git-education/basics/git-command-basics/" title="Git の基本コマンド" class="dd-item"><a href="/git-education/basics/git-command-basics/">Git の基本コマンド</a></li>
+          <li data-nav-id="/git-education/basics/github-basics/" title="GitHub の基本" class="dd-item active"><a href="/git-education/basics/github-basics/">GitHub の基本</a></li>
+          <li data-nav-id="/git-education/basics/summary/" title="まとめ" class="dd-item"><a href="/git-education/basics/summary/">まとめ</a></li></ul></li>
+          <li data-nav-id="/git-education/advanced/" title="応用編" class="dd-item"><a href="/git-education/advanced/"><b>2. </b>応用編</a><ul>
+          <li data-nav-id="/git-education/advanced/team-development/" title="Git と チーム開発" class="dd-item"><a href="/git-education/advanced/team-development/">Git と チーム開発</a></li>
+          <li data-nav-id="/git-education/advanced/branch/" title="Git のブランチ機能" class="dd-item"><a href="/git-education/advanced/branch/">Git のブランチ機能</a></li>
+          <li data-nav-id="/git-education/advanced/merge/" title="Git のマージ機能" class="dd-item"><a href="/git-education/advanced/merge/">Git のマージ機能</a></li>
+          <li data-nav-id="/git-education/advanced/pull-request/" title="GitHub のプルリクエスト機能" class="dd-item"><a href="/git-education/advanced/pull-request/">GitHub のプルリクエスト機能</a></li>
+          <li data-nav-id="/git-education/advanced/summary/" title="まとめ" class="dd-item"><a href="/git-education/advanced/summary/">まとめ</a></li></ul></li>
+          <li data-nav-id="/git-education/practical/" title="実践編" class="dd-item"><a href="/git-education/practical/"><b>3. </b>実践編</a><ul></ul></li>
+        </ul>
+        <div class="footermargin footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showFooter"></div>
+        <hr class="default-animation footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showFooter"/>
+        <div id="prefooter" class="footerLangSwitch footerVariantSwitch footerVisitedLinks">
+          <ul>
+            <li id="select-language-container" class="footerLangSwitch">
+              <a class="padding select-container">
+                <i class="fas fa-language fa-fw"></i>
+                <span>&nbsp;</span>
+                <div class="select-style">
+                  <select id="select-language" onchange="location = baseUri + this.value;">
+                  </select>
+                </div>
+                <div class="select-clear"></div>
+              </a>
+            </li>
+            <li id="select-variant-container" class="footerVariantSwitch">
+              <a class="padding select-container">
+                <i class="fas fa-paint-brush fa-fw"></i>
+                <span>&nbsp;</span>
+                <div class="select-style">
+                  <select id="select-variant" onchange="variants.changeVariant( this.value );">
+                    <option id="mine" value="mine" selected>Mine</option>
+                  </select>
+                </div>
+                <div class="select-clear"></div>
+              </a>
+              <script>variants.markSelectedVariant();</script>
+            </li>
+            <li class="footerVisitedLinks"><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> Clear History</a></li>
+          </ul>
+        </div>
+        <div id="footer" class="footerFooter showFooter">
+	    <p>Built with <a href="https://github.com/McShelby/hugo-theme-relearn"><i class="fas fa-heart"></i></a> by <a href="https://gohugo.io/">Hugo</a></p>
+        </div>
+      </div>
+    </aside>
+    <script src="/git-education/js/clipboard.min.js?1647385369"></script>
+    <script src="/git-education/js/perfect-scrollbar.min.js?1647385369"></script>
+    <script src="/git-education/js/jquery.svg.pan.zoom.js?1647385369"></script>
+    <script src="/git-education/js/featherlight.min.js?1647385369"></script>
+    <script src="/git-education/js/mermaid.min.js?1647385369"></script>
+    <script>
+      if (typeof mermaid != 'undefined' && typeof mermaid.mermaidAPI != 'undefined') {
+        mermaid.mermaidAPI.initialize( Object.assign( { "securityLevel": "antiscript" }, JSON.parse("{ \"startOnLoad\": true }"), { startOnLoad: false } ) );
+      }
+    </script>
+    <script src="/git-education/js/theme.js?1647385369"></script>
+  </body>
+</html>

@@ -2,9 +2,110 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>応用編 on Git X Edu</title>
-    <link>https://a-nakamura.github.io/git-education/advanced/</link>
+    <link>https://a-nakamura1015.github.io/git-education/advanced/</link>
     <description>Recent content in 応用編 on Git X Edu</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>ja</language><atom:link href="https://a-nakamura.github.io/git-education/advanced/index.xml" rel="self" type="application/rss+xml" />
+    <language>ja</language>
+    <lastBuildDate>Wed, 16 Mar 2022 08:01:36 +0900</lastBuildDate><atom:link href="https://a-nakamura1015.github.io/git-education/advanced/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Git と チーム開発</title>
+      <link>https://a-nakamura1015.github.io/git-education/advanced/team-development/</link>
+      <pubDate>Wed, 16 Mar 2022 07:53:56 +0900</pubDate>
+      <guid>https://a-nakamura1015.github.io/git-education/advanced/team-development/</guid>
+      <description>基礎編をマスターすることができたのであれば、Git 管理をしながら開発することに自信を持つことができていると思います。
+しかし、チーム開発で Git を扱うにはまだ不十分です。
+例えば、次のような状態になったとき、あなたはどうしますか？
+あらまし 仮にチーム内で開発者とテスターが分かれていた場合でのお話です。 開発者AはテスターBにソースを渡すため、リモートリポジトリに変更を加えたソースを push しました。
+ところが、テスターBが pull をしてテストをしたところバグが見つかりました。 そこで、テスターBは開発者Aにバグがあることを伝え、修正を依頼しました。
+一見問題はなさそうですが、もし別の開発者Cがいた場合はどうでしょう？ 開発者Cももちろんリモートリポジトリから最新のソースを取得して開発をおこないます。
+リモートリポジトリから取得したソースにバグがあった場合、開発者Cにも影響を与えてしまいます。
+このようなときに ブランチ は活躍します。
+ブランチの運用方法は様々ですが、今回はデフォルトの main ブランチの他に開発用のブランチ（ develop ブランチ）を作成する運用をすることで今回の問題は解消されます。
+ここからはブランチについて学んでいきましょう。</description>
+    </item>
+    <item>
+      <title>Git のブランチ機能</title>
+      <link>https://a-nakamura1015.github.io/git-education/advanced/branch/</link>
+      <pubDate>Wed, 16 Mar 2022 07:55:03 +0900</pubDate>
+      <guid>https://a-nakamura1015.github.io/git-education/advanced/branch/</guid>
+      <description>ブランチとは 1つのプロジェクトから分岐させることにより、共有しているプロジェクトに影響を与えずに開発ができる機能です。
+ブランチを切ることにより、同時並行で目的別に作業をすることができます。
+※ブランチを作ることを「ブランチを切る」と言います。
+Git は master ブランチがデフォルトになっており、実は初級編では master ブランチで作業をしていました。
+現在作業をしているブランチは以下のコマンドで確認をすることができます。
+git branch git branch コマンドを実行すると、ローカルリポジトリ内のブランチ名の一覧を以下のように表示されます。 注意： Git のコミットログがない場合はブランチ名は表示されないので、git commit を実施した上でgit branchコマンドを実行しましょう。 現在作業しているブランチの左隣に*が表示されます。
+いまは master ブランチしかないため表示されるブランチ名を1つのみですが、
+ブランチを増やすと現在作業していないブランチの名前もこのコマンドで確認することができます。
+* master 一般的な開発プロジェクトでは master ブランチの内容が納品物（テストが完了した最新のソースコード）となるため、
+機能の改修や追加する場合はこの master ブランチから開発用のブランチを切った上で作業を行います。
+注意： ローカルリポジトリと同様にリモートリポジトリ（GitHubなど）にもブランチが存在します。
+リモートリポジトリのブランチは git push コマンドを実行する際に生成されます。
+ブランチを使ってみよう それでは開発用のブランチを作ってみましょう。 ブランチ名は自由につけることができますが、今回のブランチ名は develop にしましょう。
+git branch コマンドの後ろに作成したいブランチの名前を指定すると同じ名前のブランチを作ることができます。
+git branch develop 再度 git branch コマンドを実行すると以下のようにブランチの一覧が表示されます。
+develop ブランチが作成できているかを確認してみましょう。
+ develop * master develop ブランチができていることが確認できたと思いますが、現在作業しているブランチを意味する*は master ブランチの左隣にあります。
+つまり、ブランチを作ることができたものの、作成したブランチ（develop）を作業ブランにすることができていません。
+まだ master ブランチが作業ブランチとなっている状態のため、作業ブランチを develop ブランチに切り替えてみましょう。</description>
+    </item>
+    <item>
+      <title>Git のマージ機能</title>
+      <link>https://a-nakamura1015.github.io/git-education/advanced/merge/</link>
+      <pubDate>Wed, 16 Mar 2022 07:57:26 +0900</pubDate>
+      <guid>https://a-nakamura1015.github.io/git-education/advanced/merge/</guid>
+      <description>マージとは さきほどはブランチを活用することで他のブランチに影響を与えることなく作業をすることができるとお伝えしました。
+しかし、作成したブランチはあくまで開発用ブランチなので、作業が完了したら納品物となる master ブランチにその変更内容を反映させる必要があります。 このようにあるブランチに他のブランチの変更内容を反映させる作業をマージ（統合）といいます。 マージは git merge コマンドで行うことできますが、変更履歴を更新したいブランチで実行する ことに注意してください。
+git merge コマンドの後ろに変更内容を取得したいブランチ名を指定します。
+git merge [変更内容を取得したいブランチ名] マージをしてみよう 今回は master ブランチに develop ブランチの変更内容を反映させてみましょう。
+まずは git branch コマンドを実行して、master ブランチが作業ブランチになっていることを確認しましょう。
+※ 今回は、変更履歴を更新したいブランチ = master ブランチです。
+ develop * master 続いて以下の git merge コマンドを実行します。変更内容を取得したいブランチ名は develop を指定しましょう。
+git merge develop 以下のようなメッセージが表示されればマージは成功です！
+Updating 5db36ee..1be05c7 Fast-forward sample.txt | 2 +- 1 file changed, 1 insertion(+), 1 deletion(-) それでは、マージ後の master ブランチの内容を確認してみましょう。
+まずは cat コマンドで sample.txt の中身を確認してみましょう。
+以下のように develop ブランチの内容に変わっていることが確認できます。</description>
+    </item>
+    <item>
+      <title>GitHub のプルリクエスト機能</title>
+      <link>https://a-nakamura1015.github.io/git-education/advanced/pull-request/</link>
+      <pubDate>Wed, 16 Mar 2022 08:00:14 +0900</pubDate>
+      <guid>https://a-nakamura1015.github.io/git-education/advanced/pull-request/</guid>
+      <description>プルリクエストとは ここまでの学習内容をマスターできていれば、ローカルリポジトリで変更した内容をリモートリポジトリにアップロードすることができるようになっているはずです。
+あとは変更内容をリモートリポジトリの master ブランチにマージするのみです。
+しかし、ここで安易にリモートリポジトリの master ブランチにマージするのは危険です。
+なぜなら、リモートリポジトリの master ブランチはチームで共有しているため、勝手に更新すると困ってしまうメンバーが出てきてしまうかもしれません。
+また、そもそもローカルリポジトリで行った変更が正しくなかったり、対応が足りていなかったりする可能性もあります。
+このようなときは プルリクエスト という GitHub の機能を利用します。
+この機能を使用すると、簡単に他のメンバーに変更内容のレビューを依頼することができます。
+他のメンバーにレビューしてもらうことで事前にトラブルやリスクを回避することができるのです。
+メモ： GitHub 以外のリモートリポジトリのサービスにもプルリクエストと同様の機能がありますが、
+名称が異なる場合があります。
+例えば、GitLab の場合は同様の機能を「マージリクエスト」と呼称されています。
+プルリクエストを作ってみよう 今回は以下の手順に沿って進めていき、最終的にはプルリクエストを作ってみましょう。
+(1) ローカルリポジトリの develop ブランチで sample.txt の内容を「APPLE」に上書きします。
+(2) リモートリポジトリに develop ブランチを作成し、変更内容をアップロードします。
+(3) develop ブランチでの変更を master ブランチにマージする内容のプルリクエストを作成します。
+ (1) ローカルリポジトリの develop ブランチで sample.txt の内容を「APPLE」に上書きします。
+ まずはローカルリポジトリに作業用ブランチである develop ブランチを作成しましょう。
+先程は git branch [ブランチ名] と git checkout [ブランチ名]を実行しましたが、
+git checkout コマンドのオプション（-b）の後にブランチ名を指定すると、
+この２つの処理を1つのコマンドで行うことができます。
+git checkout -b [ブランチ名] 今回は develop ブランチを作成して、同ブランチを作業ブランチにしたいため以下のコマンドを実行します。</description>
+    </item>
+    <item>
+      <title>まとめ</title>
+      <link>https://a-nakamura1015.github.io/git-education/advanced/summary/</link>
+      <pubDate>Wed, 16 Mar 2022 08:01:36 +0900</pubDate>
+      <guid>https://a-nakamura1015.github.io/git-education/advanced/summary/</guid>
+      <description>応用編では Git でチーム開発を行う方法について学習しました。
+Git の開発フローを理解できれば実際に活用するのは難しくありません。
+実際の開発で使用する Git のコマンドはさほど多くはありません。
+それぞれのコマンドの意味を一つずつ確実に理解をしていきましょう。
+この度紹介した開発フローとコマンドで事足りますが、
+Git を活用してもいろいろなトラブルが発生します。
+例えば、複数人が同じファイルを同じ箇所を同時に変更されたり、
+一度 Git にコミットした内容を取り消したいなどがあります。
+このようなトラブルが起きたときはどのように解消したらよいかを 実践編 でお伝えします。</description>
+    </item>
   </channel>
 </rss>

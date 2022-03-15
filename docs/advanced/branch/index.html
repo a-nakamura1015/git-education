@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="generator" content="Hugo 0.94.2" />
+    <meta name="generator" content="Relearn 3.0.4&#43;tip">
+    <meta name="description" content="">
+    <title>Git のブランチ機能 :: Git X Edu</title>
+    <link href="/git-education/css/nucleus.css?1647385369" rel="stylesheet">
+    <link href="/git-education/css/fontawesome-all.min.css?1647385369" rel="stylesheet">
+    <link href="/git-education/css/featherlight.min.css?1647385369" rel="stylesheet">
+    <link href="/git-education/css/perfect-scrollbar.min.css?1647385369" rel="stylesheet">
+    <link href="/git-education/css/auto-complete.css?1647385369" rel="stylesheet">
+    <link href="/git-education/css/theme.css?1647385369" rel="stylesheet">
+    <link id="variant-style" href="/git-education/css/theme-mine.css?1647385369" rel="stylesheet">
+    <link href="/git-education/css/variant.css?1647385369" rel="stylesheet">
+    <link href="/git-education/css/theme-relearn-light.css?1647385369" rel="stylesheet" media="print">
+    <link href="/git-education/css/print.css?1647385369" rel="stylesheet" media="print">
+    <script src="/git-education/js/variant.js?1647385369"></script>
+    <script>
+      // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
+      // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
+      var index_url="/git-education/index.json";
+      var root_url="/";
+      var baseUri=root_url.replace(/\/$/, '');
+      // translations
+      window.T_Copy_to_clipboard = 'Copy to clipboard';
+      window.T_Copied_to_clipboard = 'Copied to clipboard!';
+      window.T_Copy_link_to_clipboard = 'Copy link to clipboard';
+      window.T_Link_copied_to_clipboard = 'Copied link to clipboard!';
+      // some further base stuff
+      var baseUriFull='https:\/\/a-nakamura1015.github.io\/git-education/';
+      variants.init( [ 'mine' ] );
+    </script>
+    <script src="/git-education/js/jquery.min.js?1647385369"></script>
+  </head>
+  <body class="mobile-support" data-url="/git-education/advanced/branch/">
+    <div id="body" class="default-animation">
+      <div id="sidebar-overlay"></div>
+      <div id="toc-overlay"></div>
+      <nav id="topbar" class="highlightable">
+        <div>
+          <div class="navigation">
+             <a class="nav nav-next" href="/git-education/advanced/merge/" title="Git のマージ機能"><i class="fas fa-chevron-right fa-fw"></i></a>
+          </div>
+          <div class="navigation">
+             <a class="nav nav-prev" href="/git-education/advanced/team-development/" title="Git と チーム開発"><i class="fas fa-chevron-left fa-fw"></i></a>
+          </div>
+          <div id="breadcrumbs">
+            <span id="sidebar-toggle-span">
+              <a href="#" id="sidebar-toggle" title='Menu'><i class="fas fa-bars fa-fw"></i></a>
+            </span>
+            <span id="toc-menu" title='Table of Contents'><i class="fas fa-list-alt fa-fw"></i></span>
+            <ol class="links" itemscope itemtype="http://schema.org/BreadcrumbList">
+              <meta itemprop="itemListOrder" content="Descending" />
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="3" /><a itemprop="item" href="/git-education/"><span itemprop="name">Git X EDU</span></a> > </li>
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="2" /><a itemprop="item" href="/git-education/advanced/"><span itemprop="name">応用編</span></a> > </li>
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="1" /><a itemprop="item" href="/git-education/advanced/branch/" aria-disabled="true"><span itemprop="name">Git のブランチ機能</span></a></li>
+            </ol>
+          </div>
+          <div class="default-animation progress">
+            <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#ブランチとは">ブランチとは</a></li>
+        <li><a href="#ブランチを使ってみよう">ブランチを使ってみよう</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <main id="body-inner" class="highlightable ">
+        <div class="flex-block-wrapper">
+          <div id="head-tags">
+          </div>
+          <h1>Git のブランチ機能</h1>
+
+<h3 id="ブランチとは">ブランチとは</h3>
+<p>1つのプロジェクトから分岐させることにより、共有しているプロジェクトに影響を与えずに開発ができる機能です。<br>
+ブランチを切ることにより、同時並行で目的別に作業をすることができます。<br>
+※ブランチを作ることを「ブランチを切る」と言います。</p>
+<p>Git は master ブランチがデフォルトになっており、実は初級編では master ブランチで作業をしていました。<br>
+現在作業をしているブランチは以下のコマンドで確認をすることができます。</p>
+<pre tabindex="0"><code>git branch
+</code></pre><p><code>git branch</code> コマンドを実行すると、ローカルリポジトリ内のブランチ名の一覧を以下のように表示されます。
+注意： Git のコミットログがない場合はブランチ名は表示されないので、git commit を実施した上で<code>git branch</code>コマンドを実行しましょう。
+現在作業しているブランチの左隣に<code>*</code>が表示されます。<br>
+いまは master ブランチしかないため表示されるブランチ名を1つのみですが、<br>
+ブランチを増やすと現在作業していないブランチの名前もこのコマンドで確認することができます。</p>
+<pre tabindex="0"><code>* master
+</code></pre><p>一般的な開発プロジェクトでは master ブランチの内容が納品物（テストが完了した最新のソースコード）となるため、<br>
+機能の改修や追加する場合はこの master ブランチから開発用のブランチを切った上で作業を行います。<br>
+注意：
+ローカルリポジトリと同様にリモートリポジトリ（GitHubなど）にもブランチが存在します。<br>
+リモートリポジトリのブランチは <code>git push</code> コマンドを実行する際に生成されます。</p>
+<h3 id="ブランチを使ってみよう">ブランチを使ってみよう</h3>
+<p>それでは開発用のブランチを作ってみましょう。
+ブランチ名は自由につけることができますが、今回のブランチ名は develop にしましょう。<br>
+<code>git branch</code> コマンドの後ろに作成したいブランチの名前を指定すると同じ名前のブランチを作ることができます。</p>
+<pre tabindex="0"><code>git branch develop
+</code></pre><p>再度 <code>git branch</code> コマンドを実行すると以下のようにブランチの一覧が表示されます。<br>
+develop ブランチが作成できているかを確認してみましょう。</p>
+<pre tabindex="0"><code>  develop
+* master
+</code></pre><p>develop ブランチができていることが確認できたと思いますが、現在作業しているブランチを意味する<code>*</code>は master ブランチの左隣にあります。<br>
+つまり、ブランチを作ることができたものの、作成したブランチ（develop）を作業ブランにすることができていません。</p>
+<p>まだ master ブランチが作業ブランチとなっている状態のため、作業ブランチを develop ブランチに切り替えてみましょう。<br>
+ブランチの切り替えは <code>git checkout</code> コマンドで行うことができます。</p>
+<pre tabindex="0"><code>git checkout [切り替えたいブランチの名前]
+</code></pre><p>注意：切り替えようとしたブランチがない場合はエラー（<code>error: pathspec '存在しないブランチ名' did not match any file(s) known to git</code>）が発生するので、<code>git checkout</code> コマンドを実行する前にあらかじめブランチを作っておきましょう。</p>
+<p>今回は develop ブランチに切り替えたいので、以下のコマンドを実行しましょう。</p>
+<pre tabindex="0"><code>git checkout develop
+</code></pre><p>それでは再度 <code>git branch</code> コマンドで develop ブランチが作業ブランチになっているかを確認してみましょう。
+develop の左隣に <code>*</code> があればブランチの切り替えに成功です！</p>
+<pre tabindex="0"><code>* develop
+  master
+</code></pre><p>続いて、切り替えた develop ブランチでファイルを編集をしてみましょう。<br>
+master ブランチで作成した sample.txt には hello と書かれていますが、<br>
+これを develop ブランチでは HELLO に上書きをします。</p>
+<pre tabindex="0"><code>echo HELLO &gt; sample.txt
+</code></pre><p>ファイルの上書きのコマンドを実行できましたら、<code>cat</code> コマンドでsample.txtが上書きできているかを確認しましょう。<br>
+<code>cat</code> コマンドの実行結果が以下の通りであれば成功です。</p>
+<pre tabindex="0"><code>HELLO
+</code></pre><p>ではここで、<code>git status</code> コマンドでステータスを確認してみましょう。</p>
+<pre tabindex="0"><code>On branch develop
+Changes not staged for commit:
+  (use &#34;git add &lt;file&gt;...&#34; to update what will be committed)
+  (use &#34;git restore &lt;file&gt;...&#34; to discard changes in working directory)
+        modified:   sample.txt
+
+no changes added to commit (use &#34;git add&#34; and/or &#34;git commit -a&#34;)
+</code></pre><p><code>On branch develop</code> は develop ブランチで作業していることを意味しています。<br>
+<code>Changes not staged for commit</code>　は修正はしたもののまだ <code>git add</code> を実行していないため、<br>
+コミットができないファイルをあるよという意味です。<br>
+その下に <code>modified:   sample.txt</code> と表示されていますが、これは sample.txt に変更が発生しているという意味になります。</p>
+<p>それでは以下のコマンドを実行して、今回編集した sample.txt の変更内容を Git に登録してみましょう。
+ブランチ名が変わってもこのフロー（ステージ済 → 修正済 → コミット済）は変わりません。</p>
+<pre tabindex="0"><code>git add sample.txt
+git commit -m &#34;develop commit&#34;
+</code></pre><p>コミットが無事完了できたかを<code>git log</code> コマンドで確認してみましょう。<br>
+コミットのメッセージが <code>develop commit</code> となっているコミットログが残っていれば成功です！</p>
+<pre tabindex="0"><code>commit 1be05c74b8ae9ce1f8b1a09510b1367c88e1100e (HEAD -&gt; develop)
+Author: a-nakamura1015 &lt;a-nakamura@esm.co.jp&gt;
+Date:   Fri Mar 11 11:21:55 2022 +0900
+
+    develop commit
+
+commit 5db36ee820d446e27838869e79cbae3526f71a8f (master)
+Author: a-nakamura1015 &lt;a-nakamura@esm.co.jp&gt;
+Date:   Fri Mar 11 10:25:56 2022 +0900
+
+    first commit
+</code></pre><p>ではここで、また master ブランチに戻ってみましょう。<br>
+ブランチの切り替える <code>git checkout</code> コマンドで master ブランチに戻ることができます。</p>
+<pre tabindex="0"><code>git checkout master
+</code></pre><p>ここで再度 <code>git log</code> コマンドを実行してコミットログを確認してみましょう。<br>
+すると、さきほど develop ブランチでコミットした <code>develop commit</code> がないことが確認できます。</p>
+<pre tabindex="0"><code>commit 5db36ee820d446e27838869e79cbae3526f71a8f (HEAD -&gt; master)
+Author: a-nakamura1015 &lt;a-nakamura@esm.co.jp&gt;
+Date:   Fri Mar 11 10:25:56 2022 +0900
+
+    first commit
+</code></pre><p>念のため develop ブランチで編集した sample.txt の内容を <code>cat</code> コマンドで確認してみましょう。<br>
+以下のように develop ブランチで変更を加える前の状態になっていることが確認できます。<br>
+これは develop ブランチの作業が main ブランチに影響を与えていないことを意味しています。</p>
+<pre tabindex="0"><code>hello
+</code></pre><p>このようにブランチを活用すると、他のブランチに影響を与えることなく作業することができます。</p>
+          <footer class="footline">
+          </footer>
+        </div>
+      </main>
+    </div>
+    <aside id="sidebar" class="default-animation">
+      <div id="header-wrapper" class="default-animation">
+        <div id="header" class="default-animation">
+<a id="logo"
+href="/git-education/"
+style="
+  color: #ffffff;
+  font-family: 'Work Sans', 'Helvetica', 'Tahoma', 'Geneva', 'Arial', sans-serif;
+  font-size: 30px;
+  font-weight: 300;
+  margin-top: -2px;
+  text-transform: uppercase;
+">
+Git X EDU
+</a>
+
+        </div>
+        <div class="searchbox default-animation">
+          <label for="search-by"><i class="fas fa-search"></i></label>
+          <input data-search-input id="search-by" type="search" placeholder="Search...">
+          <span data-search-clear=""><i class="fas fa-times"></i></span>
+        </div>
+        <script src="/git-education/js/lunr.min.js?1647385369"></script>
+        <script src="/git-education/js/auto-complete.js?1647385369"></script>
+        <script src="/git-education/js/search.js?1647385369"></script>
+      </div>
+      <div id="homelinks" class="default-animation">
+        <ul>
+          <li>
+              <a class="padding" href="/git-education/"><i class="fas fa-home"></i> Home</a>
+          </li>
+        </ul>
+      </div>
+      <div id="content-wrapper" class="highlightable">
+        <ul class="topics">
+          <li data-nav-id="/git-education/basics/" title="基礎編" class="dd-item"><a href="/git-education/basics/"><b>1. </b>基礎編</a><ul>
+          <li data-nav-id="/git-education/basics/git-basics/" title="Git の基本" class="dd-item"><a href="/git-education/basics/git-basics/">Git の基本</a></li>
+          <li data-nav-id="/git-education/basics/git-command-basics/" title="Git の基本コマンド" class="dd-item"><a href="/git-education/basics/git-command-basics/">Git の基本コマンド</a></li>
+          <li data-nav-id="/git-education/basics/github-basics/" title="GitHub の基本" class="dd-item"><a href="/git-education/basics/github-basics/">GitHub の基本</a></li>
+          <li data-nav-id="/git-education/basics/summary/" title="まとめ" class="dd-item"><a href="/git-education/basics/summary/">まとめ</a></li></ul></li>
+          <li data-nav-id="/git-education/advanced/" title="応用編" class="dd-item parent"><a href="/git-education/advanced/"><b>2. </b>応用編</a><ul>
+          <li data-nav-id="/git-education/advanced/team-development/" title="Git と チーム開発" class="dd-item"><a href="/git-education/advanced/team-development/">Git と チーム開発</a></li>
+          <li data-nav-id="/git-education/advanced/branch/" title="Git のブランチ機能" class="dd-item active"><a href="/git-education/advanced/branch/">Git のブランチ機能</a></li>
+          <li data-nav-id="/git-education/advanced/merge/" title="Git のマージ機能" class="dd-item"><a href="/git-education/advanced/merge/">Git のマージ機能</a></li>
+          <li data-nav-id="/git-education/advanced/pull-request/" title="GitHub のプルリクエスト機能" class="dd-item"><a href="/git-education/advanced/pull-request/">GitHub のプルリクエスト機能</a></li>
+          <li data-nav-id="/git-education/advanced/summary/" title="まとめ" class="dd-item"><a href="/git-education/advanced/summary/">まとめ</a></li></ul></li>
+          <li data-nav-id="/git-education/practical/" title="実践編" class="dd-item"><a href="/git-education/practical/"><b>3. </b>実践編</a><ul></ul></li>
+        </ul>
+        <div class="footermargin footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showFooter"></div>
+        <hr class="default-animation footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showFooter"/>
+        <div id="prefooter" class="footerLangSwitch footerVariantSwitch footerVisitedLinks">
+          <ul>
+            <li id="select-language-container" class="footerLangSwitch">
+              <a class="padding select-container">
+                <i class="fas fa-language fa-fw"></i>
+                <span>&nbsp;</span>
+                <div class="select-style">
+                  <select id="select-language" onchange="location = baseUri + this.value;">
+                  </select>
+                </div>
+                <div class="select-clear"></div>
+              </a>
+            </li>
+            <li id="select-variant-container" class="footerVariantSwitch">
+              <a class="padding select-container">
+                <i class="fas fa-paint-brush fa-fw"></i>
+                <span>&nbsp;</span>
+                <div class="select-style">
+                  <select id="select-variant" onchange="variants.changeVariant( this.value );">
+                    <option id="mine" value="mine" selected>Mine</option>
+                  </select>
+                </div>
+                <div class="select-clear"></div>
+              </a>
+              <script>variants.markSelectedVariant();</script>
+            </li>
+            <li class="footerVisitedLinks"><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> Clear History</a></li>
+          </ul>
+        </div>
+        <div id="footer" class="footerFooter showFooter">
+	    <p>Built with <a href="https://github.com/McShelby/hugo-theme-relearn"><i class="fas fa-heart"></i></a> by <a href="https://gohugo.io/">Hugo</a></p>
+        </div>
+      </div>
+    </aside>
+    <script src="/git-education/js/clipboard.min.js?1647385369"></script>
+    <script src="/git-education/js/perfect-scrollbar.min.js?1647385369"></script>
+    <script src="/git-education/js/jquery.svg.pan.zoom.js?1647385369"></script>
+    <script src="/git-education/js/featherlight.min.js?1647385369"></script>
+    <script src="/git-education/js/mermaid.min.js?1647385369"></script>
+    <script>
+      if (typeof mermaid != 'undefined' && typeof mermaid.mermaidAPI != 'undefined') {
+        mermaid.mermaidAPI.initialize( Object.assign( { "securityLevel": "antiscript" }, JSON.parse("{ \"startOnLoad\": true }"), { startOnLoad: false } ) );
+      }
+    </script>
+    <script src="/git-education/js/theme.js?1647385369"></script>
+  </body>
+</html>

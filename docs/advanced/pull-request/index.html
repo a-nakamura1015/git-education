@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="generator" content="Hugo 0.94.2" />
+    <meta name="generator" content="Relearn 3.0.4&#43;tip">
+    <meta name="description" content="">
+    <title>GitHub のプルリクエスト機能 :: Git X Edu</title>
+    <link href="/git-education/css/nucleus.css?1647385369" rel="stylesheet">
+    <link href="/git-education/css/fontawesome-all.min.css?1647385369" rel="stylesheet">
+    <link href="/git-education/css/featherlight.min.css?1647385369" rel="stylesheet">
+    <link href="/git-education/css/perfect-scrollbar.min.css?1647385369" rel="stylesheet">
+    <link href="/git-education/css/auto-complete.css?1647385369" rel="stylesheet">
+    <link href="/git-education/css/theme.css?1647385369" rel="stylesheet">
+    <link id="variant-style" href="/git-education/css/theme-mine.css?1647385369" rel="stylesheet">
+    <link href="/git-education/css/variant.css?1647385369" rel="stylesheet">
+    <link href="/git-education/css/theme-relearn-light.css?1647385369" rel="stylesheet" media="print">
+    <link href="/git-education/css/print.css?1647385369" rel="stylesheet" media="print">
+    <script src="/git-education/js/variant.js?1647385369"></script>
+    <script>
+      // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
+      // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
+      var index_url="/git-education/index.json";
+      var root_url="/";
+      var baseUri=root_url.replace(/\/$/, '');
+      // translations
+      window.T_Copy_to_clipboard = 'Copy to clipboard';
+      window.T_Copied_to_clipboard = 'Copied to clipboard!';
+      window.T_Copy_link_to_clipboard = 'Copy link to clipboard';
+      window.T_Link_copied_to_clipboard = 'Copied link to clipboard!';
+      // some further base stuff
+      var baseUriFull='https:\/\/a-nakamura1015.github.io\/git-education/';
+      variants.init( [ 'mine' ] );
+    </script>
+    <script src="/git-education/js/jquery.min.js?1647385369"></script>
+  </head>
+  <body class="mobile-support" data-url="/git-education/advanced/pull-request/">
+    <div id="body" class="default-animation">
+      <div id="sidebar-overlay"></div>
+      <div id="toc-overlay"></div>
+      <nav id="topbar" class="highlightable">
+        <div>
+          <div class="navigation">
+             <a class="nav nav-next" href="/git-education/advanced/summary/" title="まとめ"><i class="fas fa-chevron-right fa-fw"></i></a>
+          </div>
+          <div class="navigation">
+             <a class="nav nav-prev" href="/git-education/advanced/merge/" title="Git のマージ機能"><i class="fas fa-chevron-left fa-fw"></i></a>
+          </div>
+          <div id="breadcrumbs">
+            <span id="sidebar-toggle-span">
+              <a href="#" id="sidebar-toggle" title='Menu'><i class="fas fa-bars fa-fw"></i></a>
+            </span>
+            <span id="toc-menu" title='Table of Contents'><i class="fas fa-list-alt fa-fw"></i></span>
+            <ol class="links" itemscope itemtype="http://schema.org/BreadcrumbList">
+              <meta itemprop="itemListOrder" content="Descending" />
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="3" /><a itemprop="item" href="/git-education/"><span itemprop="name">Git X EDU</span></a> > </li>
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="2" /><a itemprop="item" href="/git-education/advanced/"><span itemprop="name">応用編</span></a> > </li>
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="1" /><a itemprop="item" href="/git-education/advanced/pull-request/" aria-disabled="true"><span itemprop="name">GitHub のプルリクエスト機能</span></a></li>
+            </ol>
+          </div>
+          <div class="default-animation progress">
+            <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#プルリクエストとは">プルリクエストとは</a></li>
+        <li><a href="#プルリクエストを作ってみよう">プルリクエストを作ってみよう</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <main id="body-inner" class="highlightable ">
+        <div class="flex-block-wrapper">
+          <div id="head-tags">
+          </div>
+          <h1>GitHub のプルリクエスト機能</h1>
+
+<h3 id="プルリクエストとは">プルリクエストとは</h3>
+<p>ここまでの学習内容をマスターできていれば、ローカルリポジトリで変更した内容をリモートリポジトリにアップロードすることができるようになっているはずです。<br>
+あとは変更内容をリモートリポジトリの master ブランチにマージするのみです。<br>
+しかし、ここで安易にリモートリポジトリの master ブランチにマージするのは危険です。<br>
+なぜなら、リモートリポジトリの master ブランチはチームで共有しているため、勝手に更新すると困ってしまうメンバーが出てきてしまうかもしれません。<br>
+また、そもそもローカルリポジトリで行った変更が正しくなかったり、対応が足りていなかったりする可能性もあります。<br>
+このようなときは <strong>プルリクエスト</strong> という GitHub の機能を利用します。<br>
+この機能を使用すると、簡単に他のメンバーに変更内容のレビューを依頼することができます。<br>
+他のメンバーにレビューしてもらうことで事前にトラブルやリスクを回避することができるのです。</p>
+<p>メモ： GitHub 以外のリモートリポジトリのサービスにもプルリクエストと同様の機能がありますが、<br>
+名称が異なる場合があります。<br>
+例えば、GitLab の場合は同様の機能を「マージリクエスト」と呼称されています。</p>
+<h3 id="プルリクエストを作ってみよう">プルリクエストを作ってみよう</h3>
+<p>今回は以下の手順に沿って進めていき、最終的にはプルリクエストを作ってみましょう。<br>
+(1) ローカルリポジトリの develop ブランチで sample.txt の内容を「APPLE」に上書きします。<br>
+(2) リモートリポジトリに develop ブランチを作成し、変更内容をアップロードします。<br>
+(3) develop ブランチでの変更を master ブランチにマージする内容のプルリクエストを作成します。</p>
+<blockquote>
+<p>(1) ローカルリポジトリの develop ブランチで sample.txt の内容を「APPLE」に上書きします。</p>
+</blockquote>
+<p>まずはローカルリポジトリに作業用ブランチである develop ブランチを作成しましょう。<br>
+先程は <code>git branch [ブランチ名]</code> と <code>git checkout [ブランチ名]</code>を実行しましたが、<br>
+<code>git checkout</code> コマンドのオプション（<code>-b</code>）の後にブランチ名を指定すると、<br>
+この２つの処理を1つのコマンドで行うことができます。</p>
+<pre tabindex="0"><code>git checkout -b [ブランチ名]
+</code></pre><p>今回は develop ブランチを作成して、同ブランチを作業ブランチにしたいため以下のコマンドを実行します。</p>
+<pre tabindex="0"><code>git checkout -b develop
+</code></pre><p>作業ブランチに切り替わったので、以下のコマンドを実行して sample.txt の内容を「APPLE」となるように上書きしましょう。</p>
+<pre tabindex="0"><code>echo APPLE &gt; sample.txt
+</code></pre><p>作業が終わったので、以下のコマンドを実行して変更内容をコミットしましょう。</p>
+<pre tabindex="0"><code>git add sample.txt
+git commit -m &#34;updated sample.txt&#34;
+</code></pre><blockquote>
+<p>(2) リモートリポジトリに develop ブランチを作成し、変更内容をアップロードします。</p>
+</blockquote>
+<p>ローカルリポジトリの変更内容をリモートリポジトリに反映しましょう。<br>
+以下のコマンドを実行して、リモートリポジトリに develop ブランチを作成し、変更内容をアップロードします。</p>
+<pre tabindex="0"><code>git push origin develop
+</code></pre><p>コマンドを実行したのち、GitHub上で編集したファイルを確認してみましょう。</p>
+<blockquote>
+<p>(3) develop ブランチでの変更を master ブランチにマージする内容のプルリクエストを作成します。</p>
+</blockquote>
+<p>GitHub の画面の [Pull request] をクリックしましょう。
+クリックするとプルリクエストの一覧の画面に切り替わります。</p>
+<p>続いて、画面内の「New pull request」ボタンをクリックしましょう。
+クリックするとプルリクエストを作成する画面に切り替わります。<br>
+この際にマージ先のリモートブランチを指定します。<br>
+今回は develop（リモート）の内容を、master（リモート）にマージします。</p>
+<p>この画面でファイルの差分を確認することができます。<br>
+ここで意図しない修正が見つかった場合はローカルリポジトリで再修正した後、
+再度リモートリポジトリにプッシュをしましょう。<br>
+内容に問題がなければ「Create pull request」ボタンをクリックしましょう。</p>
+<p>最後に、プルリクエストのタイトルとその内容を記載します。<br>
+また、リモートリポジトリに招待されているアカウントをレビュワーに
+指定することができます。<br>
+今回は事前に他のアカウントを招待していないためレビュワーを指定できませんが、<br>
+実際の開発ではここでレビュワーを指定することができます。</p>
+<p>もう一度内容を確認して問題がなければ、「Create pull request」ボタンをクリックしましょう。</p>
+<p>プルリクエストが作成できれば成功です！
+プルリクエストが作成されると、レビュワーにメールで通知されます。
+（このメールは GitHub アカウントに紐付いているメールアドレスです。）</p>
+<p>GitHub の画面の [Pull request] をクリックしましょう。<br>
+クリックするとプルリクエストの一覧の画面に切り替わります。<br>
+すると、先ほど作成したプルリクエストを確認することができます。</p>
+<p>仮にレビュワーが変更内容を承認した場合はチェックマークが表示されます。</p>
+<p>今回はレビュワーがいないためレビュワーから承認があったと仮定して、
+最後にリモートリポジトリの master ブランチにマージしてみましょう。<br>
+まずは「Merge pull request」ボタンをクリックします。<br>
+すると、「Confirm merge」ボタンが表示されます。<br>
+このボタンをクリックすると 、リモートリポジトリの master ブランチと develop ブランチをマージし、<br>
+マージをしたという内容のコミットログを生成されます。</p>
+<p>「Confirm merge」ボタンをクリックするとマージが完了しますが、その後「Delete branch」ボタンが表示されます。
+このボタンをクリックするとリモートリポジトリの作業ブランチ（develop ブランチ）が削除されます。<br>
+同じ作業ブランチを残しておきたい場合はクリックする必要はないですが、不要な場合はこのボタンをクリックして削除しましょう。</p>
+<p>これでリモートリポジトリの master ブランチに変更内容が反映されました。<br>
+本当に反映できているかを以下の手順で確認をしてみましょう。<br>
+(1) ローカルリポジトリの作業ブランチを master ブランチに切り替えます。
+(2) リモートリポジトリの master ブランチから最新のファイルをダウンロードします。</p>
+<blockquote>
+<p>(1) ローカルリポジトリの作業ブランチを master ブランチに切り替えます。</p>
+</blockquote>
+<p>以下のコマンドを実行して作業ブランチを master ブランチにしましょう。</p>
+<pre tabindex="0"><code>git checkout master
+</code></pre><blockquote>
+<p>(2) リモートリポジトリの master ブランチから最新のファイルをダウンロードします。
+以下のコマンドを実行して、リモートリポジトリの master ブランチから最新のファイルをダウンロードしましょう。</p>
+</blockquote>
+<pre tabindex="0"><code>git pull origin master
+</code></pre><p>コマンド実行後に <code>cat</code> コマンドで sample.txt の中身を確認してみましょう。<br>
+ファイルの内容が「APPLE」になっていれば成功です！¥</p>
+          <footer class="footline">
+          </footer>
+        </div>
+      </main>
+    </div>
+    <aside id="sidebar" class="default-animation">
+      <div id="header-wrapper" class="default-animation">
+        <div id="header" class="default-animation">
+<a id="logo"
+href="/git-education/"
+style="
+  color: #ffffff;
+  font-family: 'Work Sans', 'Helvetica', 'Tahoma', 'Geneva', 'Arial', sans-serif;
+  font-size: 30px;
+  font-weight: 300;
+  margin-top: -2px;
+  text-transform: uppercase;
+">
+Git X EDU
+</a>
+
+        </div>
+        <div class="searchbox default-animation">
+          <label for="search-by"><i class="fas fa-search"></i></label>
+          <input data-search-input id="search-by" type="search" placeholder="Search...">
+          <span data-search-clear=""><i class="fas fa-times"></i></span>
+        </div>
+        <script src="/git-education/js/lunr.min.js?1647385369"></script>
+        <script src="/git-education/js/auto-complete.js?1647385369"></script>
+        <script src="/git-education/js/search.js?1647385369"></script>
+      </div>
+      <div id="homelinks" class="default-animation">
+        <ul>
+          <li>
+              <a class="padding" href="/git-education/"><i class="fas fa-home"></i> Home</a>
+          </li>
+        </ul>
+      </div>
+      <div id="content-wrapper" class="highlightable">
+        <ul class="topics">
+          <li data-nav-id="/git-education/basics/" title="基礎編" class="dd-item"><a href="/git-education/basics/"><b>1. </b>基礎編</a><ul>
+          <li data-nav-id="/git-education/basics/git-basics/" title="Git の基本" class="dd-item"><a href="/git-education/basics/git-basics/">Git の基本</a></li>
+          <li data-nav-id="/git-education/basics/git-command-basics/" title="Git の基本コマンド" class="dd-item"><a href="/git-education/basics/git-command-basics/">Git の基本コマンド</a></li>
+          <li data-nav-id="/git-education/basics/github-basics/" title="GitHub の基本" class="dd-item"><a href="/git-education/basics/github-basics/">GitHub の基本</a></li>
+          <li data-nav-id="/git-education/basics/summary/" title="まとめ" class="dd-item"><a href="/git-education/basics/summary/">まとめ</a></li></ul></li>
+          <li data-nav-id="/git-education/advanced/" title="応用編" class="dd-item parent"><a href="/git-education/advanced/"><b>2. </b>応用編</a><ul>
+          <li data-nav-id="/git-education/advanced/team-development/" title="Git と チーム開発" class="dd-item"><a href="/git-education/advanced/team-development/">Git と チーム開発</a></li>
+          <li data-nav-id="/git-education/advanced/branch/" title="Git のブランチ機能" class="dd-item"><a href="/git-education/advanced/branch/">Git のブランチ機能</a></li>
+          <li data-nav-id="/git-education/advanced/merge/" title="Git のマージ機能" class="dd-item"><a href="/git-education/advanced/merge/">Git のマージ機能</a></li>
+          <li data-nav-id="/git-education/advanced/pull-request/" title="GitHub のプルリクエスト機能" class="dd-item active"><a href="/git-education/advanced/pull-request/">GitHub のプルリクエスト機能</a></li>
+          <li data-nav-id="/git-education/advanced/summary/" title="まとめ" class="dd-item"><a href="/git-education/advanced/summary/">まとめ</a></li></ul></li>
+          <li data-nav-id="/git-education/practical/" title="実践編" class="dd-item"><a href="/git-education/practical/"><b>3. </b>実践編</a><ul></ul></li>
+        </ul>
+        <div class="footermargin footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showFooter"></div>
+        <hr class="default-animation footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showFooter"/>
+        <div id="prefooter" class="footerLangSwitch footerVariantSwitch footerVisitedLinks">
+          <ul>
+            <li id="select-language-container" class="footerLangSwitch">
+              <a class="padding select-container">
+                <i class="fas fa-language fa-fw"></i>
+                <span>&nbsp;</span>
+                <div class="select-style">
+                  <select id="select-language" onchange="location = baseUri + this.value;">
+                  </select>
+                </div>
+                <div class="select-clear"></div>
+              </a>
+            </li>
+            <li id="select-variant-container" class="footerVariantSwitch">
+              <a class="padding select-container">
+                <i class="fas fa-paint-brush fa-fw"></i>
+                <span>&nbsp;</span>
+                <div class="select-style">
+                  <select id="select-variant" onchange="variants.changeVariant( this.value );">
+                    <option id="mine" value="mine" selected>Mine</option>
+                  </select>
+                </div>
+                <div class="select-clear"></div>
+              </a>
+              <script>variants.markSelectedVariant();</script>
+            </li>
+            <li class="footerVisitedLinks"><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> Clear History</a></li>
+          </ul>
+        </div>
+        <div id="footer" class="footerFooter showFooter">
+	    <p>Built with <a href="https://github.com/McShelby/hugo-theme-relearn"><i class="fas fa-heart"></i></a> by <a href="https://gohugo.io/">Hugo</a></p>
+        </div>
+      </div>
+    </aside>
+    <script src="/git-education/js/clipboard.min.js?1647385369"></script>
+    <script src="/git-education/js/perfect-scrollbar.min.js?1647385369"></script>
+    <script src="/git-education/js/jquery.svg.pan.zoom.js?1647385369"></script>
+    <script src="/git-education/js/featherlight.min.js?1647385369"></script>
+    <script src="/git-education/js/mermaid.min.js?1647385369"></script>
+    <script>
+      if (typeof mermaid != 'undefined' && typeof mermaid.mermaidAPI != 'undefined') {
+        mermaid.mermaidAPI.initialize( Object.assign( { "securityLevel": "antiscript" }, JSON.parse("{ \"startOnLoad\": true }"), { startOnLoad: false } ) );
+      }
+    </script>
+    <script src="/git-education/js/theme.js?1647385369"></script>
+  </body>
+</html>
