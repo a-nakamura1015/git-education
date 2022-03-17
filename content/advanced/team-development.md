@@ -11,16 +11,21 @@ weight: 1
 ### あらまし
 仮にチーム内で開発者とテスターが分かれていた場合でのお話です。
 開発者AはテスターBにソースを渡すため、リモートリポジトリに変更を加えたソースを push しました。
+![team-development-1.png](../img/team-development-1.png)
 
 ところが、テスターBが pull をしてテストをしたところバグが見つかりました。
 そこで、テスターBは開発者Aにバグがあることを伝え、修正を依頼しました。
+![team-development-2.png](../img/team-development-2.png)
 
 一見問題はなさそうですが、もし別の開発者Cがいた場合はどうでしょう？
 開発者Cももちろんリモートリポジトリから最新のソースを取得して開発をおこないます。
+![team-development-3.png](../img/team-development-3.png)
 
 リモートリポジトリから取得したソースにバグがあった場合、開発者Cにも影響を与えてしまいます。
+![team-development-4.png](../img/team-development-4.png)
 
 このようなときに **ブランチ** は活躍します。  
 ブランチの運用方法は様々ですが、今回はデフォルトの main ブランチの他に開発用のブランチ（ develop ブランチ）を作成する運用をすることで今回の問題は解消されます。
+![team-development-5.png](../img/team-development-5.png)
 
 ここからはブランチについて学んでいきましょう。

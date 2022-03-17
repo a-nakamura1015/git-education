@@ -7,17 +7,17 @@
     <meta name="generator" content="Relearn 3.0.4&#43;tip">
     <meta name="description" content="">
     <title>GitHub のプルリクエスト機能 :: Git X Edu</title>
-    <link href="/git-education/css/nucleus.css?1647549584" rel="stylesheet">
-    <link href="/git-education/css/fontawesome-all.min.css?1647549584" rel="stylesheet">
-    <link href="/git-education/css/featherlight.min.css?1647549584" rel="stylesheet">
-    <link href="/git-education/css/perfect-scrollbar.min.css?1647549584" rel="stylesheet">
-    <link href="/git-education/css/auto-complete.css?1647549584" rel="stylesheet">
-    <link href="/git-education/css/theme.css?1647549584" rel="stylesheet">
-    <link id="variant-style" href="/git-education/css/theme-mine.css?1647549584" rel="stylesheet">
-    <link href="/git-education/css/variant.css?1647549584" rel="stylesheet">
-    <link href="/git-education/css/theme-relearn-light.css?1647549584" rel="stylesheet" media="print">
-    <link href="/git-education/css/print.css?1647549584" rel="stylesheet" media="print">
-    <script src="/git-education/js/variant.js?1647549584"></script>
+    <link href="/git-education/css/nucleus.css?1647552451" rel="stylesheet">
+    <link href="/git-education/css/fontawesome-all.min.css?1647552451" rel="stylesheet">
+    <link href="/git-education/css/featherlight.min.css?1647552451" rel="stylesheet">
+    <link href="/git-education/css/perfect-scrollbar.min.css?1647552451" rel="stylesheet">
+    <link href="/git-education/css/auto-complete.css?1647552451" rel="stylesheet">
+    <link href="/git-education/css/theme.css?1647552451" rel="stylesheet">
+    <link id="variant-style" href="/git-education/css/theme-mine.css?1647552451" rel="stylesheet">
+    <link href="/git-education/css/variant.css?1647552451" rel="stylesheet">
+    <link href="/git-education/css/theme-relearn-light.css?1647552451" rel="stylesheet" media="print">
+    <link href="/git-education/css/print.css?1647552451" rel="stylesheet" media="print">
+    <script src="/git-education/js/variant.js?1647552451"></script>
     <script>
       // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
       // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
@@ -33,7 +33,7 @@
       var baseUriFull='https:\/\/a-nakamura1015.github.io\/git-education/';
       variants.init( [ 'mine' ] );
     </script>
-    <script src="/git-education/js/jquery.min.js?1647549584"></script>
+    <script src="/git-education/js/jquery.min.js?1647552451"></script>
   </head>
   <body class="mobile-support" data-url="/git-education/advanced/pull-request/">
     <div id="body" class="default-animation">
@@ -87,7 +87,8 @@
 しかし、ここで安易にリモートリポジトリの master ブランチにマージするのは危険です。<br>
 なぜなら、リモートリポジトリの master ブランチはチームで共有しているため、勝手に更新すると困ってしまうメンバーが出てきてしまうかもしれません。<br>
 また、そもそもローカルリポジトリで行った変更が正しくなかったり、対応が足りていなかったりする可能性もあります。<br>
-このようなときは <strong>プルリクエスト</strong> という GitHub の機能を利用します。<br>
+<img src="../img/pull-request-1.png" alt="pull-request-1.png"></p>
+<p>このようなときは <strong>プルリクエスト</strong> という GitHub の機能を利用します。<br>
 この機能を使用すると、簡単に他のメンバーに変更内容のレビューを依頼することができます。<br>
 他のメンバーにレビューしてもらうことで事前にトラブルやリスクを回避することができるのです。</p>
 <p>メモ： GitHub 以外のリモートリポジトリのサービスにもプルリクエストと同様の機能がありますが、<br>
@@ -127,34 +128,45 @@ git commit -m &#34;updated sample.txt&#34;
 クリックするとプルリクエストの一覧の画面に切り替わります。</p>
 <p>続いて、画面内の「New pull request」ボタンをクリックしましょう。
 クリックするとプルリクエストを作成する画面に切り替わります。<br>
-この際にマージ先のリモートブランチを指定します。<br>
-今回は develop（リモート）の内容を、master（リモート）にマージします。</p>
+<img src="../img/pull-request-2.png" alt="pull-request-2.png"></p>
+<p>この際にマージ先のリモートブランチを指定します。<br>
+今回は develop（リモート）の内容を、master（リモート）にマージします。<br>
+<img src="../img/pull-request-3.png" alt="pull-request-3.png"></p>
 <p>この画面でファイルの差分を確認することができます。<br>
 ここで意図しない修正が見つかった場合はローカルリポジトリで再修正した後、
 再度リモートリポジトリにプッシュをしましょう。<br>
-内容に問題がなければ「Create pull request」ボタンをクリックしましょう。</p>
+内容に問題がなければ「Create pull request」ボタンをクリックしましょう。
+<img src="../img/pull-request-4.png" alt="pull-request-4.png"></p>
 <p>最後に、プルリクエストのタイトルとその内容を記載します。<br>
 また、リモートリポジトリに招待されているアカウントをレビュワーに
 指定することができます。<br>
 今回は事前に他のアカウントを招待していないためレビュワーを指定できませんが、<br>
-実際の開発ではここでレビュワーを指定することができます。</p>
-<p>もう一度内容を確認して問題がなければ、「Create pull request」ボタンをクリックしましょう。</p>
+実際の開発ではここでレビュワーを指定することができます。<br>
+<img src="../img/pull-request-5.png" alt="pull-request-5.png"></p>
+<p>もう一度内容を確認して問題がなければ、「Create pull request」ボタンをクリックしましょう。<br>
+<img src="../img/pull-request-6.png" alt="pull-request-6.png"></p>
 <p>プルリクエストが作成できれば成功です！
 プルリクエストが作成されると、レビュワーにメールで通知されます。
-（このメールは GitHub アカウントに紐付いているメールアドレスです。）</p>
+（このメールは GitHub アカウントに紐付いているメールアドレスです。）
+<img src="../img/pull-request-7.png" alt="pull-request-7.png"></p>
 <p>GitHub の画面の [Pull request] をクリックしましょう。<br>
 クリックするとプルリクエストの一覧の画面に切り替わります。<br>
-すると、先ほど作成したプルリクエストを確認することができます。</p>
-<p>仮にレビュワーが変更内容を承認した場合はチェックマークが表示されます。</p>
+すると、先ほど作成したプルリクエストを確認することができます。<br>
+<img src="../img/pull-request-8.png" alt="pull-request-8.png"></p>
+<p>仮にレビュワーが変更内容を承認した場合はチェックマークが表示されます。
+<img src="../img/pull-request-9.png" alt="pull-request-9.png"></p>
 <p>今回はレビュワーがいないためレビュワーから承認があったと仮定して、
 最後にリモートリポジトリの master ブランチにマージしてみましょう。<br>
 まずは「Merge pull request」ボタンをクリックします。<br>
-すると、「Confirm merge」ボタンが表示されます。<br>
+<img src="../img/pull-request-10.png" alt="pull-request-10.png"></p>
+<p>すると、「Confirm merge」ボタンが表示されます。<br>
 このボタンをクリックすると 、リモートリポジトリの master ブランチと develop ブランチをマージし、<br>
-マージをしたという内容のコミットログを生成されます。</p>
+マージをしたという内容のコミットログを生成されます。<br>
+<img src="../img/pull-request-11.png" alt="pull-request-11.png"></p>
 <p>「Confirm merge」ボタンをクリックするとマージが完了しますが、その後「Delete branch」ボタンが表示されます。
 このボタンをクリックするとリモートリポジトリの作業ブランチ（develop ブランチ）が削除されます。<br>
-同じ作業ブランチを残しておきたい場合はクリックする必要はないですが、不要な場合はこのボタンをクリックして削除しましょう。</p>
+同じ作業ブランチを残しておきたい場合はクリックする必要はないですが、不要な場合はこのボタンをクリックして削除しましょう。
+<img src="../img/pull-request-12.png" alt="pull-request-12.png"></p>
 <p>これでリモートリポジトリの master ブランチに変更内容が反映されました。<br>
 本当に反映できているかを以下の手順で確認をしてみましょう。<br>
 (1) ローカルリポジトリの作業ブランチを master ブランチに切り替えます。
@@ -198,9 +210,9 @@ Git X EDU
           <input data-search-input id="search-by" type="search" placeholder="Search...">
           <span data-search-clear=""><i class="fas fa-times"></i></span>
         </div>
-        <script src="/git-education/js/lunr.min.js?1647549584"></script>
-        <script src="/git-education/js/auto-complete.js?1647549584"></script>
-        <script src="/git-education/js/search.js?1647549584"></script>
+        <script src="/git-education/js/lunr.min.js?1647552451"></script>
+        <script src="/git-education/js/auto-complete.js?1647552451"></script>
+        <script src="/git-education/js/search.js?1647552451"></script>
       </div>
       <div id="homelinks" class="default-animation">
         <ul>
@@ -263,16 +275,16 @@ Git X EDU
         </div>
       </div>
     </aside>
-    <script src="/git-education/js/clipboard.min.js?1647549584"></script>
-    <script src="/git-education/js/perfect-scrollbar.min.js?1647549584"></script>
-    <script src="/git-education/js/jquery.svg.pan.zoom.js?1647549584"></script>
-    <script src="/git-education/js/featherlight.min.js?1647549584"></script>
-    <script src="/git-education/js/mermaid.min.js?1647549584"></script>
+    <script src="/git-education/js/clipboard.min.js?1647552451"></script>
+    <script src="/git-education/js/perfect-scrollbar.min.js?1647552451"></script>
+    <script src="/git-education/js/jquery.svg.pan.zoom.js?1647552451"></script>
+    <script src="/git-education/js/featherlight.min.js?1647552451"></script>
+    <script src="/git-education/js/mermaid.min.js?1647552451"></script>
     <script>
       if (typeof mermaid != 'undefined' && typeof mermaid.mermaidAPI != 'undefined') {
         mermaid.mermaidAPI.initialize( Object.assign( { "securityLevel": "antiscript" }, JSON.parse("{ \"startOnLoad\": true }"), { startOnLoad: false } ) );
       }
     </script>
-    <script src="/git-education/js/theme.js?1647549584"></script>
+    <script src="/git-education/js/theme.js?1647552451"></script>
   </body>
 </html>
