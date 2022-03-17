@@ -20,26 +20,37 @@ GitHubを利用するためにはアカウントを作成する必要があり�
 1. GitHub の公式サイトにアクセスしましょう。  
 https://github.com/  
 2. 画面右上の Sign up をクリックしましょう。
+![github-basics-1.png](../img/github-basics-1.png)
 3. メールアドレスを入力後、Continue ボタンをクリックしましょう。
+![github-basics-2.png](../img/github-basics-2.png)
 4. パスワードを入力後、Continue ボタンをクリックしましょう。  
 ※パスワードは任意の内容でOKです！
+![github-basics-3.png](../img/github-basics-3.png)
 5. ユーザーネームを入力後、Continue ボタンをクリックしましょう。
+![github-basics-4.png](../img/github-basics-4.png)
 6. 入力したメールアドレス宛に GitHub から認証コードが送られます。  
 届いた認証コードを画面に入力しましょう。  
+![github-basics-5.png](../img/github-basics-5.png)
 7. ここからは個人設定となりますが、必須事項ではないので割愛します。  
 画面下部の Skip personnnaization をクリックしましょう。  
+![github-basics-6.png](../img/github-basics-6.png)
 8. 以下の画面が表示されればアカウントの作成は完了です！
+![github-basics-7.png](../img/github-basics-7.png)
 
 #### リモートリポジトリを作成しよう
 GitHub アカウントがあれば GitHub 上にリモートリポジトリを作成することができます。  
 次の手順に沿って作成してみましょう。  
 1. GitHubにログイン後、Create repository ボタンをクリックしましょう。
+![github-basics-8.png](../img/github-basics-8.png)
 2. 以下の画面が表示されましたら、以下の手順でリモートリポジトリを作成しましょう。  
     1. リポジトリの名前を設定しましょう。今回は `tutorial` としましょう。 
     2. 他のユーザーがリポジトリにアクセスできないように非公開にしましょう。  
        `Public` を選択すると世界中の GitHub ユーザーがアクセスすることができます。  
        `Private` を選択するとリポジトリを作成したアカウントのみがアクセスすることができます。  
+
+![github-basics-9.png](../img/github-basics-9.png)
 3. 以下の画面が表示されればリモートリポジトリの作成は完了です！
+![github-basics-10.png](../img/github-basics-10.png)
 
 **Point: チームメンバーのみにリモートリポジトリを共有したい場合**  
 `Private` を選択することで他の GitHub ユーザーはアクセスできなくなりますが、チームメンバーにはアクセスできるようにしたいですよね。  
@@ -61,11 +72,17 @@ HTTPS通信でファイルをアップロードするには**アクセストー�
 次の手順に沿って作成してみましょう。
 1. 画面右上のアイコンをクリックしてしてメニューを表示します。
 2. メニュー内の「Settings」を選択します。  
+![github-basics-11.png](../img/github-basics-11.png)
 3. 「Settings」画面のメニュー内の「Developer settings」を選択する。
+![github-basics-12.png](../img/github-basics-12.png)
 4. 「Developer settings」画面のメニュー内の「Personal accesstoken」を選択する。
+![github-basics-13.png](../img/github-basics-13.png)
 5. 「Personal accesstoken」画面内の「Generate new token」ボタンをクリックします。
+![github-basics-14.png](../img/github-basics-14.png)
 6. Note に任意の文字列を入力し、画面最下部にある「Generate token」ボタンをクリックします。
+![github-basics-15.png](../img/github-basics-15.png)
 7. 発行されたアクセストークンをコピーしましょう。
+![github-basics-16.png](../img/github-basics-16.png)
 8. ファイルをプッシュする際にコピーしたアクセストークンをペーストして実行しましょう。
 
 **SSH通信の場合**  

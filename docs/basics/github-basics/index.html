@@ -7,17 +7,17 @@
     <meta name="generator" content="Relearn 3.0.4&#43;tip">
     <meta name="description" content="">
     <title>GitHub の基本 :: Git X Edu</title>
-    <link href="/git-education/css/nucleus.css?1647546261" rel="stylesheet">
-    <link href="/git-education/css/fontawesome-all.min.css?1647546261" rel="stylesheet">
-    <link href="/git-education/css/featherlight.min.css?1647546261" rel="stylesheet">
-    <link href="/git-education/css/perfect-scrollbar.min.css?1647546261" rel="stylesheet">
-    <link href="/git-education/css/auto-complete.css?1647546261" rel="stylesheet">
-    <link href="/git-education/css/theme.css?1647546261" rel="stylesheet">
-    <link id="variant-style" href="/git-education/css/theme-mine.css?1647546261" rel="stylesheet">
-    <link href="/git-education/css/variant.css?1647546261" rel="stylesheet">
-    <link href="/git-education/css/theme-relearn-light.css?1647546261" rel="stylesheet" media="print">
-    <link href="/git-education/css/print.css?1647546261" rel="stylesheet" media="print">
-    <script src="/git-education/js/variant.js?1647546261"></script>
+    <link href="/git-education/css/nucleus.css?1647549584" rel="stylesheet">
+    <link href="/git-education/css/fontawesome-all.min.css?1647549584" rel="stylesheet">
+    <link href="/git-education/css/featherlight.min.css?1647549584" rel="stylesheet">
+    <link href="/git-education/css/perfect-scrollbar.min.css?1647549584" rel="stylesheet">
+    <link href="/git-education/css/auto-complete.css?1647549584" rel="stylesheet">
+    <link href="/git-education/css/theme.css?1647549584" rel="stylesheet">
+    <link id="variant-style" href="/git-education/css/theme-mine.css?1647549584" rel="stylesheet">
+    <link href="/git-education/css/variant.css?1647549584" rel="stylesheet">
+    <link href="/git-education/css/theme-relearn-light.css?1647549584" rel="stylesheet" media="print">
+    <link href="/git-education/css/print.css?1647549584" rel="stylesheet" media="print">
+    <script src="/git-education/js/variant.js?1647549584"></script>
     <script>
       // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
       // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
@@ -33,7 +33,7 @@
       var baseUriFull='https:\/\/a-nakamura1015.github.io\/git-education/';
       variants.init( [ 'mine' ] );
     </script>
-    <script src="/git-education/js/jquery.min.js?1647546261"></script>
+    <script src="/git-education/js/jquery.min.js?1647549584"></script>
   </head>
   <body class="mobile-support" data-url="/git-education/basics/github-basics/">
     <div id="body" class="default-animation">
@@ -95,22 +95,30 @@
 <ol>
 <li>GitHub の公式サイトにアクセスしましょう。<br>
 <a href="https://github.com/">https://github.com/</a></li>
-<li>画面右上の Sign up をクリックしましょう。</li>
-<li>メールアドレスを入力後、Continue ボタンをクリックしましょう。</li>
+<li>画面右上の Sign up をクリックしましょう。
+<img src="../img/github-basics-1.png" alt="github-basics-1.png"></li>
+<li>メールアドレスを入力後、Continue ボタンをクリックしましょう。
+<img src="../img/github-basics-2.png" alt="github-basics-2.png"></li>
 <li>パスワードを入力後、Continue ボタンをクリックしましょう。<br>
-※パスワードは任意の内容でOKです！</li>
-<li>ユーザーネームを入力後、Continue ボタンをクリックしましょう。</li>
+※パスワードは任意の内容でOKです！
+<img src="../img/github-basics-3.png" alt="github-basics-3.png"></li>
+<li>ユーザーネームを入力後、Continue ボタンをクリックしましょう。
+<img src="../img/github-basics-4.png" alt="github-basics-4.png"></li>
 <li>入力したメールアドレス宛に GitHub から認証コードが送られます。<br>
-届いた認証コードを画面に入力しましょう。</li>
+届いた認証コードを画面に入力しましょう。<br>
+<img src="../img/github-basics-5.png" alt="github-basics-5.png"></li>
 <li>ここからは個人設定となりますが、必須事項ではないので割愛します。<br>
-画面下部の Skip personnnaization をクリックしましょう。</li>
-<li>以下の画面が表示されればアカウントの作成は完了です！</li>
+画面下部の Skip personnnaization をクリックしましょう。<br>
+<img src="../img/github-basics-6.png" alt="github-basics-6.png"></li>
+<li>以下の画面が表示されればアカウントの作成は完了です！
+<img src="../img/github-basics-7.png" alt="github-basics-7.png"></li>
 </ol>
 <h4 id="リモートリポジトリを作成しよう">リモートリポジトリを作成しよう</h4>
 <p>GitHub アカウントがあれば GitHub 上にリモートリポジトリを作成することができます。<br>
 次の手順に沿って作成してみましょう。</p>
 <ol>
-<li>GitHubにログイン後、Create repository ボタンをクリックしましょう。</li>
+<li>GitHubにログイン後、Create repository ボタンをクリックしましょう。
+<img src="../img/github-basics-8.png" alt="github-basics-8.png"></li>
 <li>以下の画面が表示されましたら、以下の手順でリモートリポジトリを作成しましょう。
 <ol>
 <li>リポジトリの名前を設定しましょう。今回は <code>tutorial</code> としましょう。</li>
@@ -119,8 +127,10 @@
 <code>Private</code> を選択するとリポジトリを作成したアカウントのみがアクセスすることができます。</li>
 </ol>
 </li>
-<li>以下の画面が表示されればリモートリポジトリの作成は完了です！</li>
 </ol>
+<p><img src="../img/github-basics-9.png" alt="github-basics-9.png">
+3. 以下の画面が表示されればリモートリポジトリの作成は完了です！
+<img src="../img/github-basics-10.png" alt="github-basics-10.png"></p>
 <p><strong>Point: チームメンバーのみにリモートリポジトリを共有したい場合</strong><br>
 <code>Private</code> を選択することで他の GitHub ユーザーはアクセスできなくなりますが、チームメンバーにはアクセスできるようにしたいですよね。<br>
 このようなときは GitHub のリポジトリへ招待する機能を使いましょう。</p>
@@ -141,12 +151,18 @@ HTTPS通信でファイルをアップロードするには<strong>アクセス�
 次の手順に沿って作成してみましょう。</p>
 <ol>
 <li>画面右上のアイコンをクリックしてしてメニューを表示します。</li>
-<li>メニュー内の「Settings」を選択します。</li>
-<li>「Settings」画面のメニュー内の「Developer settings」を選択する。</li>
-<li>「Developer settings」画面のメニュー内の「Personal accesstoken」を選択する。</li>
-<li>「Personal accesstoken」画面内の「Generate new token」ボタンをクリックします。</li>
-<li>Note に任意の文字列を入力し、画面最下部にある「Generate token」ボタンをクリックします。</li>
-<li>発行されたアクセストークンをコピーしましょう。</li>
+<li>メニュー内の「Settings」を選択します。<br>
+<img src="../img/github-basics-11.png" alt="github-basics-11.png"></li>
+<li>「Settings」画面のメニュー内の「Developer settings」を選択する。
+<img src="../img/github-basics-12.png" alt="github-basics-12.png"></li>
+<li>「Developer settings」画面のメニュー内の「Personal accesstoken」を選択する。
+<img src="../img/github-basics-13.png" alt="github-basics-13.png"></li>
+<li>「Personal accesstoken」画面内の「Generate new token」ボタンをクリックします。
+<img src="../img/github-basics-14.png" alt="github-basics-14.png"></li>
+<li>Note に任意の文字列を入力し、画面最下部にある「Generate token」ボタンをクリックします。
+<img src="../img/github-basics-15.png" alt="github-basics-15.png"></li>
+<li>発行されたアクセストークンをコピーしましょう。
+<img src="../img/github-basics-16.png" alt="github-basics-16.png"></li>
 <li>ファイルをプッシュする際にコピーしたアクセストークンをペーストして実行しましょう。</li>
 </ol>
 <p><strong>SSH通信の場合</strong><br>
@@ -242,9 +258,9 @@ Git X EDU
           <input data-search-input id="search-by" type="search" placeholder="Search...">
           <span data-search-clear=""><i class="fas fa-times"></i></span>
         </div>
-        <script src="/git-education/js/lunr.min.js?1647546261"></script>
-        <script src="/git-education/js/auto-complete.js?1647546261"></script>
-        <script src="/git-education/js/search.js?1647546261"></script>
+        <script src="/git-education/js/lunr.min.js?1647549584"></script>
+        <script src="/git-education/js/auto-complete.js?1647549584"></script>
+        <script src="/git-education/js/search.js?1647549584"></script>
       </div>
       <div id="homelinks" class="default-animation">
         <ul>
@@ -307,16 +323,16 @@ Git X EDU
         </div>
       </div>
     </aside>
-    <script src="/git-education/js/clipboard.min.js?1647546261"></script>
-    <script src="/git-education/js/perfect-scrollbar.min.js?1647546261"></script>
-    <script src="/git-education/js/jquery.svg.pan.zoom.js?1647546261"></script>
-    <script src="/git-education/js/featherlight.min.js?1647546261"></script>
-    <script src="/git-education/js/mermaid.min.js?1647546261"></script>
+    <script src="/git-education/js/clipboard.min.js?1647549584"></script>
+    <script src="/git-education/js/perfect-scrollbar.min.js?1647549584"></script>
+    <script src="/git-education/js/jquery.svg.pan.zoom.js?1647549584"></script>
+    <script src="/git-education/js/featherlight.min.js?1647549584"></script>
+    <script src="/git-education/js/mermaid.min.js?1647549584"></script>
     <script>
       if (typeof mermaid != 'undefined' && typeof mermaid.mermaidAPI != 'undefined') {
         mermaid.mermaidAPI.initialize( Object.assign( { "securityLevel": "antiscript" }, JSON.parse("{ \"startOnLoad\": true }"), { startOnLoad: false } ) );
       }
     </script>
-    <script src="/git-education/js/theme.js?1647546261"></script>
+    <script src="/git-education/js/theme.js?1647549584"></script>
   </body>
 </html>
