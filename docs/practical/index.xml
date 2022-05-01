@@ -56,7 +56,10 @@ git fetch origin [リモートリポジトリのブランチ名] git diff [ロ�
       <link>https://a-nakamura1015.github.io/git-education/practical/summary/</link>
       <pubDate>Wed, 16 Mar 2022 08:06:22 +0900</pubDate>
       <guid>https://a-nakamura1015.github.io/git-education/practical/summary/</guid>
-      <description></description>
+      <description>これで Git の実践編は終了です。
+実際のプロジェクトでも Git でのトラブルは度々起こると思われます。
+しかし、「壊してしまった。。。」となっても元に戻せるのが Git の良いところです。
+トラブルの原因を冷静に見極めて、正しい対処するように心がけましょう！</description>
     </item>
   </channel>
 </rss>

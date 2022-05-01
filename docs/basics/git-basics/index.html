@@ -7,17 +7,17 @@
     <meta name="generator" content="Relearn 3.0.4&#43;tip">
     <meta name="description" content="">
     <title>Git の基本 :: Git X Edu</title>
-    <link href="/git-education/css/nucleus.css?1647553536" rel="stylesheet">
-    <link href="/git-education/css/fontawesome-all.min.css?1647553536" rel="stylesheet">
-    <link href="/git-education/css/featherlight.min.css?1647553536" rel="stylesheet">
-    <link href="/git-education/css/perfect-scrollbar.min.css?1647553536" rel="stylesheet">
-    <link href="/git-education/css/auto-complete.css?1647553536" rel="stylesheet">
-    <link href="/git-education/css/theme.css?1647553536" rel="stylesheet">
-    <link id="variant-style" href="/git-education/css/theme-mine.css?1647553536" rel="stylesheet">
-    <link href="/git-education/css/variant.css?1647553536" rel="stylesheet">
-    <link href="/git-education/css/theme-relearn-light.css?1647553536" rel="stylesheet" media="print">
-    <link href="/git-education/css/print.css?1647553536" rel="stylesheet" media="print">
-    <script src="/git-education/js/variant.js?1647553536"></script>
+    <link href="/git-education/css/nucleus.css?1651427010" rel="stylesheet">
+    <link href="/git-education/css/fontawesome-all.min.css?1651427010" rel="stylesheet">
+    <link href="/git-education/css/featherlight.min.css?1651427010" rel="stylesheet">
+    <link href="/git-education/css/perfect-scrollbar.min.css?1651427010" rel="stylesheet">
+    <link href="/git-education/css/auto-complete.css?1651427010" rel="stylesheet">
+    <link href="/git-education/css/theme.css?1651427010" rel="stylesheet">
+    <link id="variant-style" href="/git-education/css/theme-mine.css?1651427010" rel="stylesheet">
+    <link href="/git-education/css/variant.css?1651427010" rel="stylesheet">
+    <link href="/git-education/css/theme-relearn-light.css?1651427010" rel="stylesheet" media="print">
+    <link href="/git-education/css/print.css?1651427010" rel="stylesheet" media="print">
+    <script src="/git-education/js/variant.js?1651427010"></script>
     <script>
       // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
       // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
@@ -33,7 +33,7 @@
       var baseUriFull='https:\/\/a-nakamura1015.github.io\/git-education/';
       variants.init( [ 'mine' ] );
     </script>
-    <script src="/git-education/js/jquery.min.js?1647553536"></script>
+    <script src="/git-education/js/jquery.min.js?1651427010"></script>
   </head>
   <body class="mobile-support" data-url="/git-education/basics/git-basics/">
     <div id="body" class="default-animation">
@@ -65,6 +65,7 @@
   <ul>
     <li><a href="#git-の基本">Git の基本</a>
       <ul>
+        <li><a href="#リポジトリとは">リポジトリとは</a></li>
         <li><a href="#バージョン管理システムとは">バージョン管理システムとは</a></li>
         <li><a href="#git-とは">Git とは</a></li>
         <li><a href="#git-を始めてみよう">Git を始めてみよう</a></li>
@@ -83,45 +84,97 @@
           <h1>Git の基本</h1>
 
 <h2 id="git-の基本">Git の基本</h2>
-<p>Git は開発現場では不可欠なバージョン管理システムのサービスです。<br>
-本チャプターでは Git の基本を実際にコマンドを実行していきながら学んでいきます。<br>
-まずは、バージョン管理システムの概要から理解していきましょう。</p>
+<p>皆さんがこれから学ぶのは Git は、ファイルの変更履歴を記録できる<strong>バージョン管理システム</strong>です。 <br>
+以下は Git を活用した場合のメリットの一部です。このように Git を活用するとより効率的に開発を進めることができます。</p>
+<ul>
+<li>編集したファイルを過去の状態に戻すことができる</li>
+<li>複数人で同じファイルを同時に編集することができる</li>
+<li>編集の意図をコメントして残すことができる</li>
+</ul>
+<p>本チャプターでは Git の基本を実際にコマンドを実行していきながら学んでいきます。<br>
+まずは Git のことを知る前に、事前知識としてリポジトリとバージョン管理システムの概要から理解していきましょう。</p>
+<h3 id="リポジトリとは">リポジトリとは</h3>
+<p>突然ですが、パソコンで作成したファイルはファイルはどこに保存されているかを意識していますか？<br>
+後で探しやすいようにデスクトップに格納する場合もあれば、書類であればドキュメントフォルダに格納することもあるでしょう。<br>
+しかし、そこに格納されているのはファイル本体だけで、ファイルの変更履歴は残っていません。<br>
+一方でファイルだけでなく、そのファイルの変更履歴を記録することができるのが<strong>リポジトリ</strong>です。<br>
+リポジトリは通常のディレクトリ（フォルダ）とは異なり変更履歴を記録しているため、過去の状態を確認したり、過去の状態に戻すことができます。<br>
+リポジトリの作り方は後ほど解説しますが、この後リポジトリという用語が何度も登場するので用語の意味をしっかり覚えておきましょう。</p>
+
+<div class="box notices note">
+    <div class="box-label"><i class="fas fa-exclamation-circle fa-fw"></i> Note</div>
+    <div class="box-content">
+<p>リポジトリ：ファイルやその変更履歴の格納場所</p>
+
+    </div>
+</div>
 <h3 id="バージョン管理システムとは">バージョン管理システムとは</h3>
-<p>ソースコードのようなファイルの変更履歴を管理するシステムを <strong>バージョン管理システム</strong> と呼びます。<br>
-Git はこのバージョン管理システムに分類されます。<br>
-ファイルに対する追加・変更・削除の履歴を管理することで、過去の変更箇所を確認したり、任意のバージョンに戻すことができます。</p>
+<p><strong>バージョン管理システム</strong>はその名の通り、ファイルの変更履歴（バージョン）を管理するシステムです。<br>
+チームでクラウド（ネットワーク）上にあるリポジトリを共有することで手分けをしながら作業ができるようになります。<br>
+ファイルに対して誰が、いつ、どのような変更をしたのかを記録することができます。
+この記録は先述したリポジトリに蓄積されていきます。<br>
+また、変更内容の差分を確認したり、任意のバージョンに戻すことができます。</p>
+
+<div class="box notices note">
+    <div class="box-label"><i class="fas fa-exclamation-circle fa-fw"></i> Note</div>
+    <div class="box-content">
+<p>バージョン管理システム：ファイルに対して「誰が」「いつ」「どのような変更をしたか」を記録し、変更の差分や変更前の状態に復元することができるシステム</p>
+
+    </div>
+</div>
 <p>バージョン管理システムには <strong>分散型</strong> と <strong>集中型</strong> の２種類があります。<br>
 Git は分散型に分類されるのですが、それぞれの違いについて確認していきましょう。</p>
 <h4 id="集中型バージョン管理システム">集中型バージョン管理システム</h4>
-<p>集中型はリポジトリはリモート環境に１つのみ存在します。
-チームメンバーは各自対象のファイルをリモート環境からローカル環境に取得して編集します。</p>
-<h4 id="分散型バージョン管理システム">分散型バージョン管理システム</h4>
-<p>リポジトリはリモート環境に１つだけではなく、各メンバーのローカル環境にも存在します。
-各メンバーは自身のローカル環境のリポジトリに対して、ファイルの編集内容を記録していき、
-最終的にはローカル環境のリポジトリとリモート環境のリポジトリを統合（マージ）します。</p>
-<h4 id="分散型のメリット">分散型のメリット</h4>
+<p>集中型はリポジトリはクラウド（ネットワーク）に１つのみ存在し、チームメンバーはこのリポジトリに接続して作業を行います。
+仕組みは至ってシンプルで、チームメンバーは各自必要なファイルのみをダウンロードして編集します。<br>
+編集を終えたら、その編集履歴をクラウド（ネットワーク）上にあるリポジトリにアップロードするという流れになります。<br>
+<img src="../img/git-basics-1.png" alt="git-basics-1.png">
+分散型と異なるのは変更を加えた場合はその都度アップロードをする必要があることです。<br>
+そのため、集中型には以下のデメリットがあります。</p>
 <ol>
-<li>自身の編集（コミット）が他のメンバーへ影響を与えない。
-⇨ 他のメンバーも同時に作業を進められるため作業効率を上げることができます。</li>
-<li>ローカルリポジトリでテストをしてからリモートリポジトリで共有できる。
-⇨ リモートリポジトリに入れたのちにテストをしてバグが発生した場合、他のメンバーにも影響が生じてしまいます。</li>
+<li>作業が完了していない状態（エラーが発生する状態）でアップロードをすると、チームメンバーに悪影響を与える可能性があります。</li>
+<li>必要なファイルのみをダウンロードしているため、アップロードしてみないとテストができない。</li>
 </ol>
+<h4 id="分散型バージョン管理システム">分散型バージョン管理システム</h4>
+<p>リポジトリはクラウド（ネットワーク）上に１つだけではなく、各チームメンバーのデバイス内にも存在します。
+各メンバーは自身のデバイス内のリポジトリに対して、ファイルの編集内容を記録していき、
+最終的にはデバイス内リポジトリとクラウド（ネットワーク）上のリポジトリを統合（マージ）します。<br>
+<img src="../img/git-basics-2.png" alt="git-basics-2.png">
+そのため、分散型には以下のメリットがあります。</p>
+<ol>
+<li>自身の編集（コミット）が他のメンバーへ影響を与えない。</li>
+<li>ローカルリポジトリでテストをしてからリモートリポジトリで共有できる。</li>
+</ol>
+<p>また、このリポジトリはローカルリポジトリとリモートリポジトリの2種類に分けられます。<br>
+ローカルリポジトリは操作しているデバイスの中にあるリポジトリのことを指します。<br>
+自身のみがアクセスして編集を行うためのリポジトリで、基本的にこのローカルリポジトリでファイルを編集します。<br>
+一方のリモートリポジトリはその名の通り操作しているデバイスの中にはなくクラウド（ネットワーク）上にあるリポジトリで、複数のチームメンバーと共有することができます。<br>
+個人の作業をローカルリポジトリで行い、その作業で作成したファイルをリモートリポジトリにアップロードすることで他のチームメンバーと共有できる仕組みになっています。<br>
+アップロードしない限りチームメンバーにファイルを共有することができませんが、ローカルリポジトリでエラーが発生したとしてもアップロードしない限りチームメンバーに影響与えることはありません。</p>
+
+<div class="box notices note">
+    <div class="box-label"><i class="fas fa-exclamation-circle fa-fw"></i> Note</div>
+    <div class="box-content">
+<p>ローカルリポジトリ： 操作しているデバイスの中にある自分専用のリポジトリ<br>
+リモートリポジトリ：クラウド（ネットワーク）上にある共有のリポジトリ</p>
+
+    </div>
+</div>
+<p>ちなみに、Git はこの分類型バージョン管理システムに該当します。<br>
+必要となる事前知識はここまでです。ここからは本格的に Git を学んでいきましょう。</p>
 <h3 id="git-とは">Git とは</h3>
-<p>Git を触っていると以下のようなハッシュ値をよく見かけると思います。<br>
+<p>Git は分散型バージョン管理システムでファイルを管理するシステムの１つです。<br>
+この Git を活用することでリポジトリを作り、ファイルの履歴管理をすることができます。<br>
+Git の使い方についてはこれから実際に試しながら学んでいきましょう。</p>
+<p>また、Git を触っていると以下のようなハッシュ値をよく見かけると思います。<br>
 以下は後々登場する Git のコミットログです。</p>
 <pre tabindex="0"><code>commit 5c670db6fc4a8d109a5e2724c421cd8105c2598f (HEAD -&gt; master)
 </code></pre><p>実は Git により自身の編集（コミット）ごとに重複することのないハッシュ値が割り当てられています。
 このハッシュ値はSHA-1ハッシュと呼ばれており、16進数の文字（0-9とa-f）で構成された40文字の文字列です。
 ファイルの内容もしくは Git 内のディレクトリ構造を元に計算されます。</p>
 <p>これは Git が内部でもっているデータベースの中で管理するために割り当てられているのです。<br>
-そのため、Gitは<code>このファイルはいつどのように変更したのか</code>という観点は意識しておらず、
-<code>この編集でどのファイルをどのように変更したのか</code>という観点で管理をしています。</p>
-<p>Git のできること</p>
-<ul>
-<li>ファイルの変更履歴を管理できる</li>
-<li>ファイルを過去の状態に戻せる</li>
-<li>ファイルをチームで共有することできる</li>
-</ul>
+そのため、Git はこのファイルはいつどのように変更したのかという観点は意識しておらず、
+<strong>この編集でどのファイルをどのように変更したのか</strong>という観点で管理をしています。</p>
 <h3 id="git-を始めてみよう">Git を始めてみよう</h3>
 <p>Git の公式サイトからインストーラーをダウンロードすることができます。<br>
 以下のURLからインスト＝ラーをダウンロードして Git をインストールしましょう。<br>
@@ -131,6 +184,18 @@ Git は分散型に分類されるのですが、それぞれの違いについ�
 以下のコマンドを実行して、<strong>git version X.X.X</strong> (※) がターミナル上に表示されればインストールは完了できています！<br>
 ※Xの部分には数値が表示されます。</p>
 <pre tabindex="0"><code>git --version
+</code></pre><p>Git のインストールができていることが確認できたら、続いて初期設定を進めていきましょう。<br>
+Git は「誰が」が残した履歴なのかを記録していくため、Git のユーザー情報（ユーザー名とメールアドレス）を登録する必要があります。</p>
+<p>ユーザー名は以下のコマンドで登録することができます。<br>
+※“XXXXXX”の箇所は任意のアカウント名を指定してください。後ほど設定する GitHub のアカウント名と同じである必要があります。</p>
+<pre tabindex="0"><code>git config --global user.name “XXXXXX”
+</code></pre><p>メールアドレスは以下のコマンドで登録することができます。<br>
+※“XXXXX@XXXXXX”の箇所は任意のメールアドレスを指定してください。後ほど設定する GitHub のアカウントのメールアドレスと同じである必要があります。</p>
+<pre tabindex="0"><code>git config --global user.email &#34;XXXXX@XXXXXX&#34;
+</code></pre><p>ユーザーの情報が正しく設定されているかは以下のコマンドで確認することができます。<br>
+コマンド実行後に設定したアカウント名とメールアドレスが表示されればOKです。</p>
+<pre tabindex="0"><code>git config user.name
+git config user.email
 </code></pre>          <footer class="footline">
           </footer>
         </div>
@@ -158,9 +223,9 @@ Git X EDU
           <input data-search-input id="search-by" type="search" placeholder="Search...">
           <span data-search-clear=""><i class="fas fa-times"></i></span>
         </div>
-        <script src="/git-education/js/lunr.min.js?1647553536"></script>
-        <script src="/git-education/js/auto-complete.js?1647553536"></script>
-        <script src="/git-education/js/search.js?1647553536"></script>
+        <script src="/git-education/js/lunr.min.js?1651427010"></script>
+        <script src="/git-education/js/auto-complete.js?1651427010"></script>
+        <script src="/git-education/js/search.js?1651427010"></script>
       </div>
       <div id="homelinks" class="default-animation">
         <ul>
@@ -223,16 +288,16 @@ Git X EDU
         </div>
       </div>
     </aside>
-    <script src="/git-education/js/clipboard.min.js?1647553536"></script>
-    <script src="/git-education/js/perfect-scrollbar.min.js?1647553536"></script>
-    <script src="/git-education/js/jquery.svg.pan.zoom.js?1647553536"></script>
-    <script src="/git-education/js/featherlight.min.js?1647553536"></script>
-    <script src="/git-education/js/mermaid.min.js?1647553536"></script>
+    <script src="/git-education/js/clipboard.min.js?1651427010"></script>
+    <script src="/git-education/js/perfect-scrollbar.min.js?1651427010"></script>
+    <script src="/git-education/js/jquery.svg.pan.zoom.js?1651427010"></script>
+    <script src="/git-education/js/featherlight.min.js?1651427010"></script>
+    <script src="/git-education/js/mermaid.min.js?1651427010"></script>
     <script>
       if (typeof mermaid != 'undefined' && typeof mermaid.mermaidAPI != 'undefined') {
         mermaid.mermaidAPI.initialize( Object.assign( { "securityLevel": "antiscript" }, JSON.parse("{ \"startOnLoad\": true }"), { startOnLoad: false } ) );
       }
     </script>
-    <script src="/git-education/js/theme.js?1647553536"></script>
+    <script src="/git-education/js/theme.js?1651427010"></script>
   </body>
 </html>
