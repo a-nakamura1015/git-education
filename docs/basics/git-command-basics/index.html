@@ -7,17 +7,17 @@
     <meta name="generator" content="Relearn 3.0.4&#43;tip">
     <meta name="description" content="">
     <title>Git の基本コマンド :: Git X Edu</title>
-    <link href="/git-education/css/nucleus.css?1651427010" rel="stylesheet">
-    <link href="/git-education/css/fontawesome-all.min.css?1651427010" rel="stylesheet">
-    <link href="/git-education/css/featherlight.min.css?1651427010" rel="stylesheet">
-    <link href="/git-education/css/perfect-scrollbar.min.css?1651427010" rel="stylesheet">
-    <link href="/git-education/css/auto-complete.css?1651427010" rel="stylesheet">
-    <link href="/git-education/css/theme.css?1651427010" rel="stylesheet">
-    <link id="variant-style" href="/git-education/css/theme-mine.css?1651427010" rel="stylesheet">
-    <link href="/git-education/css/variant.css?1651427010" rel="stylesheet">
-    <link href="/git-education/css/theme-relearn-light.css?1651427010" rel="stylesheet" media="print">
-    <link href="/git-education/css/print.css?1651427010" rel="stylesheet" media="print">
-    <script src="/git-education/js/variant.js?1651427010"></script>
+    <link href="/git-education/css/nucleus.css?1651767815" rel="stylesheet">
+    <link href="/git-education/css/fontawesome-all.min.css?1651767815" rel="stylesheet">
+    <link href="/git-education/css/featherlight.min.css?1651767815" rel="stylesheet">
+    <link href="/git-education/css/perfect-scrollbar.min.css?1651767815" rel="stylesheet">
+    <link href="/git-education/css/auto-complete.css?1651767815" rel="stylesheet">
+    <link href="/git-education/css/theme.css?1651767815" rel="stylesheet">
+    <link id="variant-style" href="/git-education/css/theme-mine.css?1651767815" rel="stylesheet">
+    <link href="/git-education/css/variant.css?1651767815" rel="stylesheet">
+    <link href="/git-education/css/theme-relearn-light.css?1651767815" rel="stylesheet" media="print">
+    <link href="/git-education/css/print.css?1651767815" rel="stylesheet" media="print">
+    <script src="/git-education/js/variant.js?1651767815"></script>
     <script>
       // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
       // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
@@ -33,7 +33,7 @@
       var baseUriFull='https:\/\/a-nakamura1015.github.io\/git-education/';
       variants.init( [ 'mine' ] );
     </script>
-    <script src="/git-education/js/jquery.min.js?1651427010"></script>
+    <script src="/git-education/js/jquery.min.js?1651767815"></script>
   </head>
   <body class="mobile-support" data-url="/git-education/basics/git-command-basics/">
     <div id="body" class="default-animation">
@@ -67,10 +67,10 @@
       <ul>
         <li><a href="#既存ディレクトリを-git-管理する">既存ディレクトリを Git 管理する</a></li>
         <li><a href="#リモートリポジトリをクローンする">リモートリポジトリをクローンする</a></li>
-        <li><a href="#既存ディレクトリにリモートリポジトリを追加する">既存ディレクトリにリモートリポジトリを追加する</a></li>
+        <li><a href="#ローカルリポジトリにリモートリポジトリを追加する">ローカルリポジトリにリモートリポジトリを追加する</a></li>
         <li><a href="#現在のステータスを確認する">現在のステータスを確認する</a></li>
-        <li><a href="#ファイルの状態の種類">ファイルの状態の種類</a></li>
-        <li><a href="#変更内容をインデックスに追加する">変更内容をインデックスに追加する</a></li>
+        <li><a href="#３つのエリア">３つのエリア</a></li>
+        <li><a href="#変更内容をステージングエリアに追加する">変更内容をステージングエリアに追加する</a></li>
         <li><a href="#変更内容をコミットする">変更内容をコミットする</a></li>
         <li><a href="#コミットログを確認する">コミットログを確認する</a></li>
         <li><a href="#変更内容をリモートリポジトリに反映する">変更内容をリモートリポジトリに反映する</a></li>
@@ -92,7 +92,7 @@
 <h2 id="git-の基本コマンド">Git の基本コマンド</h2>
 <p>Git の操作方法は GUI と CUI に分けられます。<br>
 Git の GUI を利用すれば、マウスを使って画面上のアイコンやウィンドウを使用すると簡単に Git を操作することができます。<br>
-しかし、以下の理由から CUI で学習をすることをお勧めします。</p>
+しかし、以下の理由からコマンドで Git を操作する CUI で学習をすることをお勧めします。</p>
 <ul>
 <li>つまづいたとき、実行したコマンドと表示されたエラーを元にネットで検索をすることで原因が特定しやすい</li>
 <li>Git に関する記事は GUI よりも CUI の方が圧倒的に多い</li>
@@ -106,11 +106,11 @@ Git で管理されているディレクトリを作成する方法は <code>git
 <hr>
 <h3 id="既存ディレクトリを-git-管理する">既存ディレクトリを Git 管理する</h3>
 <p><code>git init</code> コマンドにより既に作成済みのディレクトリ（フォルダ）をローカルの Git リポジトリにすることができます。<br>
-同コマンドを実行すると、指定したディレクトリに <strong>「.git」</strong> ディレクトリが作成されます。<br>
+同コマンドを実行すると、指定したディレクトリに <strong>「.git」</strong> という隠しディレクトリが作成されます。<br>
 この「.git」ディレクトリが配下にあるディレクトリは Git リポジトリとして扱われます。</p>
 <pre tabindex="0"><code>git init [Gitリポジトリにしたいディレクトリのパス（省略可）]
 </code></pre><p>[Gitリポジトリにしたいディレクトリのパス]は省略することもでき、その場合はカレントディレクトリ（cdコマンド等で移動した現在のディレクトリ）が Git リポジトリとなります。</p>
-<p><strong>DEMO</strong>
+<p><strong>DEMO</strong><br>
 今回はデスクトップ上に git-tutorial ディレクトリを作成して、作成した同ディレクトリを Git リポジトリにしてみましょう。</p>
 <pre tabindex="0"><code>cd /Users/UserName/Desktop
 mkdir git-tutorial
@@ -120,7 +120,8 @@ git init git-tutorial
 git-tutorial フォルダを Git リポジトリにすることができたら、git-tutorial フォルダの配下に「.git」ディレクトリがあることを確認しましょう。</p>
 <pre tabindex="0"><code>cd git-tutorial
 ls -al
-</code></pre><hr>
+</code></pre><p>これで Git リポジトリを作ることができました。この <strong>「.git」</strong> の中に過去のファイル・ディレクトリの状態が蓄積されていきます。</p>
+<hr>
 <h3 id="リモートリポジトリをクローンする">リモートリポジトリをクローンする</h3>
 <p>GitHubなどに存在するリモートリポジトリをローカルにクローン（コピー）して開発を始めることもできます。<br>
 実際の開発ではチームで１つのリポジトリを共有して利用するため、チームメンバーのひとりがリモートリポジトリを作成して、<br>
@@ -133,10 +134,11 @@ ls -al
 今回は GitHub 上にある <a href="https://github.com/a-nakamura1015/git_tutorial.git">git_tutorial</a> リポジトリをローカルのデスクトップにクローンしてみましょう。</p>
 <pre tabindex="0"><code>cd /Users/UserName/Desktop
 git clone https://github.com/a-nakamura1015/git_tutorial.git
-</code></pre><p>コマンド実行御にデスクトップ上に git_tutorial リポジトリがあることを確認してみましょう。</p>
+</code></pre><p>コマンド実行後にデスクトップ上に git_tutorial ディレクトリがあることと、その配下に <strong>「.git」</strong> があることを確認してみましょう。<br>
+そのため、クローンするだけでそのディレクトリ配下で Git の操作をすることができます。</p>
 <hr>
-<h3 id="既存ディレクトリにリモートリポジトリを追加する">既存ディレクトリにリモートリポジトリを追加する</h3>
-<p>ローカルのリポジトリとリモートリポジトリを紐づけるコマンドもあるので紹介します。<br>
+<h3 id="ローカルリポジトリにリモートリポジトリを追加する">ローカルリポジトリにリモートリポジトリを追加する</h3>
+<p>ローカルリポジトリとリモートリポジトリを紐づけるコマンドもあるので紹介します。<br>
 <code>git remote add</code>コマンドでリモートリポジトリの名前（<strong>origin</strong>）とリモートリポジトリのURLを設定することで実現できます。</p>
 <pre tabindex="0"><code>git remote add [リモートリポジトリの名前] [リモートリポジトリのURL]
 </code></pre><p>リモートリポジトリにはデフォルトで<strong>origin</strong>という名前がついているので、この名前とリモートリポジトリのURLを紐付けるのが一般的です。<br>
@@ -144,12 +146,14 @@ git clone https://github.com/a-nakamura1015/git_tutorial.git
 <pre tabindex="0"><code>git remote -v
 </code></pre><p>一方で一度紐づけたリモートリポジトリとの紐付けを解除することもできます。</p>
 <pre tabindex="0"><code>git remote rm [リモートリポジトリの名前]
-</code></pre><p><strong>DEMO</strong>
+</code></pre><p><strong>DEMO</strong><br>
 今回はデスクトップ上に remote ディレクトリを作成して、<a href="https://github.com/a-nakamura1015/git_tutorial.git">git_tutorial</a> リポジトリをリモートリポジトリとなるように設定してみましょう。
 まずは以下のコマンドでデスクトップ上に remote ディレクトリを作成して、remote ディレクトリをカレントディレクトリにしましょう。</p>
 <pre tabindex="0"><code>cd /Users/UserName/Desktop
 mkdir remote
 cd remote
+</code></pre><p>remote ディレクトリに移動ができたら、<code>git init</code>で remote ディレクトリを Git リポジトリにしましょう。</p>
+<pre tabindex="0"><code>git init
 </code></pre><p>続いて、以下のコマンドでリモートリポジトリを紐付けましょう。</p>
 <pre tabindex="0"><code>git remote add origin https://github.com/a-nakamura1015/git_tutorial.git
 </code></pre><p>以下のコマンドで火もづいているリモートリポジトリを確認してみましょう。</p>
@@ -161,7 +165,7 @@ origin	/Users/UserName/Desktop/remote/ (push)
 先ほどリモートリポジトリのURLを設定した際に指定したリモートリポジトリの名前は <strong>origin</strong> なので以下のコマンドを実行しましょう。</p>
 <pre tabindex="0"><code>git remote rm origin
 </code></pre><p>これでリモートリポジトリの紐付けがなくなりました。試しに<code>git remote -v</code>を実行してみても結果は何も表示されません。</p>
-<p>ここまではディレクトリを Git リポジトリにするコマンドを紹介してきました。<br>
+<p>ここまではローカルに Git リポジトリを作成するコマンドを紹介してきました。<br>
 ここからは本命のファイルの変更履歴を残す・確認するコマンドを紹介しますが、
 「既存ディレクトリを Git 管理する」で作成した git-tutorial ディレクトリでコマンドの動作を確認していきます。<br>
 以下のコマンドを実行した上で次に進みましょう。</p>
@@ -169,7 +173,7 @@ origin	/Users/UserName/Desktop/remote/ (push)
 </code></pre><hr>
 <h3 id="現在のステータスを確認する">現在のステータスを確認する</h3>
 <p>まずはGitリポジトリ内の状態を確認する <code>git status</code> コマンドを紹介します。<br>
-後ほどファイルの状態をご紹介しますが、編集したファイルがどのような状態であるかを確認することができるコマンドです。</p>
+後ほどファイルの状態をご紹介しますが、<strong>編集したファイルがどのような状態であるかを確認することができる</strong> コマンドです。</p>
 <pre tabindex="0"><code>git status
 </code></pre><p>git-tutorial ディレクトリでこのコマンドを実行すると、以下の内容が表示されます。</p>
 <pre tabindex="0"><code>On branch master
@@ -177,34 +181,45 @@ origin	/Users/UserName/Desktop/remote/ (push)
 No commits yet
 
 nothing to commit (create/copy files and use &#34;git add&#34; to track)
-</code></pre><p><code>On branch master</code> はカレントブランチが master であることを意味します。（ブランチは応用編で解説します。）
-<code>No commits yet</code>はコミットがまだないことを意味します。<br>
-コミットは Git が管理しているリポジトリ内のログに変更履歴を残す操作のことを指します。<br>
+</code></pre><p><code>On branch master</code> はカレントブランチ(※1)が master であることを意味します。
+<code>No commits yet</code>はコミット(※2)がまだないことを意味します。<br>
+※1 ブランチは、同じプロジェクトで同時変更で作業を進めるための仕組みです。ブランチは応用編で解説します。
+※2 コミットは Git が管理しているリポジトリ内のログに変更履歴を残す操作のことです。 本編で解説します。
 まだコミットをしていないので画面上には<code>No commits yet</code>と表示されています。</p>
 <p>この後いくつかの Git コマンドを実行してステータスを変えていくので、その際にこのコマンドで状態を確認していきましょう。</p>
 <hr>
-<h3 id="ファイルの状態の種類">ファイルの状態の種類</h3>
-<p>ファイルの状態は３種類があり、ステージ済 → 修正済 → コミット済の順に推移していきます。
-ファイルの変更履歴は Git で管理されていますが、ファイルを編集することで自動的に Git に残るわけではありません。<br>
-この３種類の状態を経て、Git に変更履歴を残すことができるのです。</p>
+<h3 id="３つのエリア">３つのエリア</h3>
+<p>Git でファイルの変更履歴を登録する過程には３つのエリアがあります。<br>
+Git の操作の流れを理解をする上でとても重要な観点ですので、しっかり押さえておきましょう。<br>
+Git はファイルを変更してもその内容がローカルリポジトリに反映されることはありません。<br>
+変更したファイルを指定して、その変更内容をまとめて変更履歴に残すという流れになります。<br>
+わかりやすく言い換えると、変更内容を記録に残したいファイルを撮影台（ステージングエリア）にあげて、<br>
+撮影台に乗っている記録のキャプチャショットを撮るというイメージです。</p>
 <ol>
-<li>ステージ済：ファイルが編集された状態のこと。（<code>git add</code> コマンドを実行する前の状態）</li>
-<li>修正済：ファイルがコミットの対象になっている状態のこと。（<code>git commit</code> コマンドを実行する前の状態）</li>
-<li>コミット済：Git にファイルの変更履歴が残っている状態のこと。</li>
+<li>作業ディレクトリ<br>
+ファイルの作成、更新、削除といった作業を行うエリアです。Gitリポジトリ内で何らかの変化があると Git はそれを検知してくれます。</li>
+<li>ステージングエリア<br>
+Git が検知した変化のうち、Gitの変更履歴に残したいものが置かれているエリアです。<br>
+<code>git add</code>コマンドで記録したい変更履歴を撮影台（ステージングエリア）に上げることができます。</li>
+<li>ローカルリポジトリ<br>
+ファイルの変更履歴が蓄積されているエリアです。<br>
+<code>git commit</code>コマンドで撮影台に乗っている乗っている残したい記録のキャプチャショットを撮ることができます。</li>
 </ol>
+<p><img src="../img/git-command-basics-1.png" alt="git-command-basics-1.png"></p>
+<p>イメージだけではなかなか理解には至らないと思うので、実際に Git を操作して確認をしていきましょう。</p>
 <hr>
-<h3 id="変更内容をインデックスに追加する">変更内容をインデックスに追加する</h3>
-<p>新規追加・変更したファイルは <code>git add</code> コマンドでステージ済の状態にすることができます。<br>
-コマンドの後ろにはステージ済にしたいファイルのパスを指定します。</p>
+<h3 id="変更内容をステージングエリアに追加する">変更内容をステージングエリアに追加する</h3>
+<p>新規追加・変更したファイルは <code>git add</code> コマンドでステージングエリアに追加することができます。<br>
+コマンドの後ろにはステージングエリアに追加したいファイルのパスを指定します。</p>
 <pre tabindex="0"><code>git add [編集したファイルのパス]
-</code></pre><p><strong>DEMO</strong>
-今回は sample.txt を新規で作成して、同ファイルをステージ済の状態にしてみましょう。
+</code></pre><p><strong>DEMO</strong><br>
+今回は sample.txt を新規で作成して、同ファイルをステージングエリアに追加してみましょう。
 ①ファイルを新規で作成してみよう
 まずは以下のコマンドで sample.txt を作成します。</p>
 <pre tabindex="0"><code>touch sample.txt
-</code></pre><p>続いて、作成したファイルに hello を追記します。</p>
+</code></pre><p>続いて、作成したファイルに hello と書き込みます。</p>
 <pre tabindex="0"><code>echo hello &gt; sample.txt
-</code></pre><p><code>cat</code> コマンドで sample.txt に hello が追記できているかを確認してみましょう。</p>
+</code></pre><p><code>cat</code> コマンドで sample.txt に hello と書き込みができているかを確認してみましょう。</p>
 <pre tabindex="0"><code>cat sample.txt
 </code></pre><p>ここで一旦ステータスを確認してみましょう。</p>
 <pre tabindex="0"><code>git status
@@ -221,6 +236,7 @@ nothing added to commit but untracked files present (use &#34;git add&#34; to tr
 </code></pre><p>着目する点は <code>Untracked files</code> です。<br>
 これはまだ Git の管理下に置かれていないファイルがあることを意味します。<br>
 <code>Untracked files</code>の後ろに sample.txt があるので、このファイルがまだ Git の管理下に置かれていないということです。<br>
+<img src="../img/git-command-basics-2.png" alt="git-command-basics-2.png">
 Git の管理下に置かれるようにするには <code>git add</code> コマンドを実行する必要があります。</p>
 <p>②ファイルのステータスを修正済にする
 それでは、<code>git add</code> コマンドを実行してみましょう。</p>
@@ -233,23 +249,33 @@ No commits yet
 Changes to be committed:
   (use &#34;git rm --cached &lt;file&gt;...&#34; to unstage)
 	new file:   sample.txt
-</code></pre><p><code>git add</code> コマンドの実行前は <code>Untracked files</code> でしたが、実行後は <code>Changes to be committed</code> に変わりました。
+</code></pre><p><code>git add</code> コマンドの実行前は <strong>Untracked files</strong> でしたが、実行後は <strong>Changes to be committed</strong> に変わりました。
 これはファイルのステータスが修正済に変わり、コミットの対象になっていることを意味します。
-今回は新しいファイルを Git に追加しようとしているため <code>new file:   sample.txt</code>と表示されています。</p>
+今回は新しいファイルを Git に追加しようとしているため <strong>new file:   sample.txt</strong>と表示されています。
+<img src="../img/git-command-basics-3.png" alt="git-command-basics-3.png"></p>
 <hr>
 <h3 id="変更内容をコミットする">変更内容をコミットする</h3>
-<p>先ほどは変更内容をインデックスに追加する（ステータスをステージ済 → 修正済にする）流れを確認しました。<br>
-変更内容をインデックスに追加されていると、その変更内容を Git の履歴に残すことができるようになります。<br>
-この Git の履歴に残す操作を <code>コミット</code> といいますが、コミットは以下のコマンドで実行することができます。</p>
+<p>変更内容をステージングエリアに追加されていると、その変更内容を Git の履歴に追加できるようになります。<br>
+この Git の履歴に追加する操作を<strong>コミット</strong>といいますが、コミットは以下のコマンドで実行することができます。</p>
 <pre tabindex="0"><code>git commit
-</code></pre><p>また、コミットの際に任意のメッセージを残すことができます。<br>
+</code></pre><p>このコマンドはファイルそのものを保存しているのではなく、ファイルの変更履歴を保存することができるというところがポイントです。<br>
+コミット時のスナップショットを撮って、その記録をローカルリポジトリに保存をするというイメージです。
+<img src="../img/git-command-basics-6.png" alt="git-command-basics-6.png"></p>
+<p>また、コミットの際に任意のメッセージを残すことができます。<br>
 以下のコマンドのように、コマンドの後ろにオプション（<code>-m</code>）を指定して、その後に登録したいメッセージを入力します。<br>
-（注意：メッセージはクォーテーションで囲う必要があります。）</p>
-<p>実際の開発プロジェクトでは「このコミットでどのような対応を行なったか」をメッセージに残すことになります。<br>
-なぜなら、大量のコミットのログの中から特定のコミットを探す作業を用意にすることができ、
+実際の開発プロジェクトでは「このコミットでどのような対応を行なったか」をメッセージに残すことになります。<br>
+なぜなら、大量のコミットのログの中から特定のコミットを探す作業が容易になり、
 またチームメンバーにもどのような対応をしたのかを共有することもできるからです。</p>
 <pre tabindex="0"><code>git commit -m &#34;message&#34;
-</code></pre><p><strong>DEMO</strong>
+</code></pre>
+<div class="box notices warning">
+    <div class="box-label"><i class="fas fa-exclamation-triangle fa-fw"></i> Warning</div>
+    <div class="box-content">
+<p>メッセージはクォーテーションで囲う必要があります。</p>
+
+    </div>
+</div>
+<p><strong>DEMO</strong><br>
 今回は先ほど修正済（<code>git add</code> コマンドを実施済）となった sample.txt の新規追加する内容を Git の変更履歴に登録しましょう。<br>
 コミットのメッセージには<code>first commit</code> と入力しましょう。（今回のメッセージは英語でしたが、日本語を入力することも可能です。）</p>
 <pre tabindex="0"><code>git commit -m &#34;first commit&#34;
@@ -263,31 +289,76 @@ Changes to be committed:
 <pre tabindex="0"><code>On branch master
 nothing to commit, working tree clean
 </code></pre><p>コミットを行なったことにより修正済のファイルがコミット済となったため、<code>nothing to commit, working tree clean</code> と表示されます。</p>
-<hr>
+<p><strong>DEMO</strong><br>
+では、もう一つデモを試してみましょう。<br>
+先ほどは新規ファイルを Git に登録して、そのファイルの内容を Git に登録しました。<br>
+今度は既存ファイルの変更内容を Git に登録してみましょう。</p>
+<p>まずは既存のファイル（sample.txt）に good と追記しましょう。</p>
+<pre tabindex="0"><code>echo good &gt;&gt; sample.txt
+</code></pre><p><code>cat</code> コマンドで sample.txt に good と追記ができているかを確認してみましょう。</p>
+<pre tabindex="0"><code>cat sample.txt
+</code></pre><p>ここで一旦ステータスを確認してみましょう。</p>
+<pre tabindex="0"><code>On branch master
+Changes not staged for commit:
+  (use &#34;git add &lt;file&gt;...&#34; to update what will be committed)
+  (use &#34;git restore &lt;file&gt;...&#34; to discard changes in working directory)
+	modified:   sample.txt
+
+no changes added to commit (use &#34;git add&#34; and/or &#34;git commit -a&#34;)
+</code></pre><p>2行目の<strong>Changes not staged for commit</strong>はコミット対象の変更がステージングエリアにはないという意味です。<br>
+5行目の<strong>modified:   sample.txt</strong>は sample.txt に変更があったことを意味します。<br>
+最後の<strong>no changes added to commit</strong>は2行目と同じ意味で、コミットするものがないことを意味します。<br>
+<img src="../img/git-command-basics-4.png" alt="git-command-basics-4.png"></p>
+<p>それでは、<code>git add</code>コマンドで sample.txt の変更内容がコミット対象となるようにしましょう。</p>
+<pre tabindex="0"><code>git add sample.txt
+</code></pre><p>もう一度ステータスを確認してみましょう。</p>
+<pre tabindex="0"><code>On branch master
+Changes to be committed:
+  (use &#34;git restore --staged &lt;file&gt;...&#34; to unstage)
+	modified:   sample.txt
+</code></pre><p><img src="../img/git-command-basics-5.png" alt="git-command-basics-5.png">
+2行目が<strong>Changes to be committed</strong>に変わりました。これはステージングエリアにある変更がコミットできるようになっていることを意味します。</p>
+<p>最後にコミットができるかを試してみましょう。<br>
+先ほどのコミットと区別がつくようにコミットメッセージを <code>second commit</code> に変えておきましょう。</p>
+<pre tabindex="0"><code>git commit -m &#34;second commit&#34;
+</code></pre><hr>
 <h3 id="コミットログを確認する">コミットログを確認する</h3>
 <p>Git はコミットした履歴（コミットログ）を以下のコマンドで確認することができます。</p>
 <pre tabindex="0"><code>git log
 </code></pre><p>コマンドを実行すると以下のようなログが表示されます。</p>
-<pre tabindex="0"><code>commit 5c670db6fc4a8d109a5e2724c421cd8105c2598f (HEAD -&gt; master)
+<pre tabindex="0"><code>commit 0336368ff10d1f69849cd5beeda1cf1ed274bb6d (HEAD -&gt; master)
+Author: corgi9n &lt;arapon1015@gmail.com&gt;
+Date:   Fri Mar 11 03:54:55 2022 +0900
+
+    second commit
+
+commit 5c670db6fc4a8d109a5e2724c421cd8105c2598f
 Author: corgi9n &lt;arapon@gmail.com&gt;
 Date:   Fri Mar 11 03:44:55 2022 +0900
 
     first commit
-</code></pre><p><code>commit 5c670db6fc4a8d109a5e2724c421cd8105c2598f (HEAD -&gt; master)</code>のうち、
-<code>5c670db6fc4a8d109a5e2724c421cd8105c2598f</code> はコミットのハッシュ値で、
-<code> (HEAD -&gt; master)</code>は HEAD の内容を master ブランチに履歴を残したということを意味します。（ブランチについては応用編で解説します。）
-<code>Author</code>は Git のコミットを残した Git アカウントが表示され、<br>
-<code>Date</code>は Git のコミットを残した日時が表示されます。<br>
+</code></pre><p><code>commit 0336368ff10d1f69849cd5beeda1cf1ed274bb6d (HEAD -&gt; master)</code>のうち、
+<code>0336368ff10d1f69849cd5beeda1cf1ed274bb6d</code> はコミットのハッシュ値で、このハッシュ値で一意のコミットを特定することができます。
+<code> (HEAD -&gt; master)</code>は HEAD の内容を master ブランチに履歴を残したということを意味します。（この内容については応用編で解説します。）
+<code>Author</code>は Git のコミットを残した Git アカウントが表示され、<code>Date</code>はコミットした日時が表示されます。<br>
 さらに下にはコミットの際に残したメッセージが表示されます。</p>
-<p>メモ：もし、<code>git log</code> コマンドを実行した後、表示されたログの下に <code>:</code> が表示されている場合は、
+
+<div class="box notices info">
+    <div class="box-label"><i class="fas fa-info-circle fa-fw"></i> Info</div>
+    <div class="box-content">
+<p>もし、<code>git log</code> コマンドを実行した後、表示されたログの下に <code>:</code> が表示されている場合は、
 続けてコマンドを実行することができません。<br>
 この場合は <code>q</code> を入力して Enter キーを押すことで再度コマンドが実行できるようになります。</p>
+
+    </div>
+</div>
 <hr>
 <h3 id="変更内容をリモートリポジトリに反映する">変更内容をリモートリポジトリに反映する</h3>
 <p>先ほどはコミットを完了して、ファイルの変更内容を無事コミットログに残すことができました。<br>
 これでやりたいことが終わったように感じますが、まだやらなければならないことが残っています。<br>
 チーム開発している場合はリモートリポジトリでソースコードを共有しているため、<br>
-<strong>ファイルを編集した場合はリモートリポジトリにアップロードして、チームメンバーと共有できるようにする</strong> 必要があります。</p>
+<strong>ファイルを編集した場合はリモートリポジトリにアップロードして、チームメンバーと共有できるようにする</strong> 必要があります。<br>
+<img src="../img/git-command-basics-7.png" alt="git-command-basics-7.png"></p>
 <p>変更内容（コミットログ）をリモートリポジトリにアップロードするには、<br>
 <code>git push</code> コマンドを実行します。</p>
 <pre tabindex="0"><code>git push origin [リモートリポジトリの名前] [リモートリポジトリのブランチ名]
@@ -304,14 +375,14 @@ GitHub アカウントのパスワードを入力して Enter キーを押しま
 <p>先ほどは <code>git push</code> コマンドでリモートリポジトリに変更内容を反映いたしました。<br>
 リモートリポジトリが更新されると、他のメンバーはリモートリポジトリから最新のソースコードをダウンロードすることになります。<br>
 (もちろん、他のメンバーがリモートリポジトリを更新したら、あなたも最新のソースコードをダウンロードすることになります。)
+<img src="../img/git-command-basics-8.png" alt="git-command-basics-8.png">
 リモートリポジトリからソースコードをダウンロードする場合は、<code>git pull</code> コマンドを実行します。</p>
 <pre tabindex="0"><code>git pull [リモートリポジトリの名前] [リモートリポジトリのブランチ名]
-</code></pre><p><strong>DEMO</strong>
+</code></pre><p><strong>DEMO</strong><br>
 今回はリモートリポジトリ上に main ブランチしかないため、以下のコマンドを実行しましょう。<br>
 ただ今回はローカルリポジトリの内容をアップロードしたばかりのため、<code>git pull</code> コマンドを実行してもローカルリポジトリに変化はありません。</p>
 <pre tabindex="0"><code>git pull origin main
-</code></pre><p><code>git pull</code> コマンドを実行することでローカルリポジトリが変わる内容は、<br>
-応用編で登場しますので楽しみにしてください！</p>
+</code></pre><p><code>git pull</code> コマンドを実行することでローカルリポジトリが変わる内容は、応用編で登場しますので楽しみにしてください！</p>
           <footer class="footline">
           </footer>
         </div>
@@ -339,9 +410,9 @@ Git X EDU
           <input data-search-input id="search-by" type="search" placeholder="Search...">
           <span data-search-clear=""><i class="fas fa-times"></i></span>
         </div>
-        <script src="/git-education/js/lunr.min.js?1651427010"></script>
-        <script src="/git-education/js/auto-complete.js?1651427010"></script>
-        <script src="/git-education/js/search.js?1651427010"></script>
+        <script src="/git-education/js/lunr.min.js?1651767815"></script>
+        <script src="/git-education/js/auto-complete.js?1651767815"></script>
+        <script src="/git-education/js/search.js?1651767815"></script>
       </div>
       <div id="homelinks" class="default-animation">
         <ul>
@@ -404,16 +475,16 @@ Git X EDU
         </div>
       </div>
     </aside>
-    <script src="/git-education/js/clipboard.min.js?1651427010"></script>
-    <script src="/git-education/js/perfect-scrollbar.min.js?1651427010"></script>
-    <script src="/git-education/js/jquery.svg.pan.zoom.js?1651427010"></script>
-    <script src="/git-education/js/featherlight.min.js?1651427010"></script>
-    <script src="/git-education/js/mermaid.min.js?1651427010"></script>
+    <script src="/git-education/js/clipboard.min.js?1651767815"></script>
+    <script src="/git-education/js/perfect-scrollbar.min.js?1651767815"></script>
+    <script src="/git-education/js/jquery.svg.pan.zoom.js?1651767815"></script>
+    <script src="/git-education/js/featherlight.min.js?1651767815"></script>
+    <script src="/git-education/js/mermaid.min.js?1651767815"></script>
     <script>
       if (typeof mermaid != 'undefined' && typeof mermaid.mermaidAPI != 'undefined') {
         mermaid.mermaidAPI.initialize( Object.assign( { "securityLevel": "antiscript" }, JSON.parse("{ \"startOnLoad\": true }"), { startOnLoad: false } ) );
       }
     </script>
-    <script src="/git-education/js/theme.js?1651427010"></script>
+    <script src="/git-education/js/theme.js?1651767815"></script>
   </body>
 </html>
