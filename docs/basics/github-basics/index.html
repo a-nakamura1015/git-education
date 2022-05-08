@@ -7,17 +7,17 @@
     <meta name="generator" content="Relearn 3.0.4&#43;tip">
     <meta name="description" content="">
     <title>GitHub の基本 :: Git X Edu</title>
-    <link href="/git-education/css/nucleus.css?1651767815" rel="stylesheet">
-    <link href="/git-education/css/fontawesome-all.min.css?1651767815" rel="stylesheet">
-    <link href="/git-education/css/featherlight.min.css?1651767815" rel="stylesheet">
-    <link href="/git-education/css/perfect-scrollbar.min.css?1651767815" rel="stylesheet">
-    <link href="/git-education/css/auto-complete.css?1651767815" rel="stylesheet">
-    <link href="/git-education/css/theme.css?1651767815" rel="stylesheet">
-    <link id="variant-style" href="/git-education/css/theme-mine.css?1651767815" rel="stylesheet">
-    <link href="/git-education/css/variant.css?1651767815" rel="stylesheet">
-    <link href="/git-education/css/theme-relearn-light.css?1651767815" rel="stylesheet" media="print">
-    <link href="/git-education/css/print.css?1651767815" rel="stylesheet" media="print">
-    <script src="/git-education/js/variant.js?1651767815"></script>
+    <link href="/git-education/css/nucleus.css?1651990134" rel="stylesheet">
+    <link href="/git-education/css/fontawesome-all.min.css?1651990134" rel="stylesheet">
+    <link href="/git-education/css/featherlight.min.css?1651990134" rel="stylesheet">
+    <link href="/git-education/css/perfect-scrollbar.min.css?1651990134" rel="stylesheet">
+    <link href="/git-education/css/auto-complete.css?1651990134" rel="stylesheet">
+    <link href="/git-education/css/theme.css?1651990134" rel="stylesheet">
+    <link id="variant-style" href="/git-education/css/theme-mine.css?1651990134" rel="stylesheet">
+    <link href="/git-education/css/variant.css?1651990134" rel="stylesheet">
+    <link href="/git-education/css/theme-relearn-light.css?1651990134" rel="stylesheet" media="print">
+    <link href="/git-education/css/print.css?1651990134" rel="stylesheet" media="print">
+    <script src="/git-education/js/variant.js?1651990134"></script>
     <script>
       // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
       // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
@@ -33,7 +33,7 @@
       var baseUriFull='https:\/\/a-nakamura1015.github.io\/git-education/';
       variants.init( [ 'mine' ] );
     </script>
-    <script src="/git-education/js/jquery.min.js?1651767815"></script>
+    <script src="/git-education/js/jquery.min.js?1651990134"></script>
   </head>
   <body class="mobile-support" data-url="/git-education/basics/github-basics/">
     <div id="body" class="default-animation">
@@ -82,16 +82,24 @@
           <h1>GitHub の基本</h1>
 
 <h3 id="github-とは">GitHub とは</h3>
-<p>ソフトウェア開発のプラットフォームであり、ソースコードを共有するためのホスティングサービス（サーバーの領域を貸し出すサービス）です。<br>
-先述したリモートリポジトリはこのサービスが提供してくれます。</p>
-<p>GitHub のサーバー上にソースコードを格納することで、チームメンバーとソースコードを共有してコードレビューを行ったり、プロジェクトの管理を行ったりすることができます。<br>
-使用用途も様々で、チームメンバーのみがアクセスできるようにすることもできれば、オープンソースとして提供するために世界中のエンジニアにアクセスしてもらえるようにすることもできます。<br>
-名称に Git が含まれている通り、GitHub のバージョン管理システムには Git が使用されています。</p>
+<p>ソフトウェア開発のプラットフォームであり、<strong>Git ホスティングサービス</strong>のひとつです。<br>
+ホスティングサービスというのはサーバーの領域をインターネット経由で貸し出すサービスで、<br>
+GitHub の場合は Git で管理されているプロジェクト（ソースコードや設定ファイル）を格納する領域（<strong>リモートリポジトリ</strong>）を提供しています。</p>
+<p>使用用途も様々で、チームメンバーのみがアクセスできるようにすることもできれば、オープンソースとして提供するために世界中のエンジニアにアクセスしてもらえるようにすることもできます。 <br>
+また、リモートリポジトリ以外にも<strong>課題管理</strong>や<strong>Wiki</strong>、<strong>コードレビュー</strong>、<strong>CI連携</strong>などのソフトウェア開発には欠かせないサービスも提供しています。
+<img src="../img/github-basics-17.png" alt="github-basics-17.png"></p>
 <h3 id="github-を始めてみよう">GitHub を始めてみよう</h3>
 <h4 id="github-アカウントを作成しよう">GitHub アカウントを作成しよう</h4>
 <p>GitHubを利用するためにはアカウントを作成する必要があります。<br>
 以下の手順に沿って GitHub アカウントを作成しましょう。<br>
-<code>注意：GitHub アカウントを作成するにはメールアカウントが必要になります。</code></p>
+
+<div class="box notices warning">
+    <div class="box-label"><i class="fas fa-exclamation-triangle fa-fw"></i> Warning</div>
+    <div class="box-content">
+<p>GitHub アカウントを作成するにはメールアカウントが必要になります。</p>
+
+    </div>
+</div></p>
 <ol>
 <li>GitHub の公式サイトにアクセスしましょう。<br>
 <a href="https://github.com/">https://github.com/</a></li>
@@ -131,8 +139,12 @@
 <p><img src="../img/github-basics-9.png" alt="github-basics-9.png">
 3. 以下の画面が表示されればリモートリポジトリの作成は完了です！
 <img src="../img/github-basics-10.png" alt="github-basics-10.png"></p>
-<p><strong>Point: チームメンバーのみにリモートリポジトリを共有したい場合</strong><br>
-<code>Private</code> を選択することで他の GitHub ユーザーはアクセスできなくなりますが、チームメンバーにはアクセスできるようにしたいですよね。<br>
+
+<div class="box notices tip">
+    <div class="box-label"><i class="fas fa-lightbulb fa-fw"></i> Tip</div>
+    <div class="box-content">
+<p><strong>リモートリポジトリにチームメンバーのみを共有したい場合</strong><br>
+Private を選択することで他の GitHub ユーザーはアクセスできなくなりますが、チームメンバーにはアクセスできるようにしたいですよね。<br>
 このようなときは GitHub のリポジトリへ招待する機能を使いましょう。</p>
 <ol>
 <li>招待したいリモートリポジトリの画面で Setting を選択しましょう。</li>
@@ -140,10 +152,13 @@
 <li>Add people ボタンをクリックしましょう。</li>
 <li>入力欄に GitHub のユーザーネーム（またはメールアドレス）を入力して、招待したいユーザーを選択しましょう。</li>
 </ol>
+
+    </div>
+</div>
 <h4 id="ファイルをアップロードできるようにしよう">ファイルをアップロードできるようにしよう</h4>
 <p>GitHub上にリモートリポジトリを用意できましたら、次はファイルをアップロードができるようにしましょう。<br>
-GitHub にファイルをアップロードするための通信手段として、HTTPSとSSHの2種類から選ぶことができます。
-HTTPSはデータをそのまま送っているのに対し、SSHは暗号化した上で送るためセキュリティの観点からSSHで通信を行うことを推奨します。<br>
+GitHub にファイルをアップロードするための通信手段として、HTTPSとSSHの2種類から選ぶことができます。<br>
+HTTPSもSSHもともには暗号化した上で送るためセキュリティの観点では優劣はつきませんが、HTTPSの場合は GitHub にアクセスするたびにユーザー名とアクセストークンの確認を求められるため、頻繁に GitHub を利用するのであればSSHで通信を行うことを推奨します。<br>
 また、HTTPSとSSHとではそれぞれ設定の手順が異なりますので注意しましょう。</p>
 <p><strong>HTTPS通信の場合</strong><br>
 HTTPS通信でファイルをアップロードするには<strong>アクセストークン</strong>が必要になります。<br>
@@ -166,7 +181,7 @@ HTTPS通信でファイルをアップロードするには<strong>アクセス�
 <li>ファイルをプッシュする際にコピーしたアクセストークンをペーストして実行しましょう。</li>
 </ol>
 <p><strong>SSH通信の場合</strong><br>
-SSH（Secure SHell）通信は送信しているデータを暗号化していることが特徴です。<br>
+SSH（Secure Shell）通信は送信しているデータを暗号化していることが特徴です。<br>
 クライアントマシン（例えば、皆さんのPC）で秘密鍵と公開鍵を生成し、公開鍵を送信先の GitHub に設定することでSSH通信を行うことができます。<br>
 そして、GitHub 側は設定したアカウントと公開鍵を紐づけて管理することになります。
 次の手順に沿って作成しましょう。</p>
@@ -183,10 +198,10 @@ SSH（Secure SHell）通信は送信しているデータを暗号化してい�
 <p>秘密鍵と公開鍵を生成しましょう。
 以下のコマンドで秘密鍵と公開鍵を生成することができます。</p>
 <pre tabindex="0"><code>ssh-keygen -t rsa
-</code></pre><p>コマンドを実行すると以下の３点を確認されます。
-①秘密鍵と公開鍵のファイルの名前
-②秘密鍵と公開鍵のパスフレーズ
-③秘密鍵と公開鍵のパスフレーズの再確認<br>
+</code></pre><p>コマンドを実行すると以下の３点を確認されます。<br>
+①秘密鍵と公開鍵のファイルの名前<br>
+②秘密鍵と公開鍵のパスフレーズ<br>
+③秘密鍵と公開鍵のパスフレーズの再確認 <br>
 以下のメッセージが表示されますが、必須の設定ではないためEnterキーをクリックすることでスキップすることができます。</p>
 <pre tabindex="0"><code>Generating public/private rsa key pair.
 Enter file in which to save the key (/Users/(username)/.ssh/id_rsa):
@@ -258,9 +273,9 @@ Git X EDU
           <input data-search-input id="search-by" type="search" placeholder="Search...">
           <span data-search-clear=""><i class="fas fa-times"></i></span>
         </div>
-        <script src="/git-education/js/lunr.min.js?1651767815"></script>
-        <script src="/git-education/js/auto-complete.js?1651767815"></script>
-        <script src="/git-education/js/search.js?1651767815"></script>
+        <script src="/git-education/js/lunr.min.js?1651990134"></script>
+        <script src="/git-education/js/auto-complete.js?1651990134"></script>
+        <script src="/git-education/js/search.js?1651990134"></script>
       </div>
       <div id="homelinks" class="default-animation">
         <ul>
@@ -323,16 +338,16 @@ Git X EDU
         </div>
       </div>
     </aside>
-    <script src="/git-education/js/clipboard.min.js?1651767815"></script>
-    <script src="/git-education/js/perfect-scrollbar.min.js?1651767815"></script>
-    <script src="/git-education/js/jquery.svg.pan.zoom.js?1651767815"></script>
-    <script src="/git-education/js/featherlight.min.js?1651767815"></script>
-    <script src="/git-education/js/mermaid.min.js?1651767815"></script>
+    <script src="/git-education/js/clipboard.min.js?1651990134"></script>
+    <script src="/git-education/js/perfect-scrollbar.min.js?1651990134"></script>
+    <script src="/git-education/js/jquery.svg.pan.zoom.js?1651990134"></script>
+    <script src="/git-education/js/featherlight.min.js?1651990134"></script>
+    <script src="/git-education/js/mermaid.min.js?1651990134"></script>
     <script>
       if (typeof mermaid != 'undefined' && typeof mermaid.mermaidAPI != 'undefined') {
         mermaid.mermaidAPI.initialize( Object.assign( { "securityLevel": "antiscript" }, JSON.parse("{ \"startOnLoad\": true }"), { startOnLoad: false } ) );
       }
     </script>
-    <script src="/git-education/js/theme.js?1651767815"></script>
+    <script src="/git-education/js/theme.js?1651990134"></script>
   </body>
 </html>
