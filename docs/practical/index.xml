@@ -6,7 +6,7 @@
     <description>Recent content in 実践編 on Git X Edu</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Wed, 16 Mar 2022 08:08:47 +0900</lastBuildDate><atom:link href="https://a-nakamura1015.github.io/git-education/practical/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 13 May 2022 19:12:09 +0900</lastBuildDate><atom:link href="https://a-nakamura1015.github.io/git-education/practical/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>競合の解消</title>
       <link>https://a-nakamura1015.github.io/git-education/practical/conflict/</link>
@@ -50,6 +50,28 @@ git diff [コミットのハッシュ値] また、特定のコミット間の�
 git diff [比較元のコミットのハッシュ値] [比較先のコミットのハッシュ値] ローカルリポジトリ内だけでなく、リモートブランチとも差分を比較することができます。
 この場合はあらかじめ比較先のリモートブランチを git fetch コマンドで参照をダウンロードしておきましょう。
 git fetch origin [リモートリポジトリのブランチ名] git diff [ローカルリポジトリのブランチ名] origin/[リモートリポジトリのブランチ名] </description>
+    </item>
+    <item>
+      <title>変更を元に戻す</title>
+      <link>https://a-nakamura1015.github.io/git-education/practical/undo/</link>
+      <pubDate>Fri, 13 May 2022 19:12:09 +0900</pubDate>
+      <guid>https://a-nakamura1015.github.io/git-education/practical/undo/</guid>
+      <description>作業を進めていくと、「ファイルを変更したけど、やっぱり元に戻したい」ということや、
+「コミットをしたけど無かったことにしたい」ということがあると思います。
+このような場合も Git コマンドを駆使することで解消することができます。
+ファイルの変更を取り消したい（git add をしていない場合） git checkout コマンドでファイルの変更を取り消すことができます。
+git checkout というと、応用編のブランチの切り替えのときに登場しましたね。
+この git checkout コマンドは、特定のブランチやコミットに切り替えたり、特定のコミットからファイルを取り出したりすることができます。
+git checkout [変更を取り消したいファイルのパス] ステージングエリアへの追加（git add）を取り消したい 追加する必要のないファイルまで間違って git add してしまった場合（かつ、まだ commit はしていない場合）は以下のコマンドを実行することで git add を取り消せます。
+ただ、厳密には git reset コマンドは git add を取り消すコマンドではなく、ステージングエリアをHEAD(最後にコミットした時の状態)にするコマンドです。
+git reset [git add を取り消したいファイルのパス] コミットを取り消したい コミットを取り消したい場合はgit revertコマンドを実行しましょう。
+以下のようにコマンドの後に取り消したいコミットのID（ハッシュ値）を指定します。
+※コミットのID（ハッシュ値）はgit logで確認しましょう。
+git revert [取り消したいコミットID] このコマンドを実行すると、指定したコミット時点の状態まで作業ディレクトリを戻します。
+また、「コミットを取り消した」というコミット履歴が残ります。
+このコミット履歴をリモートリポジトリにアップロードすることで、他のチームメンバーも取り消したコミットが見えなくなります。
+ Warning 他にも git reset コマンドでコミットを取り消すことができますが、このコマンドでコミットを消すと「コミットを取り消した」というコミット履歴が残りません。 一見使い勝手が良いように感じますが、リモートリポジトリで公開されているコミットに対して行うとリモートリポジトリにプッシュができなくなるという事象が起きるので注意が必要です。
+  </description>
     </item>
     <item>
       <title>まとめ</title>
