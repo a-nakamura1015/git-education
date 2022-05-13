@@ -7,17 +7,17 @@
     <meta name="generator" content="Relearn 3.0.4&#43;tip">
     <meta name="description" content="">
     <title>Git と チーム開発 :: Git X Edu</title>
-    <link href="/git-education/css/nucleus.css?1651990134" rel="stylesheet">
-    <link href="/git-education/css/fontawesome-all.min.css?1651990134" rel="stylesheet">
-    <link href="/git-education/css/featherlight.min.css?1651990134" rel="stylesheet">
-    <link href="/git-education/css/perfect-scrollbar.min.css?1651990134" rel="stylesheet">
-    <link href="/git-education/css/auto-complete.css?1651990134" rel="stylesheet">
-    <link href="/git-education/css/theme.css?1651990134" rel="stylesheet">
-    <link id="variant-style" href="/git-education/css/theme-mine.css?1651990134" rel="stylesheet">
-    <link href="/git-education/css/variant.css?1651990134" rel="stylesheet">
-    <link href="/git-education/css/theme-relearn-light.css?1651990134" rel="stylesheet" media="print">
-    <link href="/git-education/css/print.css?1651990134" rel="stylesheet" media="print">
-    <script src="/git-education/js/variant.js?1651990134"></script>
+    <link href="/git-education/css/nucleus.css?1652421884" rel="stylesheet">
+    <link href="/git-education/css/fontawesome-all.min.css?1652421884" rel="stylesheet">
+    <link href="/git-education/css/featherlight.min.css?1652421884" rel="stylesheet">
+    <link href="/git-education/css/perfect-scrollbar.min.css?1652421884" rel="stylesheet">
+    <link href="/git-education/css/auto-complete.css?1652421884" rel="stylesheet">
+    <link href="/git-education/css/theme.css?1652421884" rel="stylesheet">
+    <link id="variant-style" href="/git-education/css/theme-mine.css?1652421884" rel="stylesheet">
+    <link href="/git-education/css/variant.css?1652421884" rel="stylesheet">
+    <link href="/git-education/css/theme-relearn-light.css?1652421884" rel="stylesheet" media="print">
+    <link href="/git-education/css/print.css?1652421884" rel="stylesheet" media="print">
+    <script src="/git-education/js/variant.js?1652421884"></script>
     <script>
       // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
       // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
@@ -33,7 +33,7 @@
       var baseUriFull='https:\/\/a-nakamura1015.github.io\/git-education/';
       variants.init( [ 'mine' ] );
     </script>
-    <script src="/git-education/js/jquery.min.js?1651990134"></script>
+    <script src="/git-education/js/jquery.min.js?1652421884"></script>
   </head>
   <body class="mobile-support" data-url="/git-education/advanced/team-development/">
     <div id="body" class="default-animation">
@@ -81,16 +81,16 @@
           <h1>Git と チーム開発</h1>
 
 <p>基礎編をマスターすることができたのであれば、Git 管理をしながら開発することに自信を持つことができていると思います。<br>
-しかし、チーム開発で Git を扱うにはまだ不十分です。<br>
+しかし、チーム開発で Git を扱うにはまだ学ばなければならないことがあります。 <br>
 例えば、次のような状態になったとき、あなたはどうしますか？</p>
 <h3 id="あらまし">あらまし</h3>
-<p>仮にチーム内で開発者とテスターが分かれていた場合でのお話です。
+<p>仮にチーム内で開発者とテスターが分かれていた場合でのお話です。<br>
 開発者AはテスターBにソースを渡すため、リモートリポジトリに変更を加えたソースを push しました。
 <img src="../img/team-development-1.png" alt="team-development-1.png"></p>
-<p>ところが、テスターBが pull をしてテストをしたところバグが見つかりました。
+<p>ところが、テスターBが pull をしてテストをしたところバグが見つかりました。<br>
 そこで、テスターBは開発者Aにバグがあることを伝え、修正を依頼しました。
 <img src="../img/team-development-2.png" alt="team-development-2.png"></p>
-<p>一見問題はなさそうですが、もし別の開発者Cがいた場合はどうでしょう？
+<p>一見問題はなさそうですが、もし別の開発者Cがいた場合はどうでしょう？<br>
 開発者Cももちろんリモートリポジトリから最新のソースを取得して開発をおこないます。
 <img src="../img/team-development-3.png" alt="team-development-3.png"></p>
 <p>リモートリポジトリから取得したソースにバグがあった場合、開発者Cにも影響を与えてしまいます。
@@ -126,9 +126,9 @@ Git X EDU
           <input data-search-input id="search-by" type="search" placeholder="Search...">
           <span data-search-clear=""><i class="fas fa-times"></i></span>
         </div>
-        <script src="/git-education/js/lunr.min.js?1651990134"></script>
-        <script src="/git-education/js/auto-complete.js?1651990134"></script>
-        <script src="/git-education/js/search.js?1651990134"></script>
+        <script src="/git-education/js/lunr.min.js?1652421884"></script>
+        <script src="/git-education/js/auto-complete.js?1652421884"></script>
+        <script src="/git-education/js/search.js?1652421884"></script>
       </div>
       <div id="homelinks" class="default-animation">
         <ul>
@@ -191,16 +191,16 @@ Git X EDU
         </div>
       </div>
     </aside>
-    <script src="/git-education/js/clipboard.min.js?1651990134"></script>
-    <script src="/git-education/js/perfect-scrollbar.min.js?1651990134"></script>
-    <script src="/git-education/js/jquery.svg.pan.zoom.js?1651990134"></script>
-    <script src="/git-education/js/featherlight.min.js?1651990134"></script>
-    <script src="/git-education/js/mermaid.min.js?1651990134"></script>
+    <script src="/git-education/js/clipboard.min.js?1652421884"></script>
+    <script src="/git-education/js/perfect-scrollbar.min.js?1652421884"></script>
+    <script src="/git-education/js/jquery.svg.pan.zoom.js?1652421884"></script>
+    <script src="/git-education/js/featherlight.min.js?1652421884"></script>
+    <script src="/git-education/js/mermaid.min.js?1652421884"></script>
     <script>
       if (typeof mermaid != 'undefined' && typeof mermaid.mermaidAPI != 'undefined') {
         mermaid.mermaidAPI.initialize( Object.assign( { "securityLevel": "antiscript" }, JSON.parse("{ \"startOnLoad\": true }"), { startOnLoad: false } ) );
       }
     </script>
-    <script src="/git-education/js/theme.js?1651990134"></script>
+    <script src="/git-education/js/theme.js?1652421884"></script>
   </body>
 </html>

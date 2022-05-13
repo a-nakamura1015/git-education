@@ -7,17 +7,17 @@
     <meta name="generator" content="Relearn 3.0.4&#43;tip">
     <meta name="description" content="">
     <title>Git のブランチ機能 :: Git X Edu</title>
-    <link href="/git-education/css/nucleus.css?1651990134" rel="stylesheet">
-    <link href="/git-education/css/fontawesome-all.min.css?1651990134" rel="stylesheet">
-    <link href="/git-education/css/featherlight.min.css?1651990134" rel="stylesheet">
-    <link href="/git-education/css/perfect-scrollbar.min.css?1651990134" rel="stylesheet">
-    <link href="/git-education/css/auto-complete.css?1651990134" rel="stylesheet">
-    <link href="/git-education/css/theme.css?1651990134" rel="stylesheet">
-    <link id="variant-style" href="/git-education/css/theme-mine.css?1651990134" rel="stylesheet">
-    <link href="/git-education/css/variant.css?1651990134" rel="stylesheet">
-    <link href="/git-education/css/theme-relearn-light.css?1651990134" rel="stylesheet" media="print">
-    <link href="/git-education/css/print.css?1651990134" rel="stylesheet" media="print">
-    <script src="/git-education/js/variant.js?1651990134"></script>
+    <link href="/git-education/css/nucleus.css?1652421884" rel="stylesheet">
+    <link href="/git-education/css/fontawesome-all.min.css?1652421884" rel="stylesheet">
+    <link href="/git-education/css/featherlight.min.css?1652421884" rel="stylesheet">
+    <link href="/git-education/css/perfect-scrollbar.min.css?1652421884" rel="stylesheet">
+    <link href="/git-education/css/auto-complete.css?1652421884" rel="stylesheet">
+    <link href="/git-education/css/theme.css?1652421884" rel="stylesheet">
+    <link id="variant-style" href="/git-education/css/theme-mine.css?1652421884" rel="stylesheet">
+    <link href="/git-education/css/variant.css?1652421884" rel="stylesheet">
+    <link href="/git-education/css/theme-relearn-light.css?1652421884" rel="stylesheet" media="print">
+    <link href="/git-education/css/print.css?1652421884" rel="stylesheet" media="print">
+    <script src="/git-education/js/variant.js?1652421884"></script>
     <script>
       // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
       // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
@@ -33,7 +33,7 @@
       var baseUriFull='https:\/\/a-nakamura1015.github.io\/git-education/';
       variants.init( [ 'mine' ] );
     </script>
-    <script src="/git-education/js/jquery.min.js?1651990134"></script>
+    <script src="/git-education/js/jquery.min.js?1652421884"></script>
   </head>
   <body class="mobile-support" data-url="/git-education/advanced/branch/">
     <div id="body" class="default-animation">
@@ -82,38 +82,74 @@
           <h1>Git のブランチ機能</h1>
 
 <h3 id="ブランチとは">ブランチとは</h3>
-<p>1つのプロジェクトから分岐させることにより、共有しているプロジェクトに影響を与えずに開発ができる機能です。<br>
+<p>ブランチは<strong>開発の本流から分岐し、本流の開発を邪魔することなく作業を続ける機能</strong>です。<br>
 ブランチを切ることにより、同時並行で目的別に作業をすることができます。<br>
-※ブランチを作ることを「ブランチを切る」と言います。</p>
-<p>Git は master ブランチがデフォルトになっており、実は初級編では master ブランチで作業をしていました。<br>
-現在作業をしているブランチは以下のコマンドで確認をすることができます。</p>
+※ブランチを作ることを「ブランチを切る」と言います。<br>
+Git は <strong>main ブランチ</strong>がデフォルトになっており、実は初級編では main ブランチで作業をしていました。<br>
+ブランチを活用できると以下のような流れで開発を進めることができるようになります。</p>
+<ol>
+<li>他のメンバーの作業の影響を受けないように、メインのブランチから自分の作業専用のブランチを作成します。</li>
+<li>メインブランチから自分の作業専用のブランチに切り替えて作業を行います。</li>
+<li>作業が終わったら、メインのブランチに自分のブランチの変更を取り込んでいきます。</li>
+</ol>
+<p>このようにすることで、他のメンバーの作業による影響を受けることなく自分の作業を進めることができます。<br>
+また、作業単位で履歴を残すことで、問題が発生した場合に原因となる変更箇所の調査や対策を行うことが容易になります。</p>
+<p>また、Git ブランチには以下の特徴があります。</p>
+<ul>
+<li>1つのブランチから複数のブランチを作ることができる</li>
+<li>作業ブランチを元に新たなブランチを作ることができる</li>
+</ul>
+<p><img src="../img/branch-1.png" alt="branch-1.png"></p>
+<p>現在作業をしているブランチは以下のコマンドで確認をすることができます。</p>
 <pre tabindex="0"><code>git branch
 </code></pre><p><code>git branch</code> コマンドを実行すると、ローカルリポジトリ内のブランチ名の一覧を以下のように表示されます。
-注意： Git のコミットログがない場合はブランチ名は表示されないので、git commit を実施した上で<code>git branch</code>コマンドを実行しましょう。
 現在作業しているブランチの左隣に<code>*</code>が表示されます。<br>
-いまは master ブランチしかないため表示されるブランチ名を1つのみですが、<br>
+いまは main ブランチしかないため表示されるブランチ名を1つのみですが、<br>
 ブランチを増やすと現在作業していないブランチの名前もこのコマンドで確認することができます。</p>
-<pre tabindex="0"><code>* master
-</code></pre><p>一般的な開発プロジェクトでは master ブランチの内容が納品物（テストが完了した最新のソースコード）となるため、<br>
-機能の改修や追加する場合はこの master ブランチから開発用のブランチを切った上で作業を行います。<br>
-注意：
-ローカルリポジトリと同様にリモートリポジトリ（GitHubなど）にもブランチが存在します。<br>
-リモートリポジトリのブランチは <code>git push</code> コマンドを実行する際に生成されます。</p>
+<pre tabindex="0"><code>* main
+</code></pre>
+<div class="box notices warning">
+    <div class="box-label"><i class="fas fa-exclamation-triangle fa-fw"></i> Warning</div>
+    <div class="box-content">
+<p>Git のコミットログがない場合はブランチ名は表示されないので、コミットをした上で<code>git branch</code>コマンドを実行しましょう。</p>
+
+    </div>
+</div>
+<p>一般的な開発プロジェクトでは main ブランチの内容が納品物（テストが完了した最新のソースコード）となるため、<br>
+機能の改修や追加する場合はこの main ブランチから開発用のブランチを切った上で作業を行います。<br>
+
+<div class="box notices tip">
+    <div class="box-label"><i class="fas fa-lightbulb fa-fw"></i> Tip</div>
+    <div class="box-content">
+<p>ローカルリポジトリと同様にリモートリポジトリ（GitHubなど）にもブランチが存在します。<br>
+リモートリポジトリのブランチは <code>git push</code> コマンドを実行する際にブランチ名を指定することで生成されます。</p>
+
+    </div>
+</div></p>
 <h3 id="ブランチを使ってみよう">ブランチを使ってみよう</h3>
-<p>それでは開発用のブランチを作ってみましょう。
+<p>それでは開発用のブランチを作ってみましょう。<br>
 ブランチ名は自由につけることができますが、今回のブランチ名は develop にしましょう。<br>
 <code>git branch</code> コマンドの後ろに作成したいブランチの名前を指定すると同じ名前のブランチを作ることができます。</p>
 <pre tabindex="0"><code>git branch develop
 </code></pre><p>再度 <code>git branch</code> コマンドを実行すると以下のようにブランチの一覧が表示されます。<br>
 develop ブランチが作成できているかを確認してみましょう。</p>
 <pre tabindex="0"><code>  develop
-* master
-</code></pre><p>develop ブランチができていることが確認できたと思いますが、現在作業しているブランチを意味する<code>*</code>は master ブランチの左隣にあります。<br>
+* main
+</code></pre><p>develop ブランチができていることが確認できたと思いますが、現在作業しているブランチを意味する<code>*</code>は main ブランチの左隣にあります。<br>
 つまり、ブランチを作ることができたものの、作成したブランチ（develop）を作業ブランにすることができていません。</p>
-<p>まだ master ブランチが作業ブランチとなっている状態のため、作業ブランチを develop ブランチに切り替えてみましょう。<br>
+<p>まだ main ブランチが作業ブランチとなっている状態のため、作業ブランチを develop ブランチに切り替えてみましょう。<br>
 ブランチの切り替えは <code>git checkout</code> コマンドで行うことができます。</p>
 <pre tabindex="0"><code>git checkout [切り替えたいブランチの名前]
-</code></pre><p>注意：切り替えようとしたブランチがない場合はエラー（<code>error: pathspec '存在しないブランチ名' did not match any file(s) known to git</code>）が発生するので、<code>git checkout</code> コマンドを実行する前にあらかじめブランチを作っておきましょう。</p>
+</code></pre>
+<div class="box notices warning">
+    <div class="box-label"><i class="fas fa-exclamation-triangle fa-fw"></i> Warning</div>
+    <div class="box-content">
+<p>切り替えようとしたブランチがない場合は以下のようなエラーが表示されます。</p>
+<pre tabindex="0"><code>error: pathspec &#39;存在しないブランチ名&#39; did not match any file(s) known to git
+</code></pre><p>このエラーが発生した場合は、<code>git branch</code> コマンドでブランチを作ってもう一度トライしてみましょう。</p>
+
+    </div>
+</div>
 <p>今回は develop ブランチに切り替えたいので、以下のコマンドを実行しましょう。</p>
 <pre tabindex="0"><code>git checkout develop
 </code></pre><p>それでは再度 <code>git branch</code> コマンドで develop ブランチが作業ブランチになっているかを確認してみましょう。
@@ -135,41 +171,58 @@ Changes not staged for commit:
         modified:   sample.txt
 
 no changes added to commit (use &#34;git add&#34; and/or &#34;git commit -a&#34;)
-</code></pre><p><code>On branch develop</code> は develop ブランチで作業していることを意味しています。<br>
-<code>Changes not staged for commit</code>　は修正はしたもののまだ <code>git add</code> を実行していないため、<br>
+</code></pre><p><strong>On branch develop</strong> は develop ブランチで作業していることを意味しています。<br>
+<strong>Changes not staged for commit</strong> は修正はしたもののまだ <code>git add</code> を実行していないため、<br>
 コミットができないファイルをあるよという意味です。<br>
-その下に <code>modified:   sample.txt</code> と表示されていますが、これは sample.txt に変更が発生しているという意味になります。</p>
-<p>それでは以下のコマンドを実行して、今回編集した sample.txt の変更内容を Git に登録してみましょう。
-ブランチ名が変わってもこのフロー（ステージ済 → 修正済 → コミット済）は変わりません。</p>
+その下に <strong>modified:   sample.txt</strong> と表示されていますが、これは sample.txt に変更が発生しているという意味になります。</p>
+<p>それでは以下のコマンドを実行して、今回編集した sample.txt の変更内容を Git に登録してみましょう。<br>
+ブランチ名が変わってもこのフロー（作業ディレクトリ → ステージングエリア → ローカルリポジトリ）は変わりません。</p>
 <pre tabindex="0"><code>git add sample.txt
 git commit -m &#34;develop commit&#34;
 </code></pre><p>コミットが無事完了できたかを<code>git log</code> コマンドで確認してみましょう。<br>
 コミットのメッセージが <code>develop commit</code> となっているコミットログが残っていれば成功です！</p>
 <pre tabindex="0"><code>commit 1be05c74b8ae9ce1f8b1a09510b1367c88e1100e (HEAD -&gt; develop)
-Author: a-nakamura1015 &lt;a-nakamura@esm.co.jp&gt;
+Author: corgi9n &lt;arapon1015@gmail.com&gt;
 Date:   Fri Mar 11 11:21:55 2022 +0900
 
     develop commit
 
-commit 5db36ee820d446e27838869e79cbae3526f71a8f (master)
-Author: a-nakamura1015 &lt;a-nakamura@esm.co.jp&gt;
-Date:   Fri Mar 11 10:25:56 2022 +0900
+commit 0336368ff10d1f69849cd5beeda1cf1ed274bb6d
+Author: corgi9n &lt;arapon1015@gmail.com&gt;
+Date:   Fri Mar 11 03:54:55 2022 +0900
+
+    second commit
+
+commit 5c670db6fc4a8d109a5e2724c421cd8105c2598f
+Author: corgi9n &lt;arapon@gmail.com&gt;
+Date:   Fri Mar 11 03:44:55 2022 +0900
 
     first commit
-</code></pre><p>ではここで、また master ブランチに戻ってみましょう。<br>
-ブランチの切り替える <code>git checkout</code> コマンドで master ブランチに戻ることができます。</p>
-<pre tabindex="0"><code>git checkout master
+</code></pre><p>ここまでの Git 履歴を図表にすると、以下のようなイメージになります。<br>
+main ブランチの sample.txt には「hello」と「good」と書かれていますが、<br>
+develop ブランチでは「HELLO」に上書きされている状態です。
+<img src="../img/branch-2.png" alt="branch-2.png"></p>
+<p>ではここで、また main ブランチに戻ってみましょう。<br>
+ブランチの切り替える <code>git checkout</code> コマンドで main ブランチに戻ることができます。</p>
+<pre tabindex="0"><code>git checkout main
 </code></pre><p>ここで再度 <code>git log</code> コマンドを実行してコミットログを確認してみましょう。<br>
 すると、さきほど develop ブランチでコミットした <code>develop commit</code> がないことが確認できます。</p>
-<pre tabindex="0"><code>commit 5db36ee820d446e27838869e79cbae3526f71a8f (HEAD -&gt; master)
-Author: a-nakamura1015 &lt;a-nakamura@esm.co.jp&gt;
-Date:   Fri Mar 11 10:25:56 2022 +0900
+<pre tabindex="0"><code>commit 0336368ff10d1f69849cd5beeda1cf1ed274bb6d
+Author: corgi9n &lt;arapon1015@gmail.com&gt;
+Date:   Fri Mar 11 03:54:55 2022 +0900
+
+    second commit
+
+commit 5c670db6fc4a8d109a5e2724c421cd8105c2598f
+Author: corgi9n &lt;arapon@gmail.com&gt;
+Date:   Fri Mar 11 03:44:55 2022 +0900
 
     first commit
 </code></pre><p>念のため develop ブランチで編集した sample.txt の内容を <code>cat</code> コマンドで確認してみましょう。<br>
 以下のように develop ブランチで変更を加える前の状態になっていることが確認できます。<br>
 これは develop ブランチの作業が main ブランチに影響を与えていないことを意味しています。</p>
 <pre tabindex="0"><code>hello
+good
 </code></pre><p>このようにブランチを活用すると、他のブランチに影響を与えることなく作業することができます。</p>
           <footer class="footline">
           </footer>
@@ -198,9 +251,9 @@ Git X EDU
           <input data-search-input id="search-by" type="search" placeholder="Search...">
           <span data-search-clear=""><i class="fas fa-times"></i></span>
         </div>
-        <script src="/git-education/js/lunr.min.js?1651990134"></script>
-        <script src="/git-education/js/auto-complete.js?1651990134"></script>
-        <script src="/git-education/js/search.js?1651990134"></script>
+        <script src="/git-education/js/lunr.min.js?1652421884"></script>
+        <script src="/git-education/js/auto-complete.js?1652421884"></script>
+        <script src="/git-education/js/search.js?1652421884"></script>
       </div>
       <div id="homelinks" class="default-animation">
         <ul>
@@ -263,16 +316,16 @@ Git X EDU
         </div>
       </div>
     </aside>
-    <script src="/git-education/js/clipboard.min.js?1651990134"></script>
-    <script src="/git-education/js/perfect-scrollbar.min.js?1651990134"></script>
-    <script src="/git-education/js/jquery.svg.pan.zoom.js?1651990134"></script>
-    <script src="/git-education/js/featherlight.min.js?1651990134"></script>
-    <script src="/git-education/js/mermaid.min.js?1651990134"></script>
+    <script src="/git-education/js/clipboard.min.js?1652421884"></script>
+    <script src="/git-education/js/perfect-scrollbar.min.js?1652421884"></script>
+    <script src="/git-education/js/jquery.svg.pan.zoom.js?1652421884"></script>
+    <script src="/git-education/js/featherlight.min.js?1652421884"></script>
+    <script src="/git-education/js/mermaid.min.js?1652421884"></script>
     <script>
       if (typeof mermaid != 'undefined' && typeof mermaid.mermaidAPI != 'undefined') {
         mermaid.mermaidAPI.initialize( Object.assign( { "securityLevel": "antiscript" }, JSON.parse("{ \"startOnLoad\": true }"), { startOnLoad: false } ) );
       }
     </script>
-    <script src="/git-education/js/theme.js?1651990134"></script>
+    <script src="/git-education/js/theme.js?1652421884"></script>
   </body>
 </html>
