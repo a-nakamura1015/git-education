@@ -7,17 +7,17 @@
     <meta name="generator" content="Relearn 3.0.4&#43;tip">
     <meta name="description" content="">
     <title>Git のマージ機能 :: Git X Edu</title>
-    <link href="/git-education/css/nucleus.css?1652421884" rel="stylesheet">
-    <link href="/git-education/css/fontawesome-all.min.css?1652421884" rel="stylesheet">
-    <link href="/git-education/css/featherlight.min.css?1652421884" rel="stylesheet">
-    <link href="/git-education/css/perfect-scrollbar.min.css?1652421884" rel="stylesheet">
-    <link href="/git-education/css/auto-complete.css?1652421884" rel="stylesheet">
-    <link href="/git-education/css/theme.css?1652421884" rel="stylesheet">
-    <link id="variant-style" href="/git-education/css/theme-mine.css?1652421884" rel="stylesheet">
-    <link href="/git-education/css/variant.css?1652421884" rel="stylesheet">
-    <link href="/git-education/css/theme-relearn-light.css?1652421884" rel="stylesheet" media="print">
-    <link href="/git-education/css/print.css?1652421884" rel="stylesheet" media="print">
-    <script src="/git-education/js/variant.js?1652421884"></script>
+    <link href="/git-education/css/nucleus.css?1652433308" rel="stylesheet">
+    <link href="/git-education/css/fontawesome-all.min.css?1652433308" rel="stylesheet">
+    <link href="/git-education/css/featherlight.min.css?1652433308" rel="stylesheet">
+    <link href="/git-education/css/perfect-scrollbar.min.css?1652433308" rel="stylesheet">
+    <link href="/git-education/css/auto-complete.css?1652433308" rel="stylesheet">
+    <link href="/git-education/css/theme.css?1652433308" rel="stylesheet">
+    <link id="variant-style" href="/git-education/css/theme-mine.css?1652433308" rel="stylesheet">
+    <link href="/git-education/css/variant.css?1652433308" rel="stylesheet">
+    <link href="/git-education/css/theme-relearn-light.css?1652433308" rel="stylesheet" media="print">
+    <link href="/git-education/css/print.css?1652433308" rel="stylesheet" media="print">
+    <script src="/git-education/js/variant.js?1652433308"></script>
     <script>
       // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
       // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
@@ -33,7 +33,7 @@
       var baseUriFull='https:\/\/a-nakamura1015.github.io\/git-education/';
       variants.init( [ 'mine' ] );
     </script>
-    <script src="/git-education/js/jquery.min.js?1652421884"></script>
+    <script src="/git-education/js/jquery.min.js?1652433308"></script>
   </head>
   <body class="mobile-support" data-url="/git-education/advanced/merge/">
     <div id="body" class="default-animation">
@@ -83,18 +83,18 @@
 
 <h3 id="マージとは">マージとは</h3>
 <p>さきほどはブランチを活用することで他のブランチに影響を与えることなく作業をすることができるとお伝えしました。<br>
-しかし、作成したブランチはあくまで開発用ブランチなので、作業が完了したら納品物となる master ブランチにその変更内容を反映させる必要があります。
+しかし、作成したブランチはあくまで開発用ブランチなので、作業が完了したら納品物となる main ブランチにその変更内容を反映させる必要があります。
 このようにあるブランチに他のブランチの変更内容を反映させる作業をマージ（統合）といいます。
 <img src="../img/merge-1.png" alt="merge-1.png"></p>
-<p>マージは <code>git merge</code> コマンドで行うことできますが、<strong>変更履歴を更新したいブランチで実行する</strong> ことに注意してください。<br>
+<p>マージは <code>git merge</code> コマンドで行うことできますが、<strong>変更履歴を更新したいブランチで実行する</strong>ことに注意してください。<br>
 <code>git merge</code> コマンドの後ろに変更内容を取得したいブランチ名を指定します。</p>
 <pre tabindex="0"><code>git merge [変更内容を取得したいブランチ名]
 </code></pre><h3 id="マージをしてみよう">マージをしてみよう</h3>
-<p>今回は master ブランチに develop ブランチの変更内容を反映させてみましょう。<br>
-まずは <code>git branch</code> コマンドを実行して、master ブランチが作業ブランチになっていることを確認しましょう。<br>
-※ 今回は、変更履歴を更新したいブランチ = master ブランチです。</p>
+<p>今回は main ブランチに develop ブランチの変更内容を反映させてみましょう。<br>
+まずは <code>git branch</code> コマンドを実行して、main ブランチが作業ブランチになっていることを確認しましょう。<br>
+※ 今回は変更履歴を更新したいブランチ = main ブランチです。</p>
 <pre tabindex="0"><code>  develop
-* master
+* main
 </code></pre><p>続いて以下の <code>git merge</code> コマンドを実行します。変更内容を取得したいブランチ名は develop を指定しましょう。</p>
 <pre tabindex="0"><code>git merge develop
 </code></pre><p>以下のようなメッセージが表示されればマージは成功です！</p>
@@ -102,22 +102,27 @@
 Fast-forward
  sample.txt | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
-</code></pre><p>それでは、マージ後の master ブランチの内容を確認してみましょう。<br>
+</code></pre><p>それでは、マージ後の main ブランチの内容を確認してみましょう。<br>
 まずは <code>cat</code> コマンドで sample.txt の中身を確認してみましょう。<br>
 以下のように develop ブランチの内容に変わっていることが確認できます。</p>
 <pre tabindex="0"><code>HELLO
 </code></pre><p>続いて、<code>git log</code> コマンドでコミットログを確認しましょう。<br>
-master ブランチのコミットログに対して、develop ブランチでコミットログが追加されていることが
-確認できます。</p>
-<pre tabindex="0"><code>commit 1be05c74b8ae9ce1f8b1a09510b1367c88e1100e (HEAD -&gt; master, develop)
-Author: a-nakamura1015 &lt;a-nakamura@esm.co.jp&gt;
+main ブランチのコミットログに対して、develop ブランチでコミットログが追加されていることが確認できます。</p>
+<pre tabindex="0"><code>commit 1be05c74b8ae9ce1f8b1a09510b1367c88e1100e (HEAD -&gt; main, develop)
+Author: corgi9n &lt;arapon1015@gmail.com&gt;
 Date:   Fri Mar 11 11:21:55 2022 +0900
 
     develop commit
 
-commit 5db36ee820d446e27838869e79cbae3526f71a8f
-Author: a-nakamura1015 &lt;a-nakamura@esm.co.jp&gt;
-Date:   Fri Mar 11 10:25:56 2022 +0900
+commit 0336368ff10d1f69849cd5beeda1cf1ed274bb6d
+Author: corgi9n &lt;arapon1015@gmail.com&gt;
+Date:   Fri Mar 11 03:54:55 2022 +0900
+
+    second commit
+
+commit 5c670db6fc4a8d109a5e2724c421cd8105c2598f
+Author: corgi9n &lt;arapon@gmail.com&gt;
+Date:   Fri Mar 11 03:44:55 2022 +0900
 
     first commit
 </code></pre><p>なお、マージ後もリポジトリ内には作業ブランチは残ります。<br>
@@ -131,19 +136,24 @@ Date:   Fri Mar 11 10:25:56 2022 +0900
 </code></pre><pre tabindex="0"><code>Deleted branch develop (was 1be05c7).
 </code></pre><p>本当に develop ブランチを削除できているかを <code>git branch</code> コマンドで確認してみましょう。<br>
 以下のように develop ブランチが表示されなければ成功です！</p>
-<pre tabindex="0"><code>* master
+<pre tabindex="0"><code>* main
 </code></pre><p>このようにして作業用のブランチでの変更内容を他のブランチに反映させることができます。<br>
-ここではローカルリポジトリ内でのマージを行いましたが、実際の開発では以下のようなワークフローになります。</p>
+ここではローカルリポジトリ内でのマージを行いましたが、実際の開発では以下のようなフローになります。<br>
+※作業ブランチの名前が develop である場合のフローです。</p>
 <ol>
-<li>リモートリポジトリの master ブランチから最新のソースを取得する。（<code>git pull origin master</code>）</li>
-<li>ローカルリポジトリで作業用ブランチを作成して、切り替える。（<code>git branch XXX</code>、<code>git checkout XXX</code>）</li>
-<li>作業用ブランチでファイルを編集する。（<code>git add</code>、<code>git commit</code>）</li>
-<li>リモートリポジトリに作業用ブランチを作成して、アップロードする。（<code>git push origin XXX</code>）</li>
-<li><strong>リモートリポジトリの作業用ブランチの内容を、リモートリポジトリの master ブランチにマージする。</strong></li>
+<li>リモートリポジトリの main ブランチから最新のソースを取得する。（<code>git pull origin main</code>）</li>
+<li>ローカルリポジトリで作業用ブランチ（develop）を作成する。（<code>git branch develop</code>）</li>
+<li>作成した作業用ブランチ（develop）に切り替える。（<code>git checkout develop</code>）</li>
+<li>作業用ブランチでファイルを編集したファイルをステージングエリアにあげる。（<code>git add</code>）</li>
+<li>ステージングエリアにあるファイルの差分を履歴として記録（コミット）する。（<code>git commit</code>）</li>
+<li>リモートリポジトリに作業用ブランチ（develop）を作成して、<br>
+コミット履歴をアップロードする。（<code>git push origin develop</code>）</li>
+<li><strong>リモートリポジトリの作業用ブランチ（develop）の内容を、リモートリポジトリの main ブランチにマージする。</strong></li>
 </ol>
-<p>最後の「リモートリポジトリの作業用ブランチの内容を、リモートリポジトリの master ブランチにマージする。」は、<br>
+<p><img src="../img/merge-2.png" alt="merge-2.png"></p>
+<p>最後の「リモートリポジトリの作業用ブランチの内容を、リモートリポジトリの main ブランチにマージする。」は、<br>
 ローカルリポジトリではなくリモートリポジトリで行うことができます。<br>
-これを次の <strong>GitHub のプルリクエスト機能</strong> でご紹介します。</p>
+こちらは次の <strong>GitHub のプルリクエスト機能</strong> でご紹介します。</p>
           <footer class="footline">
           </footer>
         </div>
@@ -171,9 +181,9 @@ Git X EDU
           <input data-search-input id="search-by" type="search" placeholder="Search...">
           <span data-search-clear=""><i class="fas fa-times"></i></span>
         </div>
-        <script src="/git-education/js/lunr.min.js?1652421884"></script>
-        <script src="/git-education/js/auto-complete.js?1652421884"></script>
-        <script src="/git-education/js/search.js?1652421884"></script>
+        <script src="/git-education/js/lunr.min.js?1652433308"></script>
+        <script src="/git-education/js/auto-complete.js?1652433308"></script>
+        <script src="/git-education/js/search.js?1652433308"></script>
       </div>
       <div id="homelinks" class="default-animation">
         <ul>
@@ -236,16 +246,16 @@ Git X EDU
         </div>
       </div>
     </aside>
-    <script src="/git-education/js/clipboard.min.js?1652421884"></script>
-    <script src="/git-education/js/perfect-scrollbar.min.js?1652421884"></script>
-    <script src="/git-education/js/jquery.svg.pan.zoom.js?1652421884"></script>
-    <script src="/git-education/js/featherlight.min.js?1652421884"></script>
-    <script src="/git-education/js/mermaid.min.js?1652421884"></script>
+    <script src="/git-education/js/clipboard.min.js?1652433308"></script>
+    <script src="/git-education/js/perfect-scrollbar.min.js?1652433308"></script>
+    <script src="/git-education/js/jquery.svg.pan.zoom.js?1652433308"></script>
+    <script src="/git-education/js/featherlight.min.js?1652433308"></script>
+    <script src="/git-education/js/mermaid.min.js?1652433308"></script>
     <script>
       if (typeof mermaid != 'undefined' && typeof mermaid.mermaidAPI != 'undefined') {
         mermaid.mermaidAPI.initialize( Object.assign( { "securityLevel": "antiscript" }, JSON.parse("{ \"startOnLoad\": true }"), { startOnLoad: false } ) );
       }
     </script>
-    <script src="/git-education/js/theme.js?1652421884"></script>
+    <script src="/git-education/js/theme.js?1652433308"></script>
   </body>
 </html>

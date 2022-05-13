@@ -54,14 +54,14 @@ git branch develop 再度 git branch コマンドを実行すると以下のよ�
       <pubDate>Wed, 16 Mar 2022 07:57:26 +0900</pubDate>
       <guid>https://a-nakamura1015.github.io/git-education/advanced/merge/</guid>
       <description>マージとは さきほどはブランチを活用することで他のブランチに影響を与えることなく作業をすることができるとお伝えしました。
-しかし、作成したブランチはあくまで開発用ブランチなので、作業が完了したら納品物となる master ブランチにその変更内容を反映させる必要があります。 このようにあるブランチに他のブランチの変更内容を反映させる作業をマージ（統合）といいます。 マージは git merge コマンドで行うことできますが、変更履歴を更新したいブランチで実行する ことに注意してください。
+しかし、作成したブランチはあくまで開発用ブランチなので、作業が完了したら納品物となる main ブランチにその変更内容を反映させる必要があります。 このようにあるブランチに他のブランチの変更内容を反映させる作業をマージ（統合）といいます。 マージは git merge コマンドで行うことできますが、変更履歴を更新したいブランチで実行することに注意してください。
 git merge コマンドの後ろに変更内容を取得したいブランチ名を指定します。
-git merge [変更内容を取得したいブランチ名] マージをしてみよう 今回は master ブランチに develop ブランチの変更内容を反映させてみましょう。
-まずは git branch コマンドを実行して、master ブランチが作業ブランチになっていることを確認しましょう。
-※ 今回は、変更履歴を更新したいブランチ = master ブランチです。
- develop * master 続いて以下の git merge コマンドを実行します。変更内容を取得したいブランチ名は develop を指定しましょう。
+git merge [変更内容を取得したいブランチ名] マージをしてみよう 今回は main ブランチに develop ブランチの変更内容を反映させてみましょう。
+まずは git branch コマンドを実行して、main ブランチが作業ブランチになっていることを確認しましょう。
+※ 今回は変更履歴を更新したいブランチ = main ブランチです。
+ develop * main 続いて以下の git merge コマンドを実行します。変更内容を取得したいブランチ名は develop を指定しましょう。
 git merge develop 以下のようなメッセージが表示されればマージは成功です！
-Updating 5db36ee..1be05c7 Fast-forward sample.txt | 2 +- 1 file changed, 1 insertion(+), 1 deletion(-) それでは、マージ後の master ブランチの内容を確認してみましょう。
+Updating 5db36ee..1be05c7 Fast-forward sample.txt | 2 +- 1 file changed, 1 insertion(+), 1 deletion(-) それでは、マージ後の main ブランチの内容を確認してみましょう。
 まずは cat コマンドで sample.txt の中身を確認してみましょう。
 以下のように develop ブランチの内容に変わっていることが確認できます。</description>
     </item>
