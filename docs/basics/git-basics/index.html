@@ -3,21 +3,21 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
-    <meta name="generator" content="Hugo 0.94.2" />
+    <meta name="generator" content="Hugo 0.117.0">
     <meta name="generator" content="Relearn 3.0.4&#43;tip">
     <meta name="description" content="">
     <title>Git の基本 :: Git X Edu</title>
-    <link href="/git-education/css/nucleus.css?1652450964" rel="stylesheet">
-    <link href="/git-education/css/fontawesome-all.min.css?1652450964" rel="stylesheet">
-    <link href="/git-education/css/featherlight.min.css?1652450964" rel="stylesheet">
-    <link href="/git-education/css/perfect-scrollbar.min.css?1652450964" rel="stylesheet">
-    <link href="/git-education/css/auto-complete.css?1652450964" rel="stylesheet">
-    <link href="/git-education/css/theme.css?1652450964" rel="stylesheet">
-    <link id="variant-style" href="/git-education/css/theme-mine.css?1652450964" rel="stylesheet">
-    <link href="/git-education/css/variant.css?1652450964" rel="stylesheet">
-    <link href="/git-education/css/theme-relearn-light.css?1652450964" rel="stylesheet" media="print">
-    <link href="/git-education/css/print.css?1652450964" rel="stylesheet" media="print">
-    <script src="/git-education/js/variant.js?1652450964"></script>
+    <link href="/git-education/css/nucleus.css?1692793308" rel="stylesheet">
+    <link href="/git-education/css/fontawesome-all.min.css?1692793308" rel="stylesheet">
+    <link href="/git-education/css/featherlight.min.css?1692793308" rel="stylesheet">
+    <link href="/git-education/css/perfect-scrollbar.min.css?1692793308" rel="stylesheet">
+    <link href="/git-education/css/auto-complete.css?1692793308" rel="stylesheet">
+    <link href="/git-education/css/theme.css?1692793308" rel="stylesheet">
+    <link id="variant-style" href="/git-education/css/theme-mine.css?1692793308" rel="stylesheet">
+    <link href="/git-education/css/variant.css?1692793308" rel="stylesheet">
+    <link href="/git-education/css/theme-relearn-light.css?1692793308" rel="stylesheet" media="print">
+    <link href="/git-education/css/print.css?1692793308" rel="stylesheet" media="print">
+    <script src="/git-education/js/variant.js?1692793308"></script>
     <script>
       // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
       // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
@@ -33,7 +33,7 @@
       var baseUriFull='https:\/\/a-nakamura1015.github.io\/git-education/';
       variants.init( [ 'mine' ] );
     </script>
-    <script src="/git-education/js/jquery.min.js?1652450964"></script>
+    <script src="/git-education/js/jquery.min.js?1692793308"></script>
   </head>
   <body class="mobile-support" data-url="/git-education/basics/git-basics/">
     <div id="body" class="default-animation">
@@ -84,7 +84,7 @@
           <h1>Git の基本</h1>
 
 <h2 id="git-の基本">Git の基本</h2>
-<p>皆さんがこれから学ぶのは Git は、ファイルの変更履歴を記録できる<strong>バージョン管理システム</strong>です。 <br>
+<p>皆さんがこれから学ぶ Git とは、ファイルの変更履歴を記録できる<strong>バージョン管理システム</strong>です。 <br>
 以下は Git を活用した場合のメリットの一部です。このように Git を活用するとより効率的に開発を進めることができます。</p>
 <ul>
 <li>編集したファイルを過去の状態に戻すことができる</li>
@@ -94,7 +94,7 @@
 <p>本チャプターでは Git の基本を実際にコマンドを実行していきながら学んでいきます。<br>
 まずは Git のことを知る前に、事前知識としてリポジトリとバージョン管理システムの概要から理解していきましょう。</p>
 <h3 id="リポジトリとは">リポジトリとは</h3>
-<p>突然ですが、パソコンで作成したファイルはファイルはどこに保存されているかを意識していますか？<br>
+<p>突然ですが、パソコンで作成したファイルはどこに保存されているかを意識していますか？<br>
 後で探しやすいようにデスクトップに格納する場合もあれば、書類であればドキュメントフォルダに格納することもあるでしょう。<br>
 しかし、そこに格納されているのはファイル本体だけで、ファイルの変更履歴は残っていません。<br>
 一方でファイルだけでなく、そのファイルの変更履歴を記録することができるのが<strong>リポジトリ</strong>です。<br>
@@ -129,10 +129,10 @@ Git は分散型に分類されるのですが、それぞれの違いについ�
 仕組みは至ってシンプルで、チームメンバーは各自必要なファイルのみをダウンロードして編集します。<br>
 編集を終えたら、その編集履歴をクラウド（ネットワーク）上にあるリポジトリにアップロードするという流れになります。<br>
 <img src="../img/git-basics-1.png" alt="git-basics-1.png">
-分散型と異なるのは変更を加えた場合はその都度アップロードをする必要があることです。<br>
+分散型と異なるのは、変更を加えた場合はその都度アップロードをする必要があることです。<br>
 そのため、集中型には以下のデメリットがあります。</p>
 <ol>
-<li>作業が完了していない状態（エラーが発生する状態）でアップロードをすると、チームメンバーに悪影響を与える可能性があります。</li>
+<li>作業が完了していない状態（エラーが発生する状態）でアップロードをすると、チームメンバーに悪影響を与える可能性がある。</li>
 <li>必要なファイルのみをダウンロードしているため、アップロードしてみないとテストができない。</li>
 </ol>
 <h4 id="分散型バージョン管理システム">分散型バージョン管理システム</h4>
@@ -150,7 +150,7 @@ Git は分散型に分類されるのですが、それぞれの違いについ�
 自身のみがアクセスして編集を行うためのリポジトリで、基本的にこのローカルリポジトリでファイルを編集します。<br>
 一方のリモートリポジトリはその名の通り操作しているデバイスの中にはなくクラウド（ネットワーク）上にあるリポジトリで、複数のチームメンバーと共有することができます。<br>
 個人の作業をローカルリポジトリで行い、その作業で作成したファイルをリモートリポジトリにアップロードすることで他のチームメンバーと共有できる仕組みになっています。<br>
-アップロードしない限りチームメンバーにファイルを共有することができませんが、ローカルリポジトリでエラーが発生したとしてもアップロードしない限りチームメンバーに影響与えることはありません。</p>
+アップロードしない限りチームメンバーにファイルを共有することができませんが、ローカルリポジトリでエラーが発生したとしても、アップロードしない限りチームメンバーに影響を与えることはありません。</p>
 
 <div class="box notices note">
     <div class="box-label"><i class="fas fa-exclamation-circle fa-fw"></i> Note</div>
@@ -177,7 +177,7 @@ Git の使い方についてはこれから実際に試しながら学んでい�
 <strong>この編集でどのファイルをどのように変更したのか</strong>という観点で管理をしています。</p>
 <h3 id="git-を始めてみよう">Git を始めてみよう</h3>
 <p>Git の公式サイトからインストーラーをダウンロードすることができます。<br>
-以下のURLからインスト＝ラーをダウンロードして Git をインストールしましょう。<br>
+以下のURLからインストーラーをダウンロードして Git をインストールしましょう。<br>
 <a href="https://git-scm.com/downloads">https://git-scm.com/downloads</a></p>
 <p>Git のインストールが完了しましたら、インストールが完了できているかを確認しましょう。<br>
 ターミナルを起動して、インストールされている Git のバージョンを確認するコマンドを実行しましょう。<br>
@@ -185,7 +185,7 @@ Git の使い方についてはこれから実際に試しながら学んでい�
 ※Xの部分には数値が表示されます。</p>
 <pre tabindex="0"><code>git --version
 </code></pre><p>Git のインストールができていることが確認できたら、続いて初期設定を進めていきましょう。<br>
-Git は「誰が」が残した履歴なのかを記録していくため、Git のユーザー情報（ユーザー名とメールアドレス）を登録する必要があります。</p>
+Git は「誰が」残した履歴なのかを記録していくため、Git のユーザー情報（ユーザー名とメールアドレス）を登録する必要があります。</p>
 <p>ユーザー名は以下のコマンドで登録することができます。<br>
 ※“XXXXXX”の箇所は任意のアカウント名を指定してください。後ほど設定する GitHub のアカウント名と同じである必要があります。</p>
 <pre tabindex="0"><code>git config --global user.name “XXXXXX”
@@ -205,7 +205,7 @@ git config user.email
       <div id="header-wrapper" class="default-animation">
         <div id="header" class="default-animation">
 <a id="logo"
-href="/git-education/"
+href="/"
 style="
   color: #ffffff;
   font-family: 'Work Sans', 'Helvetica', 'Tahoma', 'Geneva', 'Arial', sans-serif;
@@ -223,14 +223,14 @@ Git X EDU
           <input data-search-input id="search-by" type="search" placeholder="Search...">
           <span data-search-clear=""><i class="fas fa-times"></i></span>
         </div>
-        <script src="/git-education/js/lunr.min.js?1652450964"></script>
-        <script src="/git-education/js/auto-complete.js?1652450964"></script>
-        <script src="/git-education/js/search.js?1652450964"></script>
+        <script src="/git-education/js/lunr.min.js?1692793308"></script>
+        <script src="/git-education/js/auto-complete.js?1692793308"></script>
+        <script src="/git-education/js/search.js?1692793308"></script>
       </div>
       <div id="homelinks" class="default-animation">
         <ul>
           <li>
-              <a class="padding" href="/git-education/"><i class="fas fa-home"></i> Home</a>
+              <a class="padding" href="/"><i class="fas fa-home"></i> Home</a>
           </li>
         </ul>
       </div>
@@ -289,16 +289,16 @@ Git X EDU
         </div>
       </div>
     </aside>
-    <script src="/git-education/js/clipboard.min.js?1652450964"></script>
-    <script src="/git-education/js/perfect-scrollbar.min.js?1652450964"></script>
-    <script src="/git-education/js/jquery.svg.pan.zoom.js?1652450964"></script>
-    <script src="/git-education/js/featherlight.min.js?1652450964"></script>
-    <script src="/git-education/js/mermaid.min.js?1652450964"></script>
+    <script src="/git-education/js/clipboard.min.js?1692793308"></script>
+    <script src="/git-education/js/perfect-scrollbar.min.js?1692793308"></script>
+    <script src="/git-education/js/jquery.svg.pan.zoom.js?1692793308"></script>
+    <script src="/git-education/js/featherlight.min.js?1692793308"></script>
+    <script src="/git-education/js/mermaid.min.js?1692793308"></script>
     <script>
       if (typeof mermaid != 'undefined' && typeof mermaid.mermaidAPI != 'undefined') {
         mermaid.mermaidAPI.initialize( Object.assign( { "securityLevel": "antiscript" }, JSON.parse("{ \"startOnLoad\": true }"), { startOnLoad: false } ) );
       }
     </script>
-    <script src="/git-education/js/theme.js?1652450964"></script>
+    <script src="/git-education/js/theme.js?1692793308"></script>
   </body>
 </html>

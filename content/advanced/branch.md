@@ -27,9 +27,9 @@ Git は **main ブランチ**がデフォルトになっており、実は初級
 ```
 git branch
 ```
-`git branch` コマンドを実行すると、ローカルリポジトリ内のブランチ名の一覧を以下のように表示されます。
+`git branch` コマンドを実行すると、ローカルリポジトリ内のブランチ名の一覧が以下のように表示されます。
 現在作業しているブランチの左隣に`*`が表示されます。  
-いまは main ブランチしかないため表示されるブランチ名を1つのみですが、  
+いまは main ブランチしかないため表示されるブランチ名は1つのみですが、  
 ブランチを増やすと現在作業していないブランチの名前もこのコマンドで確認することができます。
 ```
 * main
@@ -85,7 +85,7 @@ develop の左隣に `*` があればブランチの切り替えに成功です�
 * develop
   main
 ```
-続いて、切り替えた develop ブランチでファイルを編集をしてみましょう。  
+続いて、切り替えた develop ブランチでファイルを編集してみましょう。  
 main ブランチで作成した sample.txt には hello と書かれていますが、  
 これを develop ブランチでは HELLO に上書きをします。  
 ```
@@ -108,7 +108,7 @@ no changes added to commit (use "git add" and/or "git commit -a")
 ```
 **On branch develop** は develop ブランチで作業していることを意味しています。  
 **Changes not staged for commit** は修正はしたもののまだ `git add` を実行していないため、  
-コミットができないファイルをあるよという意味です。  
+コミットができないファイルがあるよという意味です。  
 その下に **modified:   sample.txt** と表示されていますが、これは sample.txt に変更が発生しているという意味になります。
 
 それでは以下のコマンドを実行して、今回編集した sample.txt の変更内容を Git に登録してみましょう。  
@@ -139,7 +139,7 @@ Date:   Fri Mar 11 03:44:55 2022 +0900
     first commit
 ```
 ここまでの Git 履歴を図表にすると、以下のようなイメージになります。  
-main ブランチの sample.txt には「hello」と「good」と書かれていますが、  
+main ブランチの sample.txt には「hello」と「good」が書かれていますが、  
 develop ブランチでは「HELLO」に上書きされている状態です。
 ![branch-2.png](../img/branch-2.png)
 
