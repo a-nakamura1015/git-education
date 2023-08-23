@@ -3,21 +3,21 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
-    <meta name="generator" content="Hugo 0.94.2" />
+    <meta name="generator" content="Hugo 0.117.0">
     <meta name="generator" content="Relearn 3.0.4&#43;tip">
     <meta name="description" content="">
     <title>Git のブランチ機能 :: Git X Edu</title>
-    <link href="/git-education/css/nucleus.css?1652450964" rel="stylesheet">
-    <link href="/git-education/css/fontawesome-all.min.css?1652450964" rel="stylesheet">
-    <link href="/git-education/css/featherlight.min.css?1652450964" rel="stylesheet">
-    <link href="/git-education/css/perfect-scrollbar.min.css?1652450964" rel="stylesheet">
-    <link href="/git-education/css/auto-complete.css?1652450964" rel="stylesheet">
-    <link href="/git-education/css/theme.css?1652450964" rel="stylesheet">
-    <link id="variant-style" href="/git-education/css/theme-mine.css?1652450964" rel="stylesheet">
-    <link href="/git-education/css/variant.css?1652450964" rel="stylesheet">
-    <link href="/git-education/css/theme-relearn-light.css?1652450964" rel="stylesheet" media="print">
-    <link href="/git-education/css/print.css?1652450964" rel="stylesheet" media="print">
-    <script src="/git-education/js/variant.js?1652450964"></script>
+    <link href="/git-education/css/nucleus.css?1692793308" rel="stylesheet">
+    <link href="/git-education/css/fontawesome-all.min.css?1692793308" rel="stylesheet">
+    <link href="/git-education/css/featherlight.min.css?1692793308" rel="stylesheet">
+    <link href="/git-education/css/perfect-scrollbar.min.css?1692793308" rel="stylesheet">
+    <link href="/git-education/css/auto-complete.css?1692793308" rel="stylesheet">
+    <link href="/git-education/css/theme.css?1692793308" rel="stylesheet">
+    <link id="variant-style" href="/git-education/css/theme-mine.css?1692793308" rel="stylesheet">
+    <link href="/git-education/css/variant.css?1692793308" rel="stylesheet">
+    <link href="/git-education/css/theme-relearn-light.css?1692793308" rel="stylesheet" media="print">
+    <link href="/git-education/css/print.css?1692793308" rel="stylesheet" media="print">
+    <script src="/git-education/js/variant.js?1692793308"></script>
     <script>
       // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
       // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
@@ -33,7 +33,7 @@
       var baseUriFull='https:\/\/a-nakamura1015.github.io\/git-education/';
       variants.init( [ 'mine' ] );
     </script>
-    <script src="/git-education/js/jquery.min.js?1652450964"></script>
+    <script src="/git-education/js/jquery.min.js?1692793308"></script>
   </head>
   <body class="mobile-support" data-url="/git-education/advanced/branch/">
     <div id="body" class="default-animation">
@@ -102,9 +102,9 @@ Git は <strong>main ブランチ</strong>がデフォルトになっており�
 <p><img src="../img/branch-1.png" alt="branch-1.png"></p>
 <p>現在作業をしているブランチは以下のコマンドで確認をすることができます。</p>
 <pre tabindex="0"><code>git branch
-</code></pre><p><code>git branch</code> コマンドを実行すると、ローカルリポジトリ内のブランチ名の一覧を以下のように表示されます。
+</code></pre><p><code>git branch</code> コマンドを実行すると、ローカルリポジトリ内のブランチ名の一覧が以下のように表示されます。
 現在作業しているブランチの左隣に<code>*</code>が表示されます。<br>
-いまは main ブランチしかないため表示されるブランチ名を1つのみですが、<br>
+いまは main ブランチしかないため表示されるブランチ名は1つのみですが、<br>
 ブランチを増やすと現在作業していないブランチの名前もこのコマンドで確認することができます。</p>
 <pre tabindex="0"><code>* main
 </code></pre>
@@ -156,7 +156,7 @@ develop ブランチが作成できているかを確認してみましょう。
 develop の左隣に <code>*</code> があればブランチの切り替えに成功です！</p>
 <pre tabindex="0"><code>* develop
   main
-</code></pre><p>続いて、切り替えた develop ブランチでファイルを編集をしてみましょう。<br>
+</code></pre><p>続いて、切り替えた develop ブランチでファイルを編集してみましょう。<br>
 main ブランチで作成した sample.txt には hello と書かれていますが、<br>
 これを develop ブランチでは HELLO に上書きをします。</p>
 <pre tabindex="0"><code>echo HELLO &gt; sample.txt
@@ -173,7 +173,7 @@ Changes not staged for commit:
 no changes added to commit (use &#34;git add&#34; and/or &#34;git commit -a&#34;)
 </code></pre><p><strong>On branch develop</strong> は develop ブランチで作業していることを意味しています。<br>
 <strong>Changes not staged for commit</strong> は修正はしたもののまだ <code>git add</code> を実行していないため、<br>
-コミットができないファイルをあるよという意味です。<br>
+コミットができないファイルがあるよという意味です。<br>
 その下に <strong>modified:   sample.txt</strong> と表示されていますが、これは sample.txt に変更が発生しているという意味になります。</p>
 <p>それでは以下のコマンドを実行して、今回編集した sample.txt の変更内容を Git に登録してみましょう。<br>
 ブランチ名が変わってもこのフロー（作業ディレクトリ → ステージングエリア → ローカルリポジトリ）は変わりません。</p>
@@ -199,7 +199,7 @@ Date:   Fri Mar 11 03:44:55 2022 +0900
 
     first commit
 </code></pre><p>ここまでの Git 履歴を図表にすると、以下のようなイメージになります。<br>
-main ブランチの sample.txt には「hello」と「good」と書かれていますが、<br>
+main ブランチの sample.txt には「hello」と「good」が書かれていますが、<br>
 develop ブランチでは「HELLO」に上書きされている状態です。
 <img src="../img/branch-2.png" alt="branch-2.png"></p>
 <p>ではここで、また main ブランチに戻ってみましょう。<br>
@@ -243,7 +243,7 @@ good
       <div id="header-wrapper" class="default-animation">
         <div id="header" class="default-animation">
 <a id="logo"
-href="/git-education/"
+href="/"
 style="
   color: #ffffff;
   font-family: 'Work Sans', 'Helvetica', 'Tahoma', 'Geneva', 'Arial', sans-serif;
@@ -261,14 +261,14 @@ Git X EDU
           <input data-search-input id="search-by" type="search" placeholder="Search...">
           <span data-search-clear=""><i class="fas fa-times"></i></span>
         </div>
-        <script src="/git-education/js/lunr.min.js?1652450964"></script>
-        <script src="/git-education/js/auto-complete.js?1652450964"></script>
-        <script src="/git-education/js/search.js?1652450964"></script>
+        <script src="/git-education/js/lunr.min.js?1692793308"></script>
+        <script src="/git-education/js/auto-complete.js?1692793308"></script>
+        <script src="/git-education/js/search.js?1692793308"></script>
       </div>
       <div id="homelinks" class="default-animation">
         <ul>
           <li>
-              <a class="padding" href="/git-education/"><i class="fas fa-home"></i> Home</a>
+              <a class="padding" href="/"><i class="fas fa-home"></i> Home</a>
           </li>
         </ul>
       </div>
@@ -327,16 +327,16 @@ Git X EDU
         </div>
       </div>
     </aside>
-    <script src="/git-education/js/clipboard.min.js?1652450964"></script>
-    <script src="/git-education/js/perfect-scrollbar.min.js?1652450964"></script>
-    <script src="/git-education/js/jquery.svg.pan.zoom.js?1652450964"></script>
-    <script src="/git-education/js/featherlight.min.js?1652450964"></script>
-    <script src="/git-education/js/mermaid.min.js?1652450964"></script>
+    <script src="/git-education/js/clipboard.min.js?1692793308"></script>
+    <script src="/git-education/js/perfect-scrollbar.min.js?1692793308"></script>
+    <script src="/git-education/js/jquery.svg.pan.zoom.js?1692793308"></script>
+    <script src="/git-education/js/featherlight.min.js?1692793308"></script>
+    <script src="/git-education/js/mermaid.min.js?1692793308"></script>
     <script>
       if (typeof mermaid != 'undefined' && typeof mermaid.mermaidAPI != 'undefined') {
         mermaid.mermaidAPI.initialize( Object.assign( { "securityLevel": "antiscript" }, JSON.parse("{ \"startOnLoad\": true }"), { startOnLoad: false } ) );
       }
     </script>
-    <script src="/git-education/js/theme.js?1652450964"></script>
+    <script src="/git-education/js/theme.js?1692793308"></script>
   </body>
 </html>

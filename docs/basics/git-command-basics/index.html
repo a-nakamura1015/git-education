@@ -3,21 +3,21 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
-    <meta name="generator" content="Hugo 0.94.2" />
+    <meta name="generator" content="Hugo 0.117.0">
     <meta name="generator" content="Relearn 3.0.4&#43;tip">
     <meta name="description" content="">
     <title>Git の基本コマンド :: Git X Edu</title>
-    <link href="/git-education/css/nucleus.css?1652450964" rel="stylesheet">
-    <link href="/git-education/css/fontawesome-all.min.css?1652450964" rel="stylesheet">
-    <link href="/git-education/css/featherlight.min.css?1652450964" rel="stylesheet">
-    <link href="/git-education/css/perfect-scrollbar.min.css?1652450964" rel="stylesheet">
-    <link href="/git-education/css/auto-complete.css?1652450964" rel="stylesheet">
-    <link href="/git-education/css/theme.css?1652450964" rel="stylesheet">
-    <link id="variant-style" href="/git-education/css/theme-mine.css?1652450964" rel="stylesheet">
-    <link href="/git-education/css/variant.css?1652450964" rel="stylesheet">
-    <link href="/git-education/css/theme-relearn-light.css?1652450964" rel="stylesheet" media="print">
-    <link href="/git-education/css/print.css?1652450964" rel="stylesheet" media="print">
-    <script src="/git-education/js/variant.js?1652450964"></script>
+    <link href="/git-education/css/nucleus.css?1692793308" rel="stylesheet">
+    <link href="/git-education/css/fontawesome-all.min.css?1692793308" rel="stylesheet">
+    <link href="/git-education/css/featherlight.min.css?1692793308" rel="stylesheet">
+    <link href="/git-education/css/perfect-scrollbar.min.css?1692793308" rel="stylesheet">
+    <link href="/git-education/css/auto-complete.css?1692793308" rel="stylesheet">
+    <link href="/git-education/css/theme.css?1692793308" rel="stylesheet">
+    <link id="variant-style" href="/git-education/css/theme-mine.css?1692793308" rel="stylesheet">
+    <link href="/git-education/css/variant.css?1692793308" rel="stylesheet">
+    <link href="/git-education/css/theme-relearn-light.css?1692793308" rel="stylesheet" media="print">
+    <link href="/git-education/css/print.css?1692793308" rel="stylesheet" media="print">
+    <script src="/git-education/js/variant.js?1692793308"></script>
     <script>
       // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
       // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
@@ -33,7 +33,7 @@
       var baseUriFull='https:\/\/a-nakamura1015.github.io\/git-education/';
       variants.init( [ 'mine' ] );
     </script>
-    <script src="/git-education/js/jquery.min.js?1652450964"></script>
+    <script src="/git-education/js/jquery.min.js?1692793308"></script>
   </head>
   <body class="mobile-support" data-url="/git-education/basics/git-command-basics/">
     <div id="body" class="default-animation">
@@ -124,8 +124,7 @@ ls -al
 <hr>
 <h3 id="リモートリポジトリをクローンする">リモートリポジトリをクローンする</h3>
 <p>GitHubなどに存在するリモートリポジトリをローカルにクローン（コピー）して開発を始めることもできます。<br>
-実際の開発ではチームで１つのリポジトリを共有して利用するため、チームメンバーのひとりがリモートリポジトリを作成して、<br>
-残りのメンバーはそのリポジトリをクローンするところから開発が始まることが一般的です。<br>
+実際の開発ではチームで１つのリポジトリを共有して利用するため、チームメンバーのひとりがリモートリポジトリを作成して、残りのメンバーはそのリポジトリをクローンするところから開発が始まることが一般的です。<br>
 これを実現するのが <code>git clone</code> コマンドで、コマンドの後ろにはクローンしたいリポジトリのURLを指定します。</p>
 <pre tabindex="0"><code>git clone [リモートリポジトリのURL] [クローン先のディレクトリのパス（省略可）]
 </code></pre><p>[クローン先のディレクトリのパス（省略可）]は省略することもでき、<br>
@@ -138,13 +137,13 @@ git clone https://github.com/a-nakamura1015/git_tutorial.git
 そのため、クローンするだけでそのディレクトリ配下で Git の操作をすることができます。</p>
 <hr>
 <h3 id="ローカルリポジトリにリモートリポジトリを追加する">ローカルリポジトリにリモートリポジトリを追加する</h3>
-<p>ローカルリポジトリとリモートリポジトリを紐づけるコマンドもあるので紹介します。<br>
+<p>ローカルリポジトリとリモートリポジトリを紐付けるコマンドもあるので紹介します。<br>
 <code>git remote add</code>コマンドでリモートリポジトリの名前（<strong>origin</strong>）とリモートリポジトリのURLを設定することで実現できます。</p>
 <pre tabindex="0"><code>git remote add [リモートリポジトリの名前] [リモートリポジトリのURL]
 </code></pre><p>リモートリポジトリにはデフォルトで<strong>origin</strong>という名前がついているので、この名前とリモートリポジトリのURLを紐付けるのが一般的です。<br>
-また、ローカルリポジトリが現在どのリモートリポジトリと紐づいているかは以下のコマンドで確認をすることができます。</p>
+また、ローカルリポジトリが現在どのリモートリポジトリと紐付いているかは以下のコマンドで確認をすることができます。</p>
 <pre tabindex="0"><code>git remote -v
-</code></pre><p>一方で一度紐づけたリモートリポジトリとの紐付けを解除することもできます。</p>
+</code></pre><p>一方で一度紐付けたリモートリポジトリとの紐付けを解除することもできます。</p>
 <pre tabindex="0"><code>git remote rm [リモートリポジトリの名前]
 </code></pre><p><strong>DEMO</strong><br>
 今回はデスクトップ上に remote ディレクトリを作成して、<a href="https://github.com/a-nakamura1015/git_tutorial.git">git_tutorial</a> リポジトリをリモートリポジトリとなるように設定してみましょう。
@@ -156,7 +155,7 @@ cd remote
 <pre tabindex="0"><code>git init
 </code></pre><p>続いて、以下のコマンドでリモートリポジトリを紐付けましょう。</p>
 <pre tabindex="0"><code>git remote add origin https://github.com/a-nakamura1015/git_tutorial.git
-</code></pre><p>以下のコマンドで火もづいているリモートリポジトリを確認してみましょう。</p>
+</code></pre><p>以下のコマンドで紐付いているリモートリポジトリを確認してみましょう。</p>
 <pre tabindex="0"><code>git remote -v
 </code></pre><p>以下のような結果が表示されれば成功です。</p>
 <pre tabindex="0"><code>origin	/Users/UserName/Desktop/remote/ (fetch)
@@ -213,8 +212,8 @@ Git が検知した変化のうち、Gitの変更履歴に残したいものが�
 コマンドの後ろにはステージングエリアに追加したいファイルのパスを指定します。</p>
 <pre tabindex="0"><code>git add [編集したファイルのパス]
 </code></pre><p><strong>DEMO</strong><br>
-今回は sample.txt を新規で作成して、同ファイルをステージングエリアに追加してみましょう。
-①ファイルを新規で作成してみよう
+今回は sample.txt を新規で作成して、同ファイルをステージングエリアに追加してみましょう。<br>
+①ファイルを新規で作成してみよう<br>
 まずは以下のコマンドで sample.txt を作成します。</p>
 <pre tabindex="0"><code>touch sample.txt
 </code></pre><p>続いて、作成したファイルに hello と書き込みます。</p>
@@ -238,7 +237,7 @@ nothing added to commit but untracked files present (use &#34;git add&#34; to tr
 <code>Untracked files</code>の後ろに sample.txt があるので、このファイルがまだ Git の管理下に置かれていないということです。<br>
 <img src="../img/git-command-basics-2.png" alt="git-command-basics-2.png">
 Git の管理下に置かれるようにするには <code>git add</code> コマンドを実行する必要があります。</p>
-<p>②ファイルのステータスを修正済にする
+<p>②ファイルのステータスを修正済にする<br>
 それでは、<code>git add</code> コマンドを実行してみましょう。</p>
 <pre tabindex="0"><code>git add sample.txt
 </code></pre><p><code>git add</code> コマンドを実行すると、以下の内容が表示されます。</p>
@@ -255,7 +254,7 @@ Changes to be committed:
 <img src="../img/git-command-basics-3.png" alt="git-command-basics-3.png"></p>
 <hr>
 <h3 id="変更内容をコミットする">変更内容をコミットする</h3>
-<p>変更内容をステージングエリアに追加されていると、その変更内容を Git の履歴に追加できるようになります。<br>
+<p>変更内容がステージングエリアに追加されていると、その変更内容を Git の履歴に追加できるようになります。<br>
 この Git の履歴に追加する操作を<strong>コミット</strong>といいますが、コミットは以下のコマンドで実行することができます。</p>
 <pre tabindex="0"><code>git commit
 </code></pre><p>このコマンドはファイルそのものを保存しているのではなく、ファイルの変更履歴を保存することができるというところがポイントです。<br>
@@ -392,7 +391,7 @@ GitHub アカウントのパスワードを入力して Enter キーを押しま
       <div id="header-wrapper" class="default-animation">
         <div id="header" class="default-animation">
 <a id="logo"
-href="/git-education/"
+href="/"
 style="
   color: #ffffff;
   font-family: 'Work Sans', 'Helvetica', 'Tahoma', 'Geneva', 'Arial', sans-serif;
@@ -410,14 +409,14 @@ Git X EDU
           <input data-search-input id="search-by" type="search" placeholder="Search...">
           <span data-search-clear=""><i class="fas fa-times"></i></span>
         </div>
-        <script src="/git-education/js/lunr.min.js?1652450964"></script>
-        <script src="/git-education/js/auto-complete.js?1652450964"></script>
-        <script src="/git-education/js/search.js?1652450964"></script>
+        <script src="/git-education/js/lunr.min.js?1692793308"></script>
+        <script src="/git-education/js/auto-complete.js?1692793308"></script>
+        <script src="/git-education/js/search.js?1692793308"></script>
       </div>
       <div id="homelinks" class="default-animation">
         <ul>
           <li>
-              <a class="padding" href="/git-education/"><i class="fas fa-home"></i> Home</a>
+              <a class="padding" href="/"><i class="fas fa-home"></i> Home</a>
           </li>
         </ul>
       </div>
@@ -476,16 +475,16 @@ Git X EDU
         </div>
       </div>
     </aside>
-    <script src="/git-education/js/clipboard.min.js?1652450964"></script>
-    <script src="/git-education/js/perfect-scrollbar.min.js?1652450964"></script>
-    <script src="/git-education/js/jquery.svg.pan.zoom.js?1652450964"></script>
-    <script src="/git-education/js/featherlight.min.js?1652450964"></script>
-    <script src="/git-education/js/mermaid.min.js?1652450964"></script>
+    <script src="/git-education/js/clipboard.min.js?1692793308"></script>
+    <script src="/git-education/js/perfect-scrollbar.min.js?1692793308"></script>
+    <script src="/git-education/js/jquery.svg.pan.zoom.js?1692793308"></script>
+    <script src="/git-education/js/featherlight.min.js?1692793308"></script>
+    <script src="/git-education/js/mermaid.min.js?1692793308"></script>
     <script>
       if (typeof mermaid != 'undefined' && typeof mermaid.mermaidAPI != 'undefined') {
         mermaid.mermaidAPI.initialize( Object.assign( { "securityLevel": "antiscript" }, JSON.parse("{ \"startOnLoad\": true }"), { startOnLoad: false } ) );
       }
     </script>
-    <script src="/git-education/js/theme.js?1652450964"></script>
+    <script src="/git-education/js/theme.js?1692793308"></script>
   </body>
 </html>
