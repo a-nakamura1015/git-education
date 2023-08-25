@@ -3,21 +3,21 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
-    <meta name="generator" content="Hugo 0.94.2" />
+    <meta name="generator" content="Hugo 0.117.0">
     <meta name="generator" content="Relearn 3.0.4&#43;tip">
     <meta name="description" content="">
     <title>競合の解消 :: Git X Edu</title>
-    <link href="/git-education/css/nucleus.css?1652450964" rel="stylesheet">
-    <link href="/git-education/css/fontawesome-all.min.css?1652450964" rel="stylesheet">
-    <link href="/git-education/css/featherlight.min.css?1652450964" rel="stylesheet">
-    <link href="/git-education/css/perfect-scrollbar.min.css?1652450964" rel="stylesheet">
-    <link href="/git-education/css/auto-complete.css?1652450964" rel="stylesheet">
-    <link href="/git-education/css/theme.css?1652450964" rel="stylesheet">
-    <link id="variant-style" href="/git-education/css/theme-mine.css?1652450964" rel="stylesheet">
-    <link href="/git-education/css/variant.css?1652450964" rel="stylesheet">
-    <link href="/git-education/css/theme-relearn-light.css?1652450964" rel="stylesheet" media="print">
-    <link href="/git-education/css/print.css?1652450964" rel="stylesheet" media="print">
-    <script src="/git-education/js/variant.js?1652450964"></script>
+    <link href="/git-education/css/nucleus.css?1692942757" rel="stylesheet">
+    <link href="/git-education/css/fontawesome-all.min.css?1692942757" rel="stylesheet">
+    <link href="/git-education/css/featherlight.min.css?1692942757" rel="stylesheet">
+    <link href="/git-education/css/perfect-scrollbar.min.css?1692942757" rel="stylesheet">
+    <link href="/git-education/css/auto-complete.css?1692942757" rel="stylesheet">
+    <link href="/git-education/css/theme.css?1692942757" rel="stylesheet">
+    <link id="variant-style" href="/git-education/css/theme-mine.css?1692942757" rel="stylesheet">
+    <link href="/git-education/css/variant.css?1692942757" rel="stylesheet">
+    <link href="/git-education/css/theme-relearn-light.css?1692942757" rel="stylesheet" media="print">
+    <link href="/git-education/css/print.css?1692942757" rel="stylesheet" media="print">
+    <script src="/git-education/js/variant.js?1692942757"></script>
     <script>
       // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
       // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
@@ -33,7 +33,7 @@
       var baseUriFull='https:\/\/a-nakamura1015.github.io\/git-education/';
       variants.init( [ 'mine' ] );
     </script>
-    <script src="/git-education/js/jquery.min.js?1652450964"></script>
+    <script src="/git-education/js/jquery.min.js?1692942757"></script>
   </head>
   <body class="mobile-support" data-url="/git-education/practical/conflict/">
     <div id="body" class="default-animation">
@@ -90,7 +90,7 @@
 <h2 id="競合の解消">競合の解消</h2>
 <h3 id="競合とは">競合とは</h3>
 <p>変更内容をマージする際に、同じファイルの同じ行が既に変更されていると衝突してしまい「競合（コンフリクト）」と呼ばれる事象が発生します。<br>
-競合が発生すると、２つの履歴のうちどちらの変更が正しいかは Git が判断することができないため同ファイルのマージが中断されます。<br>
+競合が発生すると、２つの履歴のうちどちらの変更が正しいかを Git は判断することができないため同ファイルのマージが中断されます。<br>
 <img src="../img/conflict-1.png" alt="conflict-1.png"></p>
 <p>マージの際に競合が発生すると以下のようなメッセージが表示されます。</p>
 <pre tabindex="0"><code>Auto-merging sample.txt
@@ -100,7 +100,7 @@ Automatic merge failed; fix conflicts and then commit the result.
 そして、競合が起きるのは決して悪いことではありません。
 大事なのは履歴のうちどちらの変更が正しいかの判断を間違えないことです。</p>
 <h3 id="競合を解消してみよう">競合を解消してみよう</h3>
-<p>競合を解消すると開発者はつぎのいずれかの選択肢を取ることになります。</p>
+<p>競合を解消すると開発者は次のいずれかの選択肢を取ることになります。</p>
 <ul>
 <li>マージを中止してマージ前の状態に戻す</li>
 <li>競合を解消してマージをする</li>
@@ -110,7 +110,7 @@ Automatic merge failed; fix conflicts and then commit the result.
 <p>マージを中止してマージ前の状態に戻す</p>
 </blockquote>
 <p>その場で競合の解消が難しいなどの理由でどうしてもマージができない場合があります。<br>
-そのようなときは、以下のコマンドで実行して <code>git merge</code> コマンドを中止することができます。</p>
+そのようなときは、以下のコマンドを実行して <code>git merge</code> コマンドを中止することができます。</p>
 <pre tabindex="0"><code>git merge --abort
 </code></pre><p>これは競合の解消ではなくマージを中断しただけのため、<br>
 競合箇所を修正せずに再度マージをすると再び競合が発生します。</p>
@@ -121,7 +121,7 @@ Automatic merge failed; fix conflicts and then commit the result.
 競合が起きている部分はハイライトされているためわかりやすくなっています。<br>
 「&laquo;&laquo; HEAD」〜 「==========」が  main ブランチにマージされている内容、<br>
 「==========」〜 「&raquo;&raquo; develop2」が develop2 ブランチの内容となっています。</p>
-<p>今回は develop2 ブランチの内容を正しいということにしましょう。<br>
+<p>今回は develop2 ブランチの内容が正しいということにしましょう。<br>
 ハイライトと main ブランチにマージされた内容を削除して、<br>
 develop2 ブランチの内容だけを残すようにしましょう。</p>
 <p>インデックスにはまだマージ前のファイルが記録されているため、<br>
@@ -143,7 +143,7 @@ develop2 ブランチの内容だけを残すようにしましょう。</p>
       <div id="header-wrapper" class="default-animation">
         <div id="header" class="default-animation">
 <a id="logo"
-href="/git-education/"
+href="/"
 style="
   color: #ffffff;
   font-family: 'Work Sans', 'Helvetica', 'Tahoma', 'Geneva', 'Arial', sans-serif;
@@ -161,14 +161,14 @@ Git X EDU
           <input data-search-input id="search-by" type="search" placeholder="Search...">
           <span data-search-clear=""><i class="fas fa-times"></i></span>
         </div>
-        <script src="/git-education/js/lunr.min.js?1652450964"></script>
-        <script src="/git-education/js/auto-complete.js?1652450964"></script>
-        <script src="/git-education/js/search.js?1652450964"></script>
+        <script src="/git-education/js/lunr.min.js?1692942757"></script>
+        <script src="/git-education/js/auto-complete.js?1692942757"></script>
+        <script src="/git-education/js/search.js?1692942757"></script>
       </div>
       <div id="homelinks" class="default-animation">
         <ul>
           <li>
-              <a class="padding" href="/git-education/"><i class="fas fa-home"></i> Home</a>
+              <a class="padding" href="/"><i class="fas fa-home"></i> Home</a>
           </li>
         </ul>
       </div>
@@ -227,16 +227,16 @@ Git X EDU
         </div>
       </div>
     </aside>
-    <script src="/git-education/js/clipboard.min.js?1652450964"></script>
-    <script src="/git-education/js/perfect-scrollbar.min.js?1652450964"></script>
-    <script src="/git-education/js/jquery.svg.pan.zoom.js?1652450964"></script>
-    <script src="/git-education/js/featherlight.min.js?1652450964"></script>
-    <script src="/git-education/js/mermaid.min.js?1652450964"></script>
+    <script src="/git-education/js/clipboard.min.js?1692942757"></script>
+    <script src="/git-education/js/perfect-scrollbar.min.js?1692942757"></script>
+    <script src="/git-education/js/jquery.svg.pan.zoom.js?1692942757"></script>
+    <script src="/git-education/js/featherlight.min.js?1692942757"></script>
+    <script src="/git-education/js/mermaid.min.js?1692942757"></script>
     <script>
       if (typeof mermaid != 'undefined' && typeof mermaid.mermaidAPI != 'undefined') {
         mermaid.mermaidAPI.initialize( Object.assign( { "securityLevel": "antiscript" }, JSON.parse("{ \"startOnLoad\": true }"), { startOnLoad: false } ) );
       }
     </script>
-    <script src="/git-education/js/theme.js?1652450964"></script>
+    <script src="/git-education/js/theme.js?1692942757"></script>
   </body>
 </html>
